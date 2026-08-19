@@ -7,25 +7,25 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 240 5% 12%;
+    --foreground: 199 100% 17%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 5% 12%;
+    --card-foreground: 199 100% 17%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 5% 12%;
+    --popover-foreground: 199 100% 17%;
 
     --primary: 198 95% 42%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 199 30% 95%;
-    --secondary-foreground: 240 5% 12%;
+    --secondary-foreground: 199 100% 17%;
 
     --muted: 199 25% 96%;
     --muted-foreground: 220 8% 45%;
 
     --accent: 199 30% 95%;
-    --accent-foreground: 240 5% 12%;
+    --accent-foreground: 199 100% 17%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -39,20 +39,20 @@
     --success: 172 50% 40%;
     --success-foreground: 0 0% 100%;
     --warning: 54 100% 59%;
-    --warning-foreground: 240 5% 12%;
+    --warning-foreground: 199 100% 17%;
 
     /* Brand accents */
     --sky: 196 100% 51%;
-    --sky-foreground: 240 5% 12%;
+    --sky-foreground: 199 100% 17%;
     --sun: 54 100% 59%;
-    --sun-foreground: 240 5% 12%;
+    --sun-foreground: 199 100% 17%;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 240 5% 12%;
+    --sidebar-foreground: 199 100% 17%;
     --sidebar-primary: 198 95% 42%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 199 30% 95%;
-    --sidebar-accent-foreground: 240 5% 12%;
+    --sidebar-accent-foreground: 199 100% 17%;
     --sidebar-border: 210 20% 90%;
     --sidebar-ring: 198 95% 42%;
   }
