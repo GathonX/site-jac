@@ -12,7 +12,7 @@ const sizes = {
   lg: { glyph: "w-12 h-12", icon: "w-6 h-6", text: "text-2xl" },
 };
 
-export function Logo({ size = "md", className = "", textClassName = "text-primary" }: LogoProps) {
+export function Logo({ size = "md", className = "", textClassName = "text-foreground" }: LogoProps) {
   const s = sizes[size];
   return (
     <span className={`inline-flex items-center gap-2 ${className}`}>

@@ -256,7 +256,7 @@ const Landing = () => {
       <nav className={`fixed top-0 w-full z-50 !border-x-0 !border-t-0 transition-colors duration-300 ${scrolled ? "glass" : "glass-dark"}`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between h-[72px] px-6 lg:px-8">
           <Link to="/">
-            <Logo size="md" textClassName={scrolled ? "text-primary" : "text-background"} />
+            <Logo size="md" textClassName={scrolled ? "text-foreground" : "text-background"} />
           </Link>
           <div className="flex items-center gap-3 sm:gap-6">
             <Link
@@ -280,9 +280,9 @@ const Landing = () => {
       </nav>
 
       {/* Hero */}
-      <section className="relative h-[100svh] min-h-[560px] flex items-end overflow-hidden">
+      <section className="relative h-[78svh] min-h-[480px] flex items-end overflow-hidden">
         <HeroCarousel />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-20 lg:pb-28 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-14 lg:pb-20 w-full">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -327,6 +327,7 @@ const Landing = () => {
       {/* Excursions */}
       <section id="excursions" className="section-wash py-20 lg:py-28 relative overflow-hidden">
         <div className="absolute top-20 right-0 w-[420px] h-[420px] rounded-full bg-sun/10 blur-[130px] pointer-events-none" aria-hidden="true" />
+        <div className="absolute bottom-10 left-0 w-[320px] h-[320px] rounded-full bg-palm/10 blur-[120px] pointer-events-none" aria-hidden="true" />
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
           <Reveal className="max-w-xl mb-12">
             <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
@@ -352,7 +353,7 @@ const Landing = () => {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-transparent to-transparent" />
-                    <span className={`${["pill-gradient", "pill-gradient-ocean", "pill-gradient-sun", "pill-gradient"][i % 4]} absolute top-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-[0.15em] shadow-lg shadow-foreground/10`}>
+                    <span className={`${["pill-gradient-ocean", "pill-gradient-palm", "pill-gradient-sun", "pill-gradient-ocean"][i % 4]} absolute top-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-[0.15em] shadow-lg shadow-foreground/10`}>
                       {item.tag}
                     </span>
                   </div>
@@ -388,19 +389,19 @@ const Landing = () => {
           </Reveal>
 
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-3 gap-8 relative">
-            <div className="hidden sm:block absolute top-8 left-[16.5%] right-[16.5%] h-px bg-gradient-to-r from-sky to-sun" aria-hidden="true" />
+            <div className="hidden sm:block absolute top-8 left-[16.5%] right-[16.5%] h-px bg-gradient-to-r from-sky via-palm to-sun" aria-hidden="true" />
             {STEPS.map(({ Icon, title, description }, i) => (
               <StaggerItem key={title} className="relative text-center">
                 <div
                   className={`relative z-10 w-16 h-16 mx-auto rounded-full shadow-lg flex items-center justify-center mb-5 ${
                     [
                       "bg-gradient-to-br from-sky to-primary shadow-primary/25",
+                      "bg-palm shadow-palm/30",
                       "bg-sun shadow-sun/40",
-                      "bg-gradient-to-br from-sky to-primary shadow-primary/25",
                     ][i % 3]
                   }`}
                 >
-                  <Icon className={`w-7 h-7 ${i === 1 ? "text-foreground" : "text-white"}`} />
+                  <Icon className={`w-7 h-7 ${i === 2 ? "text-foreground" : "text-white"}`} />
                 </div>
                 <span className="text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2 block">
                   Étape {i + 1}
@@ -487,13 +488,13 @@ const Landing = () => {
                       className={`w-11 h-11 rounded-full flex items-center justify-center mb-4 ${
                         [
                           "bg-gradient-to-br from-sky/20 to-primary/20",
+                          "bg-palm/15",
                           "bg-sun/25",
                           "bg-sky/15",
-                          "bg-sun/15",
                         ][i % 4]
                       }`}
                     >
-                      <Icon className={`w-5 h-5 ${["text-primary", "text-foreground", "text-primary", "text-foreground"][i % 4]}`} />
+                      <Icon className={`w-5 h-5 ${["text-primary", "text-palm", "text-foreground", "text-primary"][i % 4]}`} />
                     </div>
                     <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>

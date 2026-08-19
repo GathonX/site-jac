@@ -87,6 +87,7 @@ const Contact = () => {
         <section className="py-20 lg:py-28 relative overflow-hidden">
           <div className="absolute -top-20 -left-20 w-[380px] h-[380px] rounded-full bg-sky/20 blur-[110px] pointer-events-none" aria-hidden="true" />
           <div className="absolute top-1/3 -right-24 w-[340px] h-[340px] rounded-full bg-sun/25 blur-[110px] pointer-events-none" aria-hidden="true" />
+          <div className="absolute bottom-0 left-1/3 w-[260px] h-[260px] rounded-full bg-palm/15 blur-[110px] pointer-events-none" aria-hidden="true" />
           <div className="max-w-4xl mx-auto px-6 lg:px-8 relative">
             <Reveal>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-foreground mb-6">
@@ -105,12 +106,12 @@ const Contact = () => {
                       className={`w-11 h-11 rounded-full flex items-center justify-center ${
                         [
                           "bg-gradient-to-br from-sky/20 to-primary/20",
+                          "bg-palm/15",
                           "bg-sun/25",
-                          "bg-sky/15",
                         ][i % 3]
                       }`}
                     >
-                      <Icon className={`w-5 h-5 ${["text-primary", "text-foreground", "text-primary"][i % 3]}`} />
+                      <Icon className={`w-5 h-5 ${["text-primary", "text-palm", "text-foreground"][i % 3]}`} />
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-foreground">{label}</p>

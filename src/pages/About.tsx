@@ -37,7 +37,8 @@ const About = () => {
         {/* Intro */}
         <section className="section-wash py-20 lg:py-28 relative overflow-hidden">
           <div className="absolute -top-20 -right-20 w-[380px] h-[380px] rounded-full bg-sky/20 blur-[110px] pointer-events-none" aria-hidden="true" />
-          <div className="absolute top-1/3 -left-24 w-[340px] h-[340px] rounded-full bg-sun/20 blur-[110px] pointer-events-none" aria-hidden="true" />
+          <div className="absolute top-1/3 -left-24 w-[340px] h-[340px] rounded-full bg-palm/15 blur-[110px] pointer-events-none" aria-hidden="true" />
+          <div className="absolute bottom-0 right-1/3 w-[260px] h-[260px] rounded-full bg-sun/20 blur-[110px] pointer-events-none" aria-hidden="true" />
           <div className="max-w-4xl mx-auto px-6 lg:px-8 relative">
             <Reveal>
               <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
@@ -76,12 +77,12 @@ const About = () => {
                         [
                           "bg-sun/25",
                           "bg-gradient-to-br from-sky/20 to-primary/20",
+                          "bg-palm/15",
                           "bg-sky/15",
-                          "bg-sun/15",
                         ][i % 4]
                       }`}
                     >
-                      <Icon className={`w-5 h-5 ${["text-foreground", "text-primary", "text-primary", "text-foreground"][i % 4]}`} />
+                      <Icon className={`w-5 h-5 ${["text-foreground", "text-primary", "text-palm", "text-primary"][i % 4]}`} />
                     </div>
                     <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
@@ -94,7 +95,7 @@ const About = () => {
 
         {/* Image + text */}
         <section className="py-20 lg:py-28 relative overflow-hidden bg-gradient-to-b from-muted/60 to-background">
-          <div className="absolute top-10 left-0 w-[320px] h-[320px] rounded-full bg-sky/10 blur-[120px] pointer-events-none" aria-hidden="true" />
+          <div className="absolute top-10 left-0 w-[320px] h-[320px] rounded-full bg-palm/10 blur-[120px] pointer-events-none" aria-hidden="true" />
           <div className="absolute bottom-0 right-0 w-[360px] h-[360px] rounded-full bg-sun/15 blur-[120px] pointer-events-none" aria-hidden="true" />
           <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
             <Reveal>

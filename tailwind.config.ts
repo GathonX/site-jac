@@ -67,6 +67,10 @@ export default {
           DEFAULT: "hsl(var(--sun))",
           foreground: "hsl(var(--sun-foreground))",
         },
+        palm: {
+          DEFAULT: "hsl(var(--palm))",
+          foreground: "hsl(var(--palm-foreground))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

@@ -56,7 +56,7 @@ const EXCURSIONS = [
   },
 ];
 
-const PILL_ROTATION = ["pill-gradient", "pill-gradient-ocean", "pill-gradient-sun"];
+const PILL_ROTATION = ["pill-gradient-ocean", "pill-gradient-palm", "pill-gradient-sun"];
 
 const Excursions = () => {
   return (
@@ -66,7 +66,8 @@ const Excursions = () => {
       <main className="flex-1">
         <section className="section-wash py-20 lg:py-28 relative overflow-hidden">
           <div className="absolute -top-20 -right-20 w-[380px] h-[380px] rounded-full bg-sky/20 blur-[110px] pointer-events-none" aria-hidden="true" />
-          <div className="absolute top-1/2 -left-24 w-[340px] h-[340px] rounded-full bg-sun/20 blur-[110px] pointer-events-none" aria-hidden="true" />
+          <div className="absolute top-1/2 -left-24 w-[340px] h-[340px] rounded-full bg-palm/15 blur-[110px] pointer-events-none" aria-hidden="true" />
+          <div className="absolute bottom-0 right-1/4 w-[280px] h-[280px] rounded-full bg-sun/20 blur-[110px] pointer-events-none" aria-hidden="true" />
 
           <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
             <Reveal className="max-w-2xl mb-14">
