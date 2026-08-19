@@ -1,93 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap');
-
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 240 30% 14%;
+    --background: 0 0% 100%;
+    --foreground: 240 5% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 30% 14%;
+    --card-foreground: 240 5% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 30% 14%;
+    --popover-foreground: 240 5% 12%;
 
-    --primary: 340 75% 58%;
+    --primary: 198 95% 42%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 10% 94%;
-    --secondary-foreground: 240 30% 14%;
+    --secondary: 199 30% 95%;
+    --secondary-foreground: 240 5% 12%;
 
-    --muted: 240 10% 96%;
-    --muted-foreground: 240 5% 46%;
+    --muted: 199 25% 96%;
+    --muted-foreground: 220 8% 45%;
 
-    --accent: 240 10% 94%;
-    --accent-foreground: 240 30% 14%;
+    --accent: 199 30% 95%;
+    --accent-foreground: 240 5% 12%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 91%;
-    --input: 0 0% 91%;
-    --ring: 340 75% 58%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 198 95% 42%;
 
     --radius: 0.5rem;
 
     --success: 172 50% 40%;
     --success-foreground: 0 0% 100%;
-    --warning: 38 80% 55%;
-    --warning-foreground: 0 0% 100%;
+    --warning: 54 100% 59%;
+    --warning-foreground: 240 5% 12%;
+
+    /* Brand accents */
+    --sky: 196 100% 51%;
+    --sky-foreground: 240 5% 12%;
+    --sun: 54 100% 59%;
+    --sun-foreground: 240 5% 12%;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 240 30% 14%;
-    --sidebar-primary: 340 75% 58%;
+    --sidebar-foreground: 240 5% 12%;
+    --sidebar-primary: 198 95% 42%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 240 30% 14%;
-    --sidebar-border: 0 0% 91%;
-    --sidebar-ring: 340 75% 58%;
+    --sidebar-accent: 199 30% 95%;
+    --sidebar-accent-foreground: 240 5% 12%;
+    --sidebar-border: 210 20% 90%;
+    --sidebar-ring: 198 95% 42%;
   }
 
   .dark {
-    --background: 240 25% 8%;
-    --foreground: 240 5% 95%;
+    --background: 220 20% 8%;
+    --foreground: 0 0% 96%;
 
-    --card: 240 25% 11%;
-    --card-foreground: 240 5% 95%;
+    --card: 220 18% 11%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 240 25% 11%;
-    --popover-foreground: 240 5% 95%;
+    --popover: 220 18% 11%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 340 75% 58%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 196 100% 55%;
+    --primary-foreground: 220 20% 8%;
 
-    --secondary: 240 15% 18%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 240 15% 18%;
-    --muted-foreground: 240 5% 55%;
+    --muted: 220 15% 16%;
+    --muted-foreground: 220 8% 65%;
 
-    --accent: 240 15% 18%;
-    --accent-foreground: 240 5% 95%;
+    --accent: 220 15% 18%;
+    --accent-foreground: 0 0% 96%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 15% 20%;
-    --input: 240 15% 20%;
-    --ring: 340 75% 58%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 196 100% 55%;
 
-    --sidebar-background: 240 25% 8%;
-    --sidebar-foreground: 240 5% 85%;
-    --sidebar-primary: 340 75% 58%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 15% 14%;
-    --sidebar-accent-foreground: 240 5% 95%;
-    --sidebar-border: 240 15% 16%;
-    --sidebar-ring: 340 75% 58%;
+    --success: 172 50% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 54 100% 59%;
+    --warning-foreground: 220 20% 8%;
+
+    --sky: 196 100% 55%;
+    --sky-foreground: 220 20% 8%;
+    --sun: 54 100% 59%;
+    --sun-foreground: 220 20% 8%;
+
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 196 100% 55%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 220 15% 14%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 220 15% 16%;
+    --sidebar-ring: 196 100% 55%;
   }
 }
 
@@ -122,48 +138,20 @@
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
-}
 
-/* react-phone-number-input themed to match design system */
-.phone-input-wrapper.PhoneInput {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  height: 2.75rem;
-  padding: 0 1rem;
-  border-radius: 9999px;
-  background: hsl(var(--background));
-  border: 1px solid hsl(var(--input));
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-.phone-input-wrapper.PhoneInput:focus-within {
-  border-color: hsl(var(--ring));
-  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
-}
-.phone-input-wrapper .PhoneInputCountry {
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-}
-.phone-input-wrapper .PhoneInputCountryIcon {
-  width: 1.25rem;
-  height: 0.9rem;
-  box-shadow: none;
-  background: transparent;
-}
-.phone-input-wrapper .PhoneInputCountrySelectArrow {
-  color: hsl(var(--muted-foreground));
-  opacity: 0.7;
-}
-.phone-input-wrapper .PhoneInputInput {
-  flex: 1;
-  background: transparent;
-  border: 0;
-  outline: none;
-  font-size: 0.875rem;
-  color: hsl(var(--foreground));
-  height: 100%;
-}
-.phone-input-wrapper .PhoneInputInput::placeholder {
-  color: hsl(var(--muted-foreground));
+  /* Glassmorphism — for surfaces over photos/dark backgrounds */
+  .glass-dark {
+    background: hsl(0 0% 100% / 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(0 0% 100% / 0.25);
+  }
+
+  /* Glassmorphism — for surfaces over light section backgrounds */
+  .glass {
+    background: hsl(var(--background) / 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--foreground) / 0.08);
+  }
 }

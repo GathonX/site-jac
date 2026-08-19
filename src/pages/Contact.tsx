@@ -35,8 +35,10 @@ const Contact = () => {
       <SiteNav />
 
       <main className="flex-1">
-        <section className="py-20 lg:py-28">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+        <section className="py-20 lg:py-28 relative overflow-hidden">
+          <div className="absolute -top-20 -left-20 w-[380px] h-[380px] rounded-full bg-sky/20 blur-[110px] pointer-events-none" aria-hidden="true" />
+          <div className="absolute top-1/3 -right-24 w-[340px] h-[340px] rounded-full bg-sun/25 blur-[110px] pointer-events-none" aria-hidden="true" />
+          <div className="max-w-4xl mx-auto px-6 lg:px-8 relative">
             <Reveal>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-foreground mb-6">
                 Contactez-nous
@@ -48,7 +50,7 @@ const Contact = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {contactMethods.map(({ Icon, label, value, href, external }) => (
-                <Card key={label} className="border-0 shadow-sm">
+                <Card key={label} className="glass shadow-sm">
                   <CardContent className="p-6 flex flex-col items-start gap-4">
                     <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center">
                       <Icon className="w-5 h-5 text-primary" />
