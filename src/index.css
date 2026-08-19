@@ -18,20 +18,20 @@
     --primary: 198 95% 42%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 199 30% 95%;
+    --secondary: 30 25% 95%;
     --secondary-foreground: 199 100% 17%;
 
-    --muted: 199 25% 96%;
-    --muted-foreground: 220 8% 45%;
+    --muted: 30 20% 96%;
+    --muted-foreground: 30 8% 42%;
 
-    --accent: 199 30% 95%;
+    --accent: 30 25% 95%;
     --accent-foreground: 199 100% 17%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 90%;
-    --input: 210 20% 90%;
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
     --ring: 198 95% 42%;
 
     --radius: 0.5rem;
@@ -46,6 +46,8 @@
     --sky-foreground: 199 100% 17%;
     --sun: 54 100% 59%;
     --sun-foreground: 199 100% 17%;
+    --coral: 11 80% 56%;
+    --coral-foreground: 0 0% 100%;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 199 100% 17%;
@@ -95,6 +97,8 @@
     --sky-foreground: 220 20% 8%;
     --sun: 54 100% 59%;
     --sun-foreground: 220 20% 8%;
+    --coral: 11 85% 62%;
+    --coral-foreground: 220 20% 8%;
 
     --sidebar-background: 220 20% 8%;
     --sidebar-foreground: 0 0% 90%;
@@ -168,9 +172,17 @@
     background: linear-gradient(180deg, hsl(var(--sky) / 0.06), hsl(var(--background)) 55%);
   }
 
-  /* Gradient pill — for tags/badges */
+  /* Gradient pills — for tags/badges, rotated across a card grid for variety */
   .pill-gradient {
+    background: linear-gradient(100deg, hsl(var(--sun)), hsl(var(--coral)));
+    color: hsl(0 0% 100%);
+  }
+  .pill-gradient-ocean {
     background: linear-gradient(100deg, hsl(var(--sky)), hsl(var(--primary)));
     color: hsl(0 0% 100%);
+  }
+  .pill-gradient-sun {
+    background: hsl(var(--sun));
+    color: hsl(var(--sun-foreground));
   }
 }

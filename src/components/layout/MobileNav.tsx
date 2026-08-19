@@ -41,7 +41,7 @@ export function MobileNav({ triggerClassName = "text-foreground" }: { triggerCla
           ))}
         </nav>
         <div className="mt-auto pt-6">
-          <Button variant="gradient" className="w-full" asChild>
+          <Button variant="gradient-ocean" className="w-full" asChild>
             <Link to="/contact" onClick={() => setOpen(false)}>Contact us</Link>
           </Button>
         </div>

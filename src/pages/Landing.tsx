@@ -271,7 +271,7 @@ const Landing = () => {
             >
               About
             </Link>
-            <Button variant="gradient" className="hidden sm:inline-flex text-sm font-semibold" asChild>
+            <Button variant="gradient-ocean" className="hidden sm:inline-flex text-sm font-semibold" asChild>
               <Link to="/contact">Contact us</Link>
             </Button>
             <MobileNav triggerClassName={scrolled ? "text-foreground hover:bg-muted" : "text-background hover:bg-white/10"} />
@@ -341,7 +341,7 @@ const Landing = () => {
           </Reveal>
 
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {EXCURSIONS.map((item) => (
+            {EXCURSIONS.map((item, i) => (
               <StaggerItem key={item.title}>
                 <Link to="/excursions" className="group block">
                   <div className="relative rounded-3xl overflow-hidden mb-4 aspect-[4/5]">
@@ -352,7 +352,7 @@ const Landing = () => {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-transparent to-transparent" />
-                    <span className="pill-gradient absolute top-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-[0.15em] shadow-lg shadow-primary/20">
+                    <span className={`${["pill-gradient", "pill-gradient-ocean", "pill-gradient-sun", "pill-gradient"][i % 4]} absolute top-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-[0.15em] shadow-lg shadow-foreground/10`}>
                       {item.tag}
                     </span>
                   </div>
@@ -388,11 +388,19 @@ const Landing = () => {
           </Reveal>
 
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-3 gap-8 relative">
-            <div className="hidden sm:block absolute top-8 left-[16.5%] right-[16.5%] h-px bg-gradient-to-r from-sky via-primary to-sun" aria-hidden="true" />
+            <div className="hidden sm:block absolute top-8 left-[16.5%] right-[16.5%] h-px bg-gradient-to-r from-sky via-coral to-sun" aria-hidden="true" />
             {STEPS.map(({ Icon, title, description }, i) => (
               <StaggerItem key={title} className="relative text-center">
-                <div className="relative z-10 w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-sky to-primary shadow-lg shadow-primary/25 flex items-center justify-center mb-5">
-                  <Icon className="w-7 h-7 text-white" />
+                <div
+                  className={`relative z-10 w-16 h-16 mx-auto rounded-full shadow-lg flex items-center justify-center mb-5 ${
+                    [
+                      "bg-gradient-to-br from-sky to-primary shadow-primary/25",
+                      "bg-gradient-to-br from-sun to-coral shadow-coral/30",
+                      "bg-sun shadow-sun/30",
+                    ][i % 3]
+                  }`}
+                >
+                  <Icon className={`w-7 h-7 ${i === 2 ? "text-foreground" : "text-white"}`} />
                 </div>
                 <span className="text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2 block">
                   Étape {i + 1}
@@ -472,11 +480,20 @@ const Landing = () => {
               </h2>
             </Reveal>
             <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {FEATURES.map(({ Icon, title, description }) => (
+              {FEATURES.map(({ Icon, title, description }, i) => (
                 <StaggerItem key={title}>
                   <div className="glass rounded-2xl p-6 h-full shadow-sm hover:shadow-lg hover:shadow-primary/10 transition-shadow">
-                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-sky/20 to-primary/20 flex items-center justify-center mb-4">
-                      <Icon className="w-5 h-5 text-primary" />
+                    <div
+                      className={`w-11 h-11 rounded-full flex items-center justify-center mb-4 ${
+                        [
+                          "bg-gradient-to-br from-sky/20 to-primary/20",
+                          "bg-gradient-to-br from-sun/25 to-coral/25",
+                          "bg-sun/20",
+                          "bg-coral/15",
+                        ][i % 4]
+                      }`}
+                    >
+                      <Icon className={`w-5 h-5 ${["text-primary", "text-coral", "text-foreground", "text-coral"][i % 4]}`} />
                     </div>
                     <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
@@ -493,7 +510,7 @@ const Landing = () => {
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <Reveal className="bg-foreground rounded-[2.5rem] relative overflow-hidden px-6 py-16 lg:px-16 lg:py-20 text-center">
             <div className="absolute -top-40 -right-32 w-[500px] h-[500px] rounded-full bg-sky/40 blur-[120px] pointer-events-none" aria-hidden="true" />
-            <div className="absolute -bottom-40 -left-32 w-[420px] h-[420px] rounded-full bg-sun/25 blur-[100px] pointer-events-none" aria-hidden="true" />
+            <div className="absolute -bottom-40 -left-32 w-[420px] h-[420px] rounded-full bg-coral/30 blur-[100px] pointer-events-none" aria-hidden="true" />
             <div className="relative z-10">
               <h2 className="text-3xl sm:text-5xl font-display mb-5 text-background tracking-[-0.03em] leading-[1.05]">
                 Prêt à découvrir <span className="text-sun">Nosy Be</span> ?
@@ -516,7 +533,7 @@ const Landing = () => {
             <div className="absolute -top-24 -left-16 w-[260px] h-[260px] rounded-full bg-sky/15 blur-[100px] pointer-events-none" aria-hidden="true" />
             <div className="absolute -bottom-24 -right-16 w-[260px] h-[260px] rounded-full bg-sun/20 blur-[100px] pointer-events-none" aria-hidden="true" />
             <div className="relative z-10">
-              <div className="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-sky to-primary flex items-center justify-center mb-5">
+              <div className="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-sun to-coral flex items-center justify-center mb-5">
                 <Send className="w-5 h-5 text-white" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-display tracking-[-0.02em] text-foreground mb-3">

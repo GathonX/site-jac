@@ -56,6 +56,8 @@ const EXCURSIONS = [
   },
 ];
 
+const PILL_ROTATION = ["pill-gradient", "pill-gradient-ocean", "pill-gradient-sun"];
+
 const Excursions = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden flex flex-col">
@@ -80,7 +82,7 @@ const Excursions = () => {
             </Reveal>
 
             <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {EXCURSIONS.map((item) => (
+              {EXCURSIONS.map((item, i) => (
                 <StaggerItem key={item.title}>
                   <div className="glass group rounded-3xl overflow-hidden h-full flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-shadow">
                     <div className="relative aspect-[4/3] overflow-hidden">
@@ -91,7 +93,7 @@ const Excursions = () => {
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
-                      <span className="pill-gradient absolute top-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-[0.15em] shadow-lg shadow-primary/20">
+                      <span className={`${PILL_ROTATION[i % PILL_ROTATION.length]} absolute top-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-[0.15em] shadow-lg shadow-foreground/10`}>
                         {item.tag}
                       </span>
                     </div>

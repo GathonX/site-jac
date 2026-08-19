@@ -17,7 +17,7 @@ export function SiteNav() {
           <Link to="/about" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors hidden sm:inline-block">
             About
           </Link>
-          <Button className="hidden sm:inline-flex text-sm font-semibold" variant="gradient" asChild>
+          <Button className="hidden sm:inline-flex text-sm font-semibold" variant="gradient-ocean" asChild>
             <Link to="/contact">Contact us</Link>
           </Button>
           <MobileNav />
