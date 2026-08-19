@@ -105,12 +105,12 @@ const Contact = () => {
                       className={`w-11 h-11 rounded-full flex items-center justify-center ${
                         [
                           "bg-gradient-to-br from-sky/20 to-primary/20",
-                          "bg-gradient-to-br from-sun/25 to-coral/25",
-                          "bg-sun/20",
+                          "bg-sun/25",
+                          "bg-sky/15",
                         ][i % 3]
                       }`}
                     >
-                      <Icon className={`w-5 h-5 ${["text-primary", "text-coral", "text-foreground"][i % 3]}`} />
+                      <Icon className={`w-5 h-5 ${["text-primary", "text-foreground", "text-primary"][i % 3]}`} />
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-foreground">{label}</p>

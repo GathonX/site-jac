@@ -46,8 +46,6 @@
     --sky-foreground: 199 100% 17%;
     --sun: 54 100% 59%;
     --sun-foreground: 199 100% 17%;
-    --coral: 11 80% 56%;
-    --coral-foreground: 0 0% 100%;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 199 100% 17%;
@@ -97,8 +95,6 @@
     --sky-foreground: 220 20% 8%;
     --sun: 54 100% 59%;
     --sun-foreground: 220 20% 8%;
-    --coral: 11 85% 62%;
-    --coral-foreground: 220 20% 8%;
 
     --sidebar-background: 220 20% 8%;
     --sidebar-foreground: 0 0% 90%;
@@ -174,8 +170,8 @@
 
   /* Gradient pills — for tags/badges, rotated across a card grid for variety */
   .pill-gradient {
-    background: linear-gradient(100deg, hsl(var(--sun)), hsl(var(--coral)));
-    color: hsl(0 0% 100%);
+    background: linear-gradient(100deg, hsl(54 100% 66%), hsl(var(--sun)));
+    color: hsl(var(--sun-foreground));
   }
   .pill-gradient-ocean {
     background: linear-gradient(100deg, hsl(var(--sky)), hsl(var(--primary)));

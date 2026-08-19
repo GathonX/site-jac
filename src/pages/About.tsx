@@ -37,7 +37,7 @@ const About = () => {
         {/* Intro */}
         <section className="section-wash py-20 lg:py-28 relative overflow-hidden">
           <div className="absolute -top-20 -right-20 w-[380px] h-[380px] rounded-full bg-sky/20 blur-[110px] pointer-events-none" aria-hidden="true" />
-          <div className="absolute top-1/3 -left-24 w-[340px] h-[340px] rounded-full bg-coral/20 blur-[110px] pointer-events-none" aria-hidden="true" />
+          <div className="absolute top-1/3 -left-24 w-[340px] h-[340px] rounded-full bg-sun/20 blur-[110px] pointer-events-none" aria-hidden="true" />
           <div className="max-w-4xl mx-auto px-6 lg:px-8 relative">
             <Reveal>
               <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
@@ -74,14 +74,14 @@ const About = () => {
                     <div
                       className={`w-11 h-11 rounded-full flex items-center justify-center mb-4 ${
                         [
-                          "bg-gradient-to-br from-sun/25 to-coral/25",
+                          "bg-sun/25",
                           "bg-gradient-to-br from-sky/20 to-primary/20",
-                          "bg-coral/15",
-                          "bg-sun/20",
+                          "bg-sky/15",
+                          "bg-sun/15",
                         ][i % 4]
                       }`}
                     >
-                      <Icon className={`w-5 h-5 ${["text-coral", "text-primary", "text-coral", "text-foreground"][i % 4]}`} />
+                      <Icon className={`w-5 h-5 ${["text-foreground", "text-primary", "text-primary", "text-foreground"][i % 4]}`} />
                     </div>
                     <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
