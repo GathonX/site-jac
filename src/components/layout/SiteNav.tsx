@@ -10,6 +10,9 @@ export function SiteNav() {
           <Logo size="md" />
         </Link>
         <div className="flex items-center gap-6">
+          <Link to="/excursions" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors hidden sm:inline-block">
+            Excursions
+          </Link>
           <Link to="/about" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors hidden sm:inline-block">
             About
           </Link>

@@ -1,4 +1,5 @@
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
+import { useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import { Mail, Phone, Loader2 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
@@ -37,8 +38,14 @@ const contactMethods = [
 const initialForm = { name: "", email: "", phone: "", subject: "", message: "", website: "" };
 
 const Contact = () => {
+  const [searchParams] = useSearchParams();
   const [form, setForm] = useState(initialForm);
   const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    const sujet = searchParams.get("sujet");
+    if (sujet) setForm((prev) => ({ ...prev, subject: sujet }));
+  }, [searchParams]);
 
   const handleChange = (field: keyof typeof initialForm) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [field]: e.target.value }));

@@ -173,6 +173,9 @@ const Landing = () => {
             <Logo size="md" textClassName="text-background" />
           </Link>
           <div className="flex items-center gap-6">
+            <Link to="/excursions" className="text-sm font-medium text-background/90 hover:text-background transition-colors hidden sm:inline-block">
+              Excursions
+            </Link>
             <Link to="/about" className="text-sm font-medium text-background/90 hover:text-background transition-colors hidden sm:inline-block">
               About
             </Link>
@@ -221,7 +224,7 @@ const Landing = () => {
                 <Link to="/contact">Contactez-nous <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
               <Button size="lg" variant="outline" className="text-base font-semibold px-8 h-14 bg-background/10 text-background border-background/30 hover:bg-background/20 hover:text-background" asChild>
-                <a href="#excursions">Voir nos excursions</a>
+                <Link to="/excursions">Voir nos excursions</Link>
               </Button>
             </div>
           </motion.div>
@@ -246,7 +249,7 @@ const Landing = () => {
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {EXCURSIONS.map((item) => (
               <StaggerItem key={item.title}>
-                <div className="group cursor-pointer">
+                <Link to="/excursions" className="group block">
                   <div className="relative rounded-3xl overflow-hidden mb-4 aspect-[4/5]">
                     <img
                       src={item.img}
@@ -263,10 +266,18 @@ const Landing = () => {
                     {item.title}
                   </h3>
                   <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
-                </div>
+                </Link>
               </StaggerItem>
             ))}
           </StaggerGroup>
+
+          <div className="mt-12 text-center">
+            <Button variant="outline" size="lg" asChild>
+              <Link to="/excursions">
+                Voir toutes nos excursions <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
