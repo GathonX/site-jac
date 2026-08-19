@@ -41,7 +41,7 @@ export function SiteFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-gradient-to-br hover:from-sky hover:to-primary hover:text-white hover:shadow-md hover:shadow-primary/30 transition-all"
               >
                 <Icon className="w-4 h-4" />
               </a>

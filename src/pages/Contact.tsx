@@ -99,9 +99,9 @@ const Contact = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
               {contactMethods.map(({ Icon, label, value, href, external }) => (
-                <Card key={label} className="glass shadow-sm">
+                <Card key={label} className="glass shadow-sm hover:shadow-lg hover:shadow-primary/10 transition-shadow">
                   <CardContent className="p-6 flex flex-col items-start gap-4">
-                    <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center">
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-sky/20 to-primary/20 flex items-center justify-center">
                       <Icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
@@ -154,7 +154,7 @@ const Contact = () => {
                 </div>
 
                 <div className="sm:col-span-2">
-                  <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={submitting}>
+                  <Button type="submit" variant="gradient" size="lg" className="w-full sm:w-auto" disabled={submitting}>
                     {submitting ? (
                       <>
                         <Loader2 className="mr-2 w-4 h-4 animate-spin" /> Envoi en cours...

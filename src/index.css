@@ -154,4 +154,23 @@
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid hsl(var(--foreground) / 0.08);
   }
+
+  /* Gradient text — brand sky-to-primary */
+  .text-gradient {
+    background: linear-gradient(100deg, hsl(var(--sky)), hsl(var(--primary)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Soft tinted section wash — sky + sun blobs on a light base */
+  .section-wash {
+    background: linear-gradient(180deg, hsl(var(--sky) / 0.06), hsl(var(--background)) 55%);
+  }
+
+  /* Gradient pill — for tags/badges */
+  .pill-gradient {
+    background: linear-gradient(100deg, hsl(var(--sky)), hsl(var(--primary)));
+    color: hsl(0 0% 100%);
+  }
 }

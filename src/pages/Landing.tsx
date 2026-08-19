@@ -220,7 +220,7 @@ const Landing = () => {
               Excursions, plongée, hébergements et circuits sur mesure : JacTour vous fait vivre Nosy Be comme un local.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="text-base font-semibold px-8 h-14" asChild>
+              <Button size="lg" variant="gradient" className="text-base font-semibold px-8 h-14" asChild>
                 <Link to="/contact">Contactez-nous <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
               <Button size="lg" variant="outline" className="text-base font-semibold px-8 h-14 bg-background/10 text-background border-background/30 hover:bg-background/20 hover:text-background" asChild>
@@ -232,10 +232,11 @@ const Landing = () => {
       </section>
 
       {/* Excursions */}
-      <section id="excursions" className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section id="excursions" className="section-wash py-20 lg:py-28 relative overflow-hidden">
+        <div className="absolute top-20 right-0 w-[420px] h-[420px] rounded-full bg-sun/10 blur-[130px] pointer-events-none" aria-hidden="true" />
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
           <Reveal className="max-w-xl mb-12">
-            <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-4">
+            <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
               Nos activités
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display tracking-[-0.03em] text-foreground mb-4">
@@ -258,7 +259,7 @@ const Landing = () => {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-transparent to-transparent" />
-                    <span className="glass absolute top-4 left-4 text-foreground text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-[0.15em] shadow-sm">
+                    <span className="pill-gradient absolute top-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-[0.15em] shadow-lg shadow-primary/20">
                       {item.tag}
                     </span>
                   </div>
@@ -282,9 +283,11 @@ const Landing = () => {
       </section>
 
       {/* Why choose us */}
-      <section className="py-20 lg:py-28 bg-muted/40">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <Reveal direction="right" className="rounded-[2rem] overflow-hidden aspect-[4/3] order-2 lg:order-1">
+      <section className="py-20 lg:py-28 relative overflow-hidden bg-gradient-to-b from-muted/60 to-background">
+        <div className="absolute -top-10 left-0 w-[380px] h-[380px] rounded-full bg-sky/10 blur-[130px] pointer-events-none" aria-hidden="true" />
+        <div className="absolute bottom-0 right-0 w-[340px] h-[340px] rounded-full bg-sun/15 blur-[120px] pointer-events-none" aria-hidden="true" />
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
+          <Reveal direction="right" className="rounded-[2rem] overflow-hidden aspect-[4/3] order-2 lg:order-1 shadow-2xl shadow-primary/10 ring-1 ring-foreground/5">
             <img
               src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1200&q=80"
               alt="Vue depuis un hébergement donnant sur le lagon"
@@ -295,7 +298,7 @@ const Landing = () => {
 
           <div className="order-1 lg:order-2">
             <Reveal>
-              <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-4">
+              <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
                 Pourquoi JacTour
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display tracking-[-0.03em] text-foreground mb-10">
@@ -305,8 +308,8 @@ const Landing = () => {
             <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {FEATURES.map(({ Icon, title, description }) => (
                 <StaggerItem key={title}>
-                  <div className="glass rounded-2xl p-6 h-full shadow-sm">
-                    <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <div className="glass rounded-2xl p-6 h-full shadow-sm hover:shadow-lg hover:shadow-primary/10 transition-shadow">
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-sky/20 to-primary/20 flex items-center justify-center mb-4">
                       <Icon className="w-5 h-5 text-primary" />
                     </div>
                     <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{title}</h3>
@@ -323,16 +326,16 @@ const Landing = () => {
       <section className="py-20 lg:py-28">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <Reveal className="bg-foreground rounded-[2.5rem] relative overflow-hidden px-6 py-16 lg:px-16 lg:py-20 text-center">
-            <div className="absolute -top-40 -right-32 w-[500px] h-[500px] rounded-full bg-primary/30 blur-[120px] pointer-events-none" aria-hidden="true" />
-            <div className="absolute -bottom-40 -left-32 w-[420px] h-[420px] rounded-full bg-primary/20 blur-[100px] pointer-events-none" aria-hidden="true" />
+            <div className="absolute -top-40 -right-32 w-[500px] h-[500px] rounded-full bg-sky/40 blur-[120px] pointer-events-none" aria-hidden="true" />
+            <div className="absolute -bottom-40 -left-32 w-[420px] h-[420px] rounded-full bg-sun/25 blur-[100px] pointer-events-none" aria-hidden="true" />
             <div className="relative z-10">
               <h2 className="text-3xl sm:text-5xl font-display mb-5 text-background tracking-[-0.03em] leading-[1.05]">
-                Prêt à découvrir Nosy Be ?
+                Prêt à découvrir <span className="text-sun">Nosy Be</span> ?
               </h2>
               <p className="text-background/70 text-lg mb-10 max-w-lg mx-auto">
                 Parlez-nous de votre projet de voyage, on vous répond rapidement par téléphone, email ou WhatsApp.
               </p>
-              <Button size="lg" className="text-base font-semibold px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+              <Button size="lg" variant="gradient" className="text-base font-semibold px-8 h-12" asChild>
                 <Link to="/contact">Contactez-nous <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
             </div>

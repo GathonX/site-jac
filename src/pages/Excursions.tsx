@@ -62,13 +62,13 @@ const Excursions = () => {
       <SiteNav />
 
       <main className="flex-1">
-        <section className="py-20 lg:py-28 relative overflow-hidden">
+        <section className="section-wash py-20 lg:py-28 relative overflow-hidden">
           <div className="absolute -top-20 -right-20 w-[380px] h-[380px] rounded-full bg-sky/20 blur-[110px] pointer-events-none" aria-hidden="true" />
           <div className="absolute top-1/2 -left-24 w-[340px] h-[340px] rounded-full bg-sun/20 blur-[110px] pointer-events-none" aria-hidden="true" />
 
           <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
             <Reveal className="max-w-2xl mb-14">
-              <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-4">
+              <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
                 Nos excursions
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-foreground mb-5">
@@ -82,15 +82,16 @@ const Excursions = () => {
             <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {EXCURSIONS.map((item) => (
                 <StaggerItem key={item.title}>
-                  <div className="glass rounded-3xl overflow-hidden h-full flex flex-col shadow-sm">
-                    <div className="relative aspect-[4/3]">
+                  <div className="glass group rounded-3xl overflow-hidden h-full flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-shadow">
+                    <div className="relative aspect-[4/3] overflow-hidden">
                       <img
                         src={item.img}
                         alt={item.title}
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         loading="lazy"
                       />
-                      <span className="glass-dark absolute top-4 left-4 text-background text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-[0.15em]">
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
+                      <span className="pill-gradient absolute top-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-[0.15em] shadow-lg shadow-primary/20">
                         {item.tag}
                       </span>
                     </div>
@@ -101,7 +102,7 @@ const Excursions = () => {
                       <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
                         {item.description}
                       </p>
-                      <Button variant="outline" size="sm" className="self-start" asChild>
+                      <Button variant="gradient" size="sm" className="self-start" asChild>
                         <Link to={`/contact?sujet=${encodeURIComponent(item.title)}`}>
                           Réserver <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
                         </Link>
