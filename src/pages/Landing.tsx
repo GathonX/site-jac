@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "@/contexts/AuthContext";
-import { useUserRole } from "@/hooks/useUserRole";
-import { useLandingContent } from "@/hooks/useLandingContent";
 import { LANDING_DEFAULTS } from "@/lib/landing-defaults";
 import { Logo } from "@/components/Logo";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -290,25 +287,11 @@ function ConfettiLayer({ size, opacity, count, spread }: { size: number; opacity
 }
 
 const Landing = () => {
-  const navigate = useNavigate();
-  const { user, loading: authLoading } = useAuth();
-  const { role, loading: roleLoading } = useUserRole();
-
-  // Authenticated users skip the marketing page and land on their role-based home.
-  useEffect(() => {
-    if (authLoading || !user) return;
-    if (roleLoading || !role) return;
-    navigate(role === "organizer" ? "/dashboard/events" : "/dashboard/home", { replace: true });
-  }, [user, authLoading, role, roleLoading, navigate]);
-
-  const redirectingAuthenticatedUser = !authLoading && !!user && (roleLoading || !!role);
-
-  const { data: landing } = useLandingContent();
-  const hero = landing?.content.hero ?? LANDING_DEFAULTS.hero;
-  const popular = landing?.content.popular_events ?? LANDING_DEFAULTS.popular_events;
-  const featuresContent = landing?.content.features ?? LANDING_DEFAULTS.features;
-  const testimonialsContent = landing?.content.testimonials ?? LANDING_DEFAULTS.testimonials;
-  const ctaContent = landing?.content.cta ?? LANDING_DEFAULTS.cta;
+  const hero = LANDING_DEFAULTS.hero;
+  const popular = LANDING_DEFAULTS.popular_events;
+  const featuresContent = LANDING_DEFAULTS.features;
+  const testimonialsContent = LANDING_DEFAULTS.testimonials;
+  const ctaContent = LANDING_DEFAULTS.cta;
   const rotatingWords = hero.rotating_words;
 
   const [wordIndex, setWordIndex] = useState(0);
@@ -368,8 +351,6 @@ const Landing = () => {
     });
   }, [titleWeight]);
 
-  if (redirectingAuthenticatedUser) return null;
-
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       {/* Navbar — hidden until scroll */}
@@ -383,12 +364,12 @@ const Landing = () => {
           <Link to="/">
             <Logo size="md" />
           </Link>
-          <div className="flex items-center gap-3">
-            <Button variant="ghost" className="text-sm font-medium" asChild>
-              <Link to="/auth">Log in</Link>
-            </Button>
-            <Button className="hidden sm:inline-flex text-sm font-semibold" asChild>
-              <Link to="/auth">Sign up</Link>
+          <div className="flex items-center gap-6">
+            <Link to="/about" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors hidden sm:inline-block">
+              About
+            </Link>
+            <Button className="text-sm font-semibold" asChild>
+              <Link to="/contact">Contact us</Link>
             </Button>
           </div>
         </div>
@@ -512,7 +493,7 @@ const Landing = () => {
                 {hero.subhead}
               </p>
               <Button size="lg" className="text-base font-semibold px-9 h-14 shadow-xl shadow-foreground/10" asChild>
-                <Link to="/auth">{hero.cta} <ArrowRight className="ml-2 w-4 h-4" /></Link>
+                <Link to="/contact">{hero.cta} <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
             </motion.div>
           </div>
@@ -533,7 +514,7 @@ const Landing = () => {
                 {popular.subhead}
               </p>
             </div>
-            <Link to="/auth" className="group inline-flex items-center gap-2 text-primary font-semibold text-sm self-start md:self-end">
+            <Link to="/contact" className="group inline-flex items-center gap-2 text-primary font-semibold text-sm self-start md:self-end">
               {popular.cta_label}
               <span className="w-9 h-9 rounded-full bg-primary text-primary-foreground inline-flex items-center justify-center group-hover:translate-x-1 transition-transform">
                 <ArrowRight className="w-4 h-4" />
@@ -843,7 +824,7 @@ const Landing = () => {
                     {ctaContent.subhead}
                   </p>
                   <Button size="lg" className="text-base font-semibold px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-                    <Link to="/auth">{ctaContent.cta_label} <ArrowRight className="ml-2 w-4 h-4" /></Link>
+                    <Link to="/contact">{ctaContent.cta_label} <ArrowRight className="ml-2 w-4 h-4" /></Link>
                   </Button>
                 </motion.div>
               </div>
@@ -852,13 +833,7 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <Logo size="md" />
-          <p className="text-sm text-muted-foreground">© 2026 eventspark. All rights reserved.</p>
-        </div>
-      </footer>
+      <SiteFooter />
 
       {/* Dev picker */}
       <div className="fixed bottom-0 left-1/2 -translate-x-1/2 z-[9999]">
