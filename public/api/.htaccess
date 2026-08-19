@@ -1,0 +1,13 @@
+# Verrouillage du dossier api/ — défense supplémentaire
+
+<FilesMatch "^\.env">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "\.(htaccess|htpasswd)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+Options -Indexes
