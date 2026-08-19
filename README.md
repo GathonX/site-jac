@@ -21,6 +21,26 @@ npm run dev
 
 ## Déploiement (hébergement PHP, ex. Hostinger)
 
+### Automatique (GitHub Actions)
+
+Un push sur la branche `prod` déclenche `.github/workflows/deploy.yml` : build, puis envoi de `dist/` sur le serveur par SSH/rsync. À configurer une seule fois dans **Settings → Secrets and variables → Actions** du dépôt GitHub :
+
+**Connexion serveur**
+- `SSH_HOST` — hôte SSH Hostinger
+- `SSH_PORT` — port SSH (souvent différent de 22 sur Hostinger, voir hPanel)
+- `SSH_USER` — utilisateur SSH
+- `SSH_PRIVATE_KEY` — la clé privée correspondant à la clé publique déjà autorisée sur le serveur (jamais la clé publique)
+- `REMOTE_PATH` — dossier distant où pointe le domaine (ex. `public_html`, ou `public_html/mondomaine.com` selon la config Hostinger)
+
+**Email (formulaire de contact)** — mêmes valeurs que `public/api/.env` :
+- `MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_ENCRYPTION`, `MAIL_FROM_ADDRESS`, `MAIL_FROM_NAME`, `MAIL_ADMIN_EMAIL`
+
+Le workflow régénère `public/api/.env` à partir de ces secrets à chaque déploiement — il n'a donc pas besoin d'exister sur le serveur au préalable. Le rsync n'utilise pas `--delete` : il ajoute/met à jour les fichiers mais n'efface rien côté serveur, pour éviter de toucher à d'éventuels autres fichiers présents dans `REMOTE_PATH`.
+
+Pour lancer un déploiement sans faire de commit : onglet **Actions** du dépôt → *Déploiement production* → **Run workflow**.
+
+### Manuel
+
 1. `npm run build` → uploader le contenu de `dist/` à la racine du site (`public_html`).
 2. Copier `public/api/.env.example` vers `.env` sur le serveur (dans `public_html/api/.env`) et renseigner les vraies valeurs SMTP. Ce fichier ne doit **jamais** être commité dans git.
 3. Le `.htaccess` (inclus dans `dist/`) bloque l'accès direct aux fichiers `.env` et gère le routing des pages React — vérifier que `mod_rewrite` est actif sur l'hébergement.
@@ -28,5 +48,5 @@ npm run dev
 
 ## Branches
 
-- `prod` — production
-- `develop` — développement
+- `prod` — production, déploiement automatique
+- `develop` — développement (branche par défaut)
