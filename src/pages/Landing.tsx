@@ -156,6 +156,7 @@ function HeroCarousel() {
 
 const Landing = () => {
   const [wordIndex, setWordIndex] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -164,22 +165,35 @@ const Landing = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.7);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      {/* Navbar */}
-      <nav className="glass-dark fixed top-0 w-full z-50 !border-x-0 !border-t-0">
+      {/* Navbar — switches from light-on-photo to dark-on-white once past the hero */}
+      <nav className={`fixed top-0 w-full z-50 !border-x-0 !border-t-0 transition-colors duration-300 ${scrolled ? "glass" : "glass-dark"}`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between h-[72px] px-6 lg:px-8">
           <Link to="/">
-            <Logo size="md" textClassName="text-background" />
+            <Logo size="md" textClassName={scrolled ? "text-primary" : "text-background"} />
           </Link>
           <div className="flex items-center gap-6">
-            <Link to="/excursions" className="text-sm font-medium text-background/90 hover:text-background transition-colors hidden sm:inline-block">
+            <Link
+              to="/excursions"
+              className={`text-sm font-medium transition-colors hidden sm:inline-block ${scrolled ? "text-foreground/80 hover:text-foreground" : "text-background/90 hover:text-background"}`}
+            >
               Excursions
             </Link>
-            <Link to="/about" className="text-sm font-medium text-background/90 hover:text-background transition-colors hidden sm:inline-block">
+            <Link
+              to="/about"
+              className={`text-sm font-medium transition-colors hidden sm:inline-block ${scrolled ? "text-foreground/80 hover:text-foreground" : "text-background/90 hover:text-background"}`}
+            >
               About
             </Link>
-            <Button className="text-sm font-semibold" asChild>
+            <Button variant="gradient" className="text-sm font-semibold" asChild>
               <Link to="/contact">Contact us</Link>
             </Button>
           </div>
