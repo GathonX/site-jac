@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
+import { MobileNav } from "@/components/layout/MobileNav";
 
 export function SiteNav() {
   return (
@@ -9,16 +10,17 @@ export function SiteNav() {
         <Link to="/">
           <Logo size="md" />
         </Link>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 sm:gap-6">
           <Link to="/excursions" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors hidden sm:inline-block">
             Excursions
           </Link>
           <Link to="/about" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors hidden sm:inline-block">
             About
           </Link>
-          <Button className="text-sm font-semibold" asChild>
+          <Button className="hidden sm:inline-flex text-sm font-semibold" variant="gradient" asChild>
             <Link to="/contact">Contact us</Link>
           </Button>
+          <MobileNav />
         </div>
       </div>
     </nav>

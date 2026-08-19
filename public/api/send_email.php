@@ -151,6 +151,23 @@ switch ($formType) {
         $emailBody = emailHtml('&#127754; Nouvelle Réservation Excursion', $content, $email);
         break;
 
+    // ── Inscription newsletter ──
+    case 'newsletter':
+        $email = trim($data['email'] ?? '');
+
+        if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            http_response_code(400);
+            echo json_encode(['success' => false, 'message' => 'Email invalide.']);
+            exit;
+        }
+
+        $replyTo      = $email;
+        $emailSubject = "&#128236; Nouvelle inscription newsletter";
+        $content  = row('&#128231; Email :', $email);
+        $content .= row('&#128336; Date :', date('d/m/Y à H:i'));
+        $emailBody = emailHtml('&#128236; Nouvelle Inscription Newsletter', $content, $email);
+        break;
+
     default:
         http_response_code(400);
         echo json_encode(['success' => false, 'message' => 'Type de formulaire inconnu.']);

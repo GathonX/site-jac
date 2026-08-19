@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { toast } from "sonner";
 import { Logo } from "@/components/Logo";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { MobileNav } from "@/components/layout/MobileNav";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import {
   ArrowRight,
   MapPin,
@@ -14,6 +16,11 @@ import {
   Sparkles,
   ChevronLeft,
   ChevronRight,
+  MessageCircle,
+  CalendarCheck,
+  PartyPopper,
+  Send,
+  Loader2,
 } from "lucide-react";
 
 const HERO_IMAGES = [
@@ -95,6 +102,47 @@ const FEATURES = [
   },
 ];
 
+const STEPS = [
+  {
+    Icon: MessageCircle,
+    title: "Contactez-nous",
+    description: "Par téléphone, email ou WhatsApp, dites-nous ce que vous avez envie de vivre à Nosy Be.",
+  },
+  {
+    Icon: CalendarCheck,
+    title: "On construit votre programme",
+    description: "On vous propose des excursions adaptées à votre séjour, votre budget et votre rythme.",
+  },
+  {
+    Icon: PartyPopper,
+    title: "Vous profitez",
+    description: "Guides, matériel, logistique : tout est prêt. Il ne vous reste plus qu'à en profiter.",
+  },
+];
+
+const GALLERY = [
+  {
+    img: "https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=1400&q=80",
+    alt: "Baleine à bosse sautant hors de l'eau",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=900&q=80",
+    alt: "Tortue de mer nageant près de la surface",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1704175970578-e0e1d83536f0?auto=format&fit=crop&w=900&q=80",
+    alt: "Lémurien catta sur une colline verdoyante",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1759521626408-4118f14632ac?auto=format&fit=crop&w=1400&q=80",
+    alt: "Kayaks vus du ciel sur une eau turquoise",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80",
+    alt: "Vague de l'océan Indien en gros plan",
+  },
+];
+
 function HeroCarousel() {
   const [index, setIndex] = useState(0);
 
@@ -157,6 +205,8 @@ function HeroCarousel() {
 const Landing = () => {
   const [wordIndex, setWordIndex] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -172,6 +222,34 @@ const Landing = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNewsletterSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail) {
+      toast.error("Merci de renseigner votre email.");
+      return;
+    }
+
+    setNewsletterSubmitting(true);
+    try {
+      const res = await fetch("/api/send_email.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ form_type: "newsletter", email: newsletterEmail }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast.success(data.message || "Inscription réussie !");
+        setNewsletterEmail("");
+      } else {
+        toast.error(data.message || "Échec de l'inscription. Veuillez réessayer.");
+      }
+    } catch {
+      toast.error("Impossible d'envoyer votre demande. Vérifiez votre connexion.");
+    } finally {
+      setNewsletterSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       {/* Navbar — switches from light-on-photo to dark-on-white once past the hero */}
@@ -180,7 +258,7 @@ const Landing = () => {
           <Link to="/">
             <Logo size="md" textClassName={scrolled ? "text-primary" : "text-background"} />
           </Link>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3 sm:gap-6">
             <Link
               to="/excursions"
               className={`text-sm font-medium transition-colors hidden sm:inline-block ${scrolled ? "text-foreground/80 hover:text-foreground" : "text-background/90 hover:text-background"}`}
@@ -193,9 +271,10 @@ const Landing = () => {
             >
               About
             </Link>
-            <Button variant="gradient" className="text-sm font-semibold" asChild>
+            <Button variant="gradient" className="hidden sm:inline-flex text-sm font-semibold" asChild>
               <Link to="/contact">Contact us</Link>
             </Button>
+            <MobileNav triggerClassName={scrolled ? "text-foreground hover:bg-muted" : "text-background hover:bg-white/10"} />
           </div>
         </div>
       </nav>
@@ -296,6 +375,79 @@ const Landing = () => {
         </div>
       </section>
 
+      {/* How it works */}
+      <section className="py-20 lg:py-28 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Reveal className="max-w-xl mb-14 mx-auto text-center">
+            <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
+              Comment ça marche
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display tracking-[-0.03em] text-foreground mb-4">
+              Simple, du premier message au débarquement
+            </h2>
+          </Reveal>
+
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-3 gap-8 relative">
+            <div className="hidden sm:block absolute top-8 left-[16.5%] right-[16.5%] h-px bg-gradient-to-r from-sky via-primary to-sun" aria-hidden="true" />
+            {STEPS.map(({ Icon, title, description }, i) => (
+              <StaggerItem key={title} className="relative text-center">
+                <div className="relative z-10 w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-sky to-primary shadow-lg shadow-primary/25 flex items-center justify-center mb-5">
+                  <Icon className="w-7 h-7 text-white" />
+                </div>
+                <span className="text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2 block">
+                  Étape {i + 1}
+                </span>
+                <h3 className="font-display font-semibold text-lg text-foreground mb-2">{title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">{description}</p>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="section-wash py-20 lg:py-28 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Reveal className="max-w-xl mb-12">
+            <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
+              En images
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display tracking-[-0.03em] text-foreground mb-4">
+              Un aperçu de Nosy Be
+            </h2>
+          </Reveal>
+
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+            {GALLERY.slice(0, 3).map((item) => (
+              <StaggerItem key={item.alt}>
+                <div className="rounded-3xl overflow-hidden aspect-[3/4] group">
+                  <img
+                    src={item.img}
+                    alt={item.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {GALLERY.slice(3).map((item) => (
+              <StaggerItem key={item.alt}>
+                <div className="rounded-3xl overflow-hidden aspect-[16/9] group">
+                  <img
+                    src={item.img}
+                    alt={item.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
+        </div>
+      </section>
+
       {/* Why choose us */}
       <section className="py-20 lg:py-28 relative overflow-hidden bg-gradient-to-b from-muted/60 to-background">
         <div className="absolute -top-10 left-0 w-[380px] h-[380px] rounded-full bg-sky/10 blur-[130px] pointer-events-none" aria-hidden="true" />
@@ -352,6 +504,44 @@ const Landing = () => {
               <Button size="lg" variant="gradient" className="text-base font-semibold px-8 h-12" asChild>
                 <Link to="/contact">Contactez-nous <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="pb-20 lg:pb-28">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <Reveal className="glass rounded-[2rem] p-8 lg:p-12 text-center relative overflow-hidden">
+            <div className="absolute -top-24 -left-16 w-[260px] h-[260px] rounded-full bg-sky/15 blur-[100px] pointer-events-none" aria-hidden="true" />
+            <div className="absolute -bottom-24 -right-16 w-[260px] h-[260px] rounded-full bg-sun/20 blur-[100px] pointer-events-none" aria-hidden="true" />
+            <div className="relative z-10">
+              <div className="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-sky to-primary flex items-center justify-center mb-5">
+                <Send className="w-5 h-5 text-white" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-display tracking-[-0.02em] text-foreground mb-3">
+                Ne manquez aucune bonne adresse
+              </h2>
+              <p className="text-muted-foreground mb-8 max-w-md mx-auto">
+                Inscrivez-vous pour recevoir nos idées d'excursions et nos bons plans à Nosy Be.
+              </p>
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <Input
+                  type="email"
+                  required
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  placeholder="vous@exemple.com"
+                  className="h-12 rounded-full"
+                />
+                <Button type="submit" variant="gradient" className="h-12 shrink-0" disabled={newsletterSubmitting}>
+                  {newsletterSubmitting ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <>S'inscrire <ArrowRight className="ml-1.5 w-4 h-4" /></>
+                  )}
+                </Button>
+              </form>
             </div>
           </Reveal>
         </div>
