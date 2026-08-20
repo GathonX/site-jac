@@ -12,5 +12,5 @@ const sizes = {
 };
 
 export function Logo({ size = "md", className = "" }: LogoProps) {
-  return <img src={logo} alt="Nosy Be Secret Islands" className={`${sizes[size]} w-auto ${className}`} />;
+  return <img src={logo} alt="Nosy Be Secret Islands Tours" className={`${sizes[size]} w-auto ${className}`} />;
 }

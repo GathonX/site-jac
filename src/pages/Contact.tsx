@@ -83,8 +83,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden flex flex-col">
       <Seo
-        title="Contact — Nosy Be Secret Islands"
-        description="Contactez Nosy Be Secret Islands par téléphone, email ou WhatsApp pour organiser vos excursions sur l'île paradisiaque de Nosy Be."
+        title="Contact — Nosy Be Secret Islands Tours"
+        description="Contactez Nosy Be Secret Islands Tours par téléphone, email ou WhatsApp pour organiser vos excursions sur l'île paradisiaque de Nosy Be."
         path="/contact"
       />
       <SiteNav />

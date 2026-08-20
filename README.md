@@ -1,6 +1,6 @@
-# Nosy Be Secret Islands
+# Nosy Be Secret Islands Tours
 
-Site vitrine pour l'agence Nosy Be Secret Islands — excursions sur l'île paradisiaque de Nosy Be (nature, mer, maki, tortues de mer, requins-baleines). React + TypeScript + Vite + Tailwind + shadcn/ui. Frontend statique, sans base de données — seul le formulaire de contact passe par un petit script PHP côté serveur pour l'envoi d'email (aucune donnée n'est stockée).
+Site vitrine pour l'agence Nosy Be Secret Islands Tours — excursions sur l'île paradisiaque de Nosy Be (nature, mer, maki, tortues de mer, requins-baleines). React + TypeScript + Vite + Tailwind + shadcn/ui. Frontend statique, sans base de données — seul le formulaire de contact passe par un petit script PHP côté serveur pour l'envoi d'email (aucune donnée n'est stockée).
 
 ## Pages
 

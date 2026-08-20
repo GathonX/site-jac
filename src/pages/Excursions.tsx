@@ -26,13 +26,19 @@ const EXCURSIONS = [
     description: "Snorkeling dans la réserve marine protégée : tortues, poissons-clowns et fonds coralliens préservés.",
   },
   {
-    img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=900&q=80",
+    img: "/img/img2.jpeg",
+    tag: "Visite de parc",
+    title: "Parc National de Lokobe",
+    description: "La dernière forêt primaire de Nosy Be, accessible en pirogue puis à pied avec un guide agréé : lémuriens nocturnes, geckos-feuilles et caméléons endémiques.",
+  },
+  {
+    img: "/img/img4.jpeg",
     tag: "Bateau",
     title: "Excursion en mer & îlots",
     description: "Une journée entre plages désertes et criques secrètes à bord de nos bateaux traditionnels.",
   },
   {
-    img: "https://images.unsplash.com/photo-1483168527879-c66136b56105?auto=format&fit=crop&w=900&q=80",
+    img: "https://images.unsplash.com/photo-1656750675118-04c0c4179b54?auto=format&fit=crop&w=900&q=80",
     tag: "Croisière",
     title: "Croisière coucher de soleil",
     description: "Une sortie en mer en fin de journée pour profiter du coucher de soleil sur l'océan Indien.",
@@ -42,6 +48,12 @@ const EXCURSIONS = [
     tag: "Saisonnier",
     title: "Nage avec les requins-baleines",
     description: "D'octobre à décembre, les requins-baleines viennent se nourrir au large de Nosy Be. Une rencontre exceptionnelle avec les plus grands poissons de l'océan.",
+  },
+  {
+    img: "/img/img8.jpeg",
+    tag: "Terrestre",
+    title: "Randonnée & points de vue",
+    description: "À pied jusqu'aux plus beaux points de vue de l'île, entre forêt et panoramas sur l'océan Indien.",
   },
   {
     img: "https://images.unsplash.com/photo-1759521626408-4118f14632ac?auto=format&fit=crop&w=900&q=80",
@@ -63,8 +75,8 @@ const Excursions = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden flex flex-col">
       <Seo
-        title="Excursions à Nosy Be — Maki, tortues de mer, requins-baleines | Nosy Be Secret Islands"
-        description="Toutes nos excursions sur l'île paradisiaque de Nosy Be : plongée, Nosy Komba, Nosy Tanikely, sorties en mer et rencontres avec maki, tortues de mer et requins-baleines."
+        title="Excursions à Nosy Be — Maki, tortues de mer, requins-baleines | Nosy Be Secret Islands Tours"
+        description="Toutes nos excursions en mer et terrestres sur l'île paradisiaque de Nosy Be : plongée, visite du Parc de Lokobe, Nosy Komba, Nosy Tanikely, randonnée et rencontres avec maki, tortues de mer et requins-baleines."
         path="/excursions"
       />
       <SiteNav />
@@ -84,7 +96,7 @@ const Excursions = () => {
                 Toutes nos activités sur l'île paradisiaque
               </h1>
               <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-                Plongée, nature, rencontres avec maki, tortues de mer et requins-baleines... choisissez l'expérience qui vous correspond, on s'occupe du reste.
+                Excursions en mer et terrestres, visites de parc, plongée, rencontres avec maki, tortues de mer et requins-baleines... choisissez l'expérience qui vous correspond, on s'occupe du reste.
               </p>
             </Reveal>
 

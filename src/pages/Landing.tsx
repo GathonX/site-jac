@@ -30,24 +30,24 @@ const HERO_IMAGES = [
     alt: "Lever de soleil sur une plage de sable blanc",
   },
   {
-    src: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1920&q=80",
-    alt: "Vue aérienne de bungalows sur pilotis au-dessus d'un lagon turquoise",
+    src: "/img/img3.jpeg",
+    alt: "Paréos colorés sur un étendoir face à la plage à Nosy Be",
   },
   {
-    src: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1920&q=80",
-    alt: "Plage bordée de palmiers avec voilier",
+    src: "https://images.unsplash.com/photo-1656829500356-3b6f7c3b4c65?auto=format&fit=crop&w=1920&q=80",
+    alt: "Îlot de sable blanc entouré d'un lagon turquoise à Nosy Be",
   },
   {
-    src: "https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&w=1920&q=80",
-    alt: "Palmiers encadrant une mer turquoise",
+    src: "/img/img11.jpeg",
+    alt: "Randonnée sur les rochers côtiers de Nosy Be avec vue sur l'océan",
   },
   {
-    src: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1920&q=80",
-    alt: "Lounge au coucher du soleil face à l'océan",
+    src: "https://images.unsplash.com/photo-1592998657521-76bb8b7c204c?auto=format&fit=crop&w=1920&q=80",
+    alt: "Palmiers encadrant une mer turquoise à Nosy Be",
   },
   {
-    src: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1920&q=80",
-    alt: "Piscine de resort entourée de palmiers et de montagnes",
+    src: "https://images.unsplash.com/photo-1656750675118-04c0c4179b54?auto=format&fit=crop&w=1920&q=80",
+    alt: "Coucher de soleil sur une plage de Nosy Be",
   },
 ];
 
@@ -123,24 +123,24 @@ const STEPS = [
 
 const GALLERY = [
   {
-    img: "https://images.unsplash.com/photo-1464925029952-5d9ca1cf4f64?auto=format&fit=crop&w=1400&q=80",
-    alt: "Requin-baleine nageant près de la surface",
+    img: "/img/img5.jpeg",
+    alt: "Gecko-feuille camouflé dans les feuilles mortes, espèce endémique de Madagascar",
   },
   {
-    img: "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=900&q=80",
-    alt: "Tortue de mer nageant près de la surface",
+    img: "/img/img2.jpeg",
+    alt: "Gecko-feuille sur une branche, faune endémique de Nosy Be",
   },
   {
-    img: "https://images.unsplash.com/photo-1704175970578-e0e1d83536f0?auto=format&fit=crop&w=900&q=80",
-    alt: "Maki sur une colline verdoyante",
+    img: "/img/img12.jpeg",
+    alt: "Traces de pas sur le banc de sable blanc de Nosy Be",
   },
   {
-    img: "https://images.unsplash.com/photo-1759521626408-4118f14632ac?auto=format&fit=crop&w=1400&q=80",
-    alt: "Kayaks vus du ciel sur une eau turquoise",
+    img: "/img/img9.jpeg",
+    alt: "Terre rouge caractéristique des paysages de Madagascar",
   },
   {
-    img: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80",
-    alt: "Vague de l'océan Indien en gros plan",
+    img: "/img/img10.jpeg",
+    alt: "Formations rocheuses striées lors d'une randonnée à Nosy Be",
   },
 ];
 
@@ -254,8 +254,8 @@ const Landing = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Seo
-        title="Nosy Be Secret Islands — Excursions sur l'île paradisiaque de Nosy Be"
-        description="Excursions à Nosy Be, Madagascar : nature, mer, maki, tortues de mer et requins-baleines. Découvrez l'île paradisiaque autrement avec Nosy Be Secret Islands."
+        title="Nosy Be Secret Islands Tours — Excursions sur l'île paradisiaque de Nosy Be"
+        description="Excursions à Nosy Be, Madagascar : nature, mer, maki, tortues de mer et requins-baleines. Découvrez l'île paradisiaque autrement avec Nosy Be Secret Islands Tours."
       />
       {/* Navbar — switches from light-on-photo to dark-on-white once past the hero */}
       <nav className={`fixed top-0 w-full z-50 !border-x-0 !border-t-0 transition-colors duration-300 ${scrolled ? "glass" : "glass-dark"}`}>
@@ -315,7 +315,7 @@ const Landing = () => {
               </span>
             </h1>
             <p className="text-lg lg:text-xl text-background/85 max-w-xl mb-10 leading-relaxed">
-              Excursions, nature et rencontres avec makis, tortues de mer et requins-baleines : Nosy Be Secret Islands vous fait vivre l'île paradisiaque de Nosy Be comme un local.
+              Excursions, nature et rencontres avec makis, tortues de mer et requins-baleines : Nosy Be Secret Islands Tours vous fait vivre l'île paradisiaque de Nosy Be comme un local.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" variant="gradient" className="text-base font-semibold px-8 h-14" asChild>
@@ -469,8 +469,8 @@ const Landing = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
           <Reveal direction="right" className="rounded-[2rem] overflow-hidden aspect-[4/3] order-2 lg:order-1 shadow-2xl shadow-primary/10 ring-1 ring-foreground/5">
             <img
-              src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1200&q=80"
-              alt="Vue depuis un hébergement donnant sur le lagon"
+              src="https://images.unsplash.com/photo-1628503185998-182cd70d46a7?auto=format&fit=crop&w=1200&q=80"
+              alt="Pirogue traditionnelle à voile sur les eaux de Nosy Be"
               className="w-full h-full object-cover"
               loading="lazy"
             />
@@ -479,7 +479,7 @@ const Landing = () => {
           <div className="order-1 lg:order-2">
             <Reveal>
               <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
-                Pourquoi Nosy Be Secret Islands
+                Pourquoi Nosy Be Secret Islands Tours
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display tracking-[-0.03em] text-foreground mb-10">
                 Une agence locale, à votre écoute

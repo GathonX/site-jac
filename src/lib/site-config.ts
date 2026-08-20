@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   // TODO: remplacer par le vrai domaine une fois réservé/déployé — utilisé pour les URLs
   // canoniques, le sitemap, og:url et les données structurées.
   siteUrl: "https://www.nosybesecretislands.com",
-  name: "Nosy Be Secret Islands",
+  name: "Nosy Be Secret Islands Tours",
   phone: "032 66 875 43",
   phoneTel: "+261326687543",
   email: "mandimbizarajuno@gmail.com",

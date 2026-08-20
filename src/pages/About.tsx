@@ -33,8 +33,8 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden flex flex-col">
       <Seo
-        title="À propos — Nosy Be Secret Islands"
-        description="Nosy Be Secret Islands, une agence locale qui vous fait découvrir Nosy Be autrement : nature, mer, maki, tortues de mer et requins-baleines, loin des circuits figés."
+        title="À propos — Nosy Be Secret Islands Tours"
+        description="Nosy Be Secret Islands Tours, une agence locale qui vous fait découvrir Nosy Be autrement : nature, mer, maki, tortues de mer et requins-baleines, loin des circuits figés."
         path="/about"
       />
       <SiteNav />
@@ -48,15 +48,15 @@ const About = () => {
           <div className="max-w-4xl mx-auto px-6 lg:px-8 relative">
             <Reveal>
               <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
-                À propos de Nosy Be Secret Islands
+                À propos de Nosy Be Secret Islands Tours
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-foreground mb-6">
                 À la découverte de l'île paradisiaque de Nosy Be
               </h1>
               <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-                Nosy Be Secret Islands est née d'une conviction simple : les meilleurs voyages se construisent avec
-                ceux qui connaissent vraiment leur île. Entre nature, mer et rencontres avec maki, tortues de mer et
-                requins-baleines, on vous fait découvrir Nosy Be comme un local, loin des circuits figés.
+                Nosy Be Secret Islands Tours est un tour opérateur local spécialisé dans les excursions en mer et
+                terrestres : plongée, visites de parc, rencontres avec maki, tortues de mer et requins-baleines.
+                Avec nos guides, on vous fait découvrir Nosy Be comme un local, loin des circuits figés.
               </p>
             </Reveal>
           </div>
@@ -125,8 +125,8 @@ const About = () => {
 
             <Reveal direction="left" className="rounded-[2rem] overflow-hidden aspect-[4/3] shadow-2xl shadow-primary/10 ring-1 ring-foreground/5">
               <img
-                src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=80"
-                alt="Bateau traditionnel sur une plage de Nosy Be"
+                src="/img/img7.jpeg"
+                alt="Cascade et bassin naturel lors d'une excursion terrestre à Nosy Be"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />

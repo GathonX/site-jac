@@ -12,7 +12,7 @@ const NotFound = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted px-6">
-      <Seo title="Page introuvable — Nosy Be Secret Islands" description="Cette page n'existe pas." noindex />
+      <Seo title="Page introuvable — Nosy Be Secret Islands Tours" description="Cette page n'existe pas." noindex />
       <div className="text-center">
         <h1 className="mb-4 text-5xl font-display font-bold text-foreground">404</h1>
         <p className="mb-6 text-xl text-muted-foreground">Oups ! Cette page n'existe pas.</p>
