@@ -1,25 +1,16 @@
-import logoMark from "@/assets/logo-mark.png";
+import logo from "@/assets/logo.png";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg";
   className?: string;
-  textClassName?: string;
 }
 
 const sizes = {
-  sm: { glyph: "h-8", text: "text-xs" },
-  md: { glyph: "h-10", text: "text-sm sm:text-base" },
-  lg: { glyph: "h-14", text: "text-lg sm:text-xl" },
+  sm: "h-10",
+  md: "h-12",
+  lg: "h-16",
 };
 
-export function Logo({ size = "md", className = "", textClassName = "text-foreground" }: LogoProps) {
-  const s = sizes[size];
-  return (
-    <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <img src={logoMark} alt="" className={`${s.glyph} w-auto shrink-0 drop-shadow-sm`} />
-      <span className={`font-display font-bold tracking-tight leading-tight whitespace-nowrap ${s.text} ${textClassName}`}>
-        Nosy Be Secret Islands
-      </span>
-    </span>
-  );
+export function Logo({ size = "md", className = "" }: LogoProps) {
+  return <img src={logo} alt="Nosy Be Secret Islands" className={`${sizes[size]} w-auto ${className}`} />;
 }
