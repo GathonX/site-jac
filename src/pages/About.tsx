@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Heart, MapPinned, ShieldCheck, Sparkles, ArrowRight } from "lucide-react";
+import { Leaf, Compass, Gem, ArrowRight } from "lucide-react";
 import { Seo } from "@/components/Seo";
 import { SiteNav } from "@/components/layout/SiteNav";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -8,24 +8,19 @@ import { Button } from "@/components/ui/button";
 
 const VALUES = [
   {
-    Icon: Heart,
-    title: "Passion locale",
-    description: "Nosy Be, c'est notre terrain de jeu. On partage ce qu'on aime vraiment, pas un itinéraire standard.",
+    Icon: Leaf,
+    title: "Nature",
+    description: "De la forêt primaire du Parc de Lokobe aux fonds coralliens de Nosy Tanikely, chaque excursion vous plonge dans une nature préservée, unique à Madagascar.",
   },
   {
-    Icon: MapPinned,
-    title: "Connaissance du terrain",
-    description: "Les meilleurs spots de plongée, les criques cachées, les bons horaires : on connaît l'île par cœur.",
+    Icon: Compass,
+    title: "Évasion",
+    description: "Îlots secrets, sorties en mer, randonnées vers les plus beaux points de vue : on vous emmène loin du tourisme de masse, à la découverte du vrai Nosy Be.",
   },
   {
-    Icon: ShieldCheck,
-    title: "Sécurité avant tout",
-    description: "Guides expérimentés, matériel entretenu, itinéraires adaptés à chacun. Votre tranquillité d'esprit compte.",
-  },
-  {
-    Icon: Sparkles,
-    title: "Expériences sur mesure",
-    description: "Chaque groupe est différent. On ajuste le rythme, les activités et le format à vos envies.",
+    Icon: Gem,
+    title: "Authenticité",
+    description: "Guides locaux, rencontres avec les habitants, savoir-faire traditionnel comme la distillation d'ylang-ylang : une expérience vraie, jamais standardisée.",
   },
 ];
 
@@ -66,29 +61,31 @@ const About = () => {
         <section className="py-20 lg:py-28">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <Reveal className="max-w-xl mb-12">
+              <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
+                Notre signature
+              </span>
               <h2 className="text-3xl sm:text-4xl font-display tracking-[-0.03em] text-foreground mb-4">
-                Nos valeurs
+                Nature · Évasion · Authenticité
               </h2>
               <p className="text-muted-foreground text-base lg:text-lg">
-                Ce qui guide chaque excursion qu'on organise.
+                Les trois piliers qui guident chaque excursion qu'on organise.
               </p>
             </Reveal>
 
-            <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <StaggerGroup className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {VALUES.map(({ Icon, title, description }, i) => (
                 <StaggerItem key={title}>
                   <div className="glass rounded-2xl p-6 h-full shadow-sm hover:shadow-lg hover:shadow-primary/10 transition-shadow">
                     <div
                       className={`w-11 h-11 rounded-full flex items-center justify-center mb-4 ${
                         [
-                          "bg-sun/25",
-                          "bg-gradient-to-br from-sky/20 to-primary/20",
                           "bg-palm/15",
-                          "bg-sky/15",
-                        ][i % 4]
+                          "bg-gradient-to-br from-sky/20 to-primary/20",
+                          "bg-sun/25",
+                        ][i % 3]
                       }`}
                     >
-                      <Icon className={`w-5 h-5 ${["text-foreground", "text-primary", "text-palm", "text-primary"][i % 4]}`} />
+                      <Icon className={`w-5 h-5 ${["text-palm", "text-primary", "text-foreground"][i % 3]}`} />
                     </div>
                     <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>

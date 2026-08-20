@@ -2,10 +2,9 @@ import { useState, useEffect, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
-import { Logo } from "@/components/Logo";
 import { Seo } from "@/components/Seo";
 import { SiteFooter } from "@/components/layout/SiteFooter";
-import { MobileNav } from "@/components/layout/MobileNav";
+import { SiteNav } from "@/components/layout/SiteNav";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -26,8 +25,8 @@ import {
 
 const HERO_IMAGES = [
   {
-    src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80",
-    alt: "Lever de soleil sur une plage de sable blanc",
+    src: "https://images.unsplash.com/photo-1710260715197-d43a51dbd2fa?auto=format&fit=crop&w=1920&q=80",
+    alt: "Fleur d'ylang-ylang, l'île aux parfums de Nosy Be",
   },
   {
     src: "/img/img3.jpeg",
@@ -205,7 +204,6 @@ function HeroCarousel() {
 
 const Landing = () => {
   const [wordIndex, setWordIndex] = useState(0);
-  const [scrolled, setScrolled] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
 
@@ -214,13 +212,6 @@ const Landing = () => {
       setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.7);
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNewsletterSubmit = async (e: FormEvent) => {
@@ -257,32 +248,7 @@ const Landing = () => {
         title="Nosy Be Secret Islands Tours — Excursions sur l'île paradisiaque de Nosy Be"
         description="Excursions à Nosy Be, Madagascar : nature, mer, maki, tortues de mer et requins-baleines. Découvrez l'île paradisiaque autrement avec Nosy Be Secret Islands Tours."
       />
-      {/* Navbar — switches from light-on-photo to dark-on-white once past the hero */}
-      <nav className={`fixed top-0 w-full z-50 !border-x-0 !border-t-0 transition-colors duration-300 ${scrolled ? "glass" : "glass-dark"}`}>
-        <div className="max-w-7xl mx-auto flex items-center justify-between h-[92px] px-6 lg:px-8">
-          <Link to="/">
-            <Logo size="md" />
-          </Link>
-          <div className="flex items-center gap-3 sm:gap-6">
-            <Link
-              to="/excursions"
-              className={`text-sm font-medium transition-colors hidden sm:inline-block ${scrolled ? "text-foreground/80 hover:text-foreground" : "text-background/90 hover:text-background"}`}
-            >
-              Excursions
-            </Link>
-            <Link
-              to="/about"
-              className={`text-sm font-medium transition-colors hidden sm:inline-block ${scrolled ? "text-foreground/80 hover:text-foreground" : "text-background/90 hover:text-background"}`}
-            >
-              About
-            </Link>
-            <Button variant="gradient-ocean" className="hidden sm:inline-flex text-sm font-semibold" asChild>
-              <Link to="/contact">Contact us</Link>
-            </Button>
-            <MobileNav triggerClassName={scrolled ? "text-foreground hover:bg-muted" : "text-background hover:bg-white/10"} />
-          </div>
-        </div>
-      </nav>
+      <SiteNav transparentOverHero scrollThreshold={0.7} />
 
       {/* Hero */}
       <section className="relative h-[78svh] min-h-[480px] flex items-end overflow-hidden">
@@ -325,6 +291,9 @@ const Landing = () => {
                 <Link to="/excursions">Voir nos excursions</Link>
               </Button>
             </div>
+            <p className="mt-8 text-xs font-bold tracking-[0.25em] uppercase text-background/70">
+              Nature <span className="text-sun">·</span> Évasion <span className="text-sun">·</span> Authenticité
+            </p>
           </motion.div>
         </div>
       </section>

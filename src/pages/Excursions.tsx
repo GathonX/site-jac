@@ -62,10 +62,10 @@ const EXCURSIONS = [
     description: "Longez la côte à votre rythme, seul ou accompagné, pour découvrir les criques inaccessibles autrement.",
   },
   {
-    img: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=900&q=80",
-    tag: "Sport",
-    title: "Surf & sports nautiques",
-    description: "Pour les amateurs de sensations : surf, bodyboard et autres activités nautiques selon la houle.",
+    img: "https://images.unsplash.com/photo-1710260715197-d43a51dbd2fa?auto=format&fit=crop&w=900&q=80",
+    tag: "Culture",
+    title: "Plantation d'ylang-ylang",
+    description: "Nosy Be, « l'île aux parfums » : visite d'une plantation et d'une distillerie pour découvrir la récolte et la production d'huile essentielle d'ylang-ylang.",
   },
 ];
 
@@ -79,27 +79,38 @@ const Excursions = () => {
         description="Toutes nos excursions en mer et terrestres sur l'île paradisiaque de Nosy Be : plongée, visite du Parc de Lokobe, Nosy Komba, Nosy Tanikely, randonnée et rencontres avec maki, tortues de mer et requins-baleines."
         path="/excursions"
       />
-      <SiteNav />
+      <SiteNav transparentOverHero scrollThreshold={0.4} />
 
       <main className="flex-1">
+        <section className="relative h-[52svh] min-h-[380px] flex items-end overflow-hidden">
+          <img
+            src="/img/img11.jpeg"
+            alt="Randonnée sur les rochers côtiers de Nosy Be avec vue sur l'océan"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/10" />
+
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-14 lg:pb-16 relative z-10 w-full">
+            <Reveal className="max-w-2xl">
+              <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-sun mb-4">
+                Nos excursions
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-background mb-5">
+                Toutes nos activités sur l'île paradisiaque
+              </h1>
+              <p className="text-lg lg:text-xl text-background/85 leading-relaxed">
+                Excursions en mer et terrestres, visites de parc, plongée, rencontres avec maki, tortues de mer et requins-baleines... choisissez l'expérience qui vous correspond, on s'occupe du reste.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
         <section className="section-wash py-20 lg:py-28 relative overflow-hidden">
           <div className="absolute -top-20 -right-20 w-[380px] h-[380px] rounded-full bg-sky/20 blur-[110px] pointer-events-none" aria-hidden="true" />
           <div className="absolute top-1/2 -left-24 w-[340px] h-[340px] rounded-full bg-palm/15 blur-[110px] pointer-events-none" aria-hidden="true" />
           <div className="absolute bottom-0 right-1/4 w-[280px] h-[280px] rounded-full bg-sun/20 blur-[110px] pointer-events-none" aria-hidden="true" />
 
           <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
-            <Reveal className="max-w-2xl mb-14">
-              <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
-                Nos excursions
-              </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-foreground mb-5">
-                Toutes nos activités sur l'île paradisiaque
-              </h1>
-              <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-                Excursions en mer et terrestres, visites de parc, plongée, rencontres avec maki, tortues de mer et requins-baleines... choisissez l'expérience qui vous correspond, on s'occupe du reste.
-              </p>
-            </Reveal>
-
             <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {EXCURSIONS.map((item, i) => (
                 <StaggerItem key={item.title}>
