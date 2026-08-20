@@ -259,7 +259,7 @@ const Landing = () => {
       />
       {/* Navbar — switches from light-on-photo to dark-on-white once past the hero */}
       <nav className={`fixed top-0 w-full z-50 !border-x-0 !border-t-0 transition-colors duration-300 ${scrolled ? "glass" : "glass-dark"}`}>
-        <div className="max-w-7xl mx-auto flex items-center justify-between h-[72px] px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between h-[92px] px-6 lg:px-8">
           <Link to="/">
             <Logo size="md" />
           </Link>

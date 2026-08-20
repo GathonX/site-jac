@@ -16,42 +16,96 @@ const socialLinks = [
   { href: SITE_CONFIG.social.x, label: "X", Icon: SiX, bg: "bg-[#000000]" },
 ];
 
+const navLinks = [
+  { to: "/", label: "Accueil" },
+  { to: "/excursions", label: "Excursions" },
+  { to: "/about", label: "À propos" },
+  { to: "/contact", label: "Contact" },
+];
+
 export function SiteFooter() {
   return (
-    <footer className="py-12 px-6 lg:px-8 border-t border-border">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-        <div className="flex flex-col items-center md:items-start gap-3">
-          <Link to="/">
-            <Logo size="md" />
-          </Link>
-          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Nosy Be Secret Islands Tours. Tous droits réservés.</p>
+    <footer className="relative bg-foreground overflow-hidden">
+      <div className="absolute -top-32 -left-20 w-[380px] h-[380px] rounded-full bg-sky/25 blur-[120px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute -bottom-32 -right-20 w-[340px] h-[340px] rounded-full bg-sun/15 blur-[120px] pointer-events-none" aria-hidden="true" />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 relative">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+          <div className="md:col-span-2 flex flex-col items-center md:items-start text-center md:text-left">
+            <Link to="/">
+              <Logo size="xl" />
+            </Link>
+            <p className="text-sm text-background/70 leading-relaxed mt-4 max-w-sm">
+              Tour opérateur local à Nosy Be : excursions en mer et terrestres, plongée, visites de parc et
+              rencontres avec maki, tortues de mer et requins-baleines.
+            </p>
+            <div className="flex items-center gap-3 mt-6">
+              {socialLinks.map(({ href, label, Icon, bg }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className={`w-9 h-9 rounded-full ${bg} flex items-center justify-center text-white shadow-sm hover:scale-110 hover:shadow-md transition-transform`}
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center md:text-left">
+            <h3 className="text-sm font-display font-semibold text-background mb-4">Navigation</h3>
+            <ul className="space-y-2.5">
+              {navLinks.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="text-sm text-background/70 hover:text-sun transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="text-center md:text-left">
+            <h3 className="text-sm font-display font-semibold text-background mb-4">Contact</h3>
+            <ul className="space-y-2.5">
+              <li>
+                <a
+                  href={`mailto:${SITE_CONFIG.email}`}
+                  className="inline-flex items-center gap-2 text-sm text-background/70 hover:text-sun transition-colors"
+                >
+                  <Mail className="w-4 h-4 shrink-0" />
+                  {SITE_CONFIG.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${SITE_CONFIG.phoneTel}`}
+                  className="inline-flex items-center gap-2 text-sm text-background/70 hover:text-sun transition-colors"
+                >
+                  <Phone className="w-4 h-4 shrink-0" />
+                  {SITE_CONFIG.phone}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SITE_CONFIG.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-background/70 hover:text-sun transition-colors"
+                >
+                  <SiWhatsapp className="w-4 h-4 shrink-0" />
+                  WhatsApp
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="flex flex-col items-center md:items-end gap-3">
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-1.5 hover:text-primary transition-colors">
-              <Mail className="w-4 h-4" />
-              {SITE_CONFIG.email}
-            </a>
-            <a href={`tel:${SITE_CONFIG.phoneTel}`} className="flex items-center gap-1.5 hover:text-primary transition-colors">
-              <Phone className="w-4 h-4" />
-              {SITE_CONFIG.phone}
-            </a>
-          </div>
-          <div className="flex items-center gap-3">
-            {socialLinks.map(({ href, label, Icon, bg }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className={`w-9 h-9 rounded-full ${bg} flex items-center justify-center text-white shadow-sm hover:scale-110 hover:shadow-md transition-transform`}
-              >
-                <Icon className="w-4 h-4" />
-              </a>
-            ))}
-          </div>
+        <div className="mt-12 pt-6 border-t border-background/15 text-center md:text-left">
+          <p className="text-sm text-background/60">© {new Date().getFullYear()} Nosy Be Secret Islands Tours. Tous droits réservés.</p>
         </div>
       </div>
     </footer>

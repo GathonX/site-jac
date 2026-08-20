@@ -1,14 +1,15 @@
 import logo from "@/assets/logo.png";
 
 interface LogoProps {
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
   className?: string;
 }
 
 const sizes = {
-  sm: "h-10",
-  md: "h-12",
-  lg: "h-16",
+  sm: "h-14",
+  md: "h-20",
+  lg: "h-28",
+  xl: "h-40",
 };
 
 export function Logo({ size = "md", className = "" }: LogoProps) {
