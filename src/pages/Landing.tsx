@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import { Logo } from "@/components/Logo";
+import { Seo } from "@/components/Seo";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
@@ -252,6 +253,10 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <Seo
+        title="Nosy Be Secret Islands — Excursions sur l'île paradisiaque de Nosy Be"
+        description="Excursions à Nosy Be, Madagascar : nature, mer, maki, tortues de mer et requins-baleines. Découvrez l'île paradisiaque autrement avec Nosy Be Secret Islands."
+      />
       {/* Navbar — switches from light-on-photo to dark-on-white once past the hero */}
       <nav className={`fixed top-0 w-full z-50 !border-x-0 !border-t-0 transition-colors duration-300 ${scrolled ? "glass" : "glass-dark"}`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between h-[72px] px-6 lg:px-8">

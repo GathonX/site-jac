@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Seo } from "@/components/Seo";
 import { SiteNav } from "@/components/layout/SiteNav";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
@@ -61,6 +62,11 @@ const PILL_ROTATION = ["pill-gradient-ocean", "pill-gradient-palm", "pill-gradie
 const Excursions = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden flex flex-col">
+      <Seo
+        title="Excursions à Nosy Be — Maki, tortues de mer, requins-baleines | Nosy Be Secret Islands"
+        description="Toutes nos excursions sur l'île paradisiaque de Nosy Be : plongée, Nosy Komba, Nosy Tanikely, sorties en mer et rencontres avec maki, tortues de mer et requins-baleines."
+        path="/excursions"
+      />
       <SiteNav />
 
       <main className="flex-1">

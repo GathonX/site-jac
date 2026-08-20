@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Heart, MapPinned, ShieldCheck, Sparkles, ArrowRight } from "lucide-react";
+import { Seo } from "@/components/Seo";
 import { SiteNav } from "@/components/layout/SiteNav";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
@@ -31,6 +32,11 @@ const VALUES = [
 const About = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden flex flex-col">
+      <Seo
+        title="À propos — Nosy Be Secret Islands"
+        description="Nosy Be Secret Islands, une agence locale qui vous fait découvrir Nosy Be autrement : nature, mer, maki, tortues de mer et requins-baleines, loin des circuits figés."
+        path="/about"
+      />
       <SiteNav />
 
       <main className="flex-1">

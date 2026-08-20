@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import { Mail, Phone, Loader2 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
+import { Seo } from "@/components/Seo";
 import { SiteNav } from "@/components/layout/SiteNav";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Reveal } from "@/components/motion/Reveal";
@@ -81,6 +82,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden flex flex-col">
+      <Seo
+        title="Contact — Nosy Be Secret Islands"
+        description="Contactez Nosy Be Secret Islands par téléphone, email ou WhatsApp pour organiser vos excursions sur l'île paradisiaque de Nosy Be."
+        path="/contact"
+      />
       <SiteNav />
 
       <main className="flex-1">
