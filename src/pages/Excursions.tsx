@@ -15,8 +15,8 @@ const EXCURSIONS = [
   {
     img: "https://images.unsplash.com/photo-1704175970578-e0e1d83536f0?auto=format&fit=crop&w=900&q=80",
     tag: "Nature",
-    title: "Nosy Komba, l'île aux lémuriens",
-    description: "Une balade sur l'île voisine à la rencontre des lémuriens en liberté et du village local.",
+    title: "Nosy Komba, l'île aux maki",
+    description: "Une balade sur l'île voisine à la rencontre des maki en liberté et du village local.",
   },
   {
     img: "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=900&q=80",
@@ -37,10 +37,10 @@ const EXCURSIONS = [
     description: "Une sortie en mer en fin de journée pour profiter du coucher de soleil sur l'océan Indien.",
   },
   {
-    img: "https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=900&q=80",
+    img: "https://images.unsplash.com/photo-1464925029952-5d9ca1cf4f64?auto=format&fit=crop&w=900&q=80",
     tag: "Saisonnier",
-    title: "Observation des baleines",
-    description: "De juillet à septembre, les baleines à bosse migrent au large de Nosy Be. Une sortie en mer inoubliable.",
+    title: "Nage avec les requins-baleines",
+    description: "D'octobre à décembre, les requins-baleines viennent se nourrir au large de Nosy Be. Une rencontre exceptionnelle avec les plus grands poissons de l'océan.",
   },
   {
     img: "https://images.unsplash.com/photo-1759521626408-4118f14632ac?auto=format&fit=crop&w=900&q=80",
@@ -75,10 +75,10 @@ const Excursions = () => {
                 Nos excursions
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-foreground mb-5">
-                Toutes nos activités à Nosy Be
+                Toutes nos activités sur l'île paradisiaque
               </h1>
               <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-                Plongée, îles voisines, sorties en mer... choisissez l'expérience qui vous correspond, on s'occupe du reste.
+                Plongée, nature, rencontres avec maki, tortues de mer et requins-baleines... choisissez l'expérience qui vous correspond, on s'occupe du reste.
               </p>
             </Reveal>
 

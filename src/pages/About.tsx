@@ -42,15 +42,15 @@ const About = () => {
           <div className="max-w-4xl mx-auto px-6 lg:px-8 relative">
             <Reveal>
               <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
-                À propos de JacTour
+                À propos de Nosy Be Secret Islands
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-foreground mb-6">
-                Une agence locale, pour vivre Nosy Be autrement
+                À la découverte de l'île paradisiaque de Nosy Be
               </h1>
               <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-                JacTour est née d'une conviction simple : les meilleurs voyages se construisent avec ceux qui
-                connaissent vraiment leur île. On vous fait découvrir Nosy Be comme un local, loin des circuits
-                figés.
+                Nosy Be Secret Islands est née d'une conviction simple : les meilleurs voyages se construisent avec
+                ceux qui connaissent vraiment leur île. Entre nature, mer et rencontres avec maki, tortues de mer et
+                requins-baleines, on vous fait découvrir Nosy Be comme un local, loin des circuits figés.
               </p>
             </Reveal>
           </div>

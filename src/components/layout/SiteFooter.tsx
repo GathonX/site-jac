@@ -24,7 +24,7 @@ export function SiteFooter() {
           <Link to="/">
             <Logo size="md" />
           </Link>
-          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Tous droits réservés.</p>
+          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Nosy Be Secret Islands. Tous droits réservés.</p>
         </div>
 
         <div className="flex flex-col items-center md:items-end gap-3">

@@ -50,7 +50,7 @@ const HERO_IMAGES = [
   },
 ];
 
-const ROTATING_WORDS = ["Nosy Be.", "l'aventure.", "l'authenticité.", "l'évasion."];
+const ROTATING_WORDS = ["Nosy Be.", "l'île paradisiaque.", "la nature.", "la mer."];
 
 const EXCURSIONS = [
   {
@@ -60,22 +60,22 @@ const EXCURSIONS = [
     description: "Explorez les récifs coralliens et leur faune marine avec des guides expérimentés.",
   },
   {
-    img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=900&q=80",
-    tag: "Bateau",
-    title: "Excursions en mer",
-    description: "Îlots, criques secrètes et couchers de soleil à bord de nos bateaux traditionnels.",
+    img: "https://images.unsplash.com/photo-1704175970578-e0e1d83536f0?auto=format&fit=crop&w=900&q=80",
+    tag: "Nature",
+    title: "Nosy Komba, l'île aux maki",
+    description: "Une rencontre avec les makis en liberté sur l'île voisine, au cœur de la nature.",
   },
   {
-    img: "https://images.unsplash.com/photo-1544551763-92ab472cad5d?auto=format&fit=crop&w=900&q=80",
-    tag: "Faune",
-    title: "Faune marine",
-    description: "Tortues, poissons-clowns et récifs colorés à quelques mètres de la surface.",
+    img: "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=900&q=80",
+    tag: "Faune marine",
+    title: "Tortues de mer à Nosy Tanikely",
+    description: "Snorkeling dans la réserve marine protégée, à quelques mètres des tortues de mer.",
   },
   {
-    img: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=900&q=80",
-    tag: "Sport",
-    title: "Sports nautiques",
-    description: "Surf, kayak et paddle pour les amateurs de sensations sur l'eau.",
+    img: "https://images.unsplash.com/photo-1464925029952-5d9ca1cf4f64?auto=format&fit=crop&w=900&q=80",
+    tag: "Saisonnier",
+    title: "Nage avec les requins-baleines",
+    description: "Une rencontre exceptionnelle avec les plus grands poissons de l'océan, en pleine mer.",
   },
 ];
 
@@ -122,8 +122,8 @@ const STEPS = [
 
 const GALLERY = [
   {
-    img: "https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=1400&q=80",
-    alt: "Baleine à bosse sautant hors de l'eau",
+    img: "https://images.unsplash.com/photo-1464925029952-5d9ca1cf4f64?auto=format&fit=crop&w=1400&q=80",
+    alt: "Requin-baleine nageant près de la surface",
   },
   {
     img: "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=900&q=80",
@@ -131,7 +131,7 @@ const GALLERY = [
   },
   {
     img: "https://images.unsplash.com/photo-1704175970578-e0e1d83536f0?auto=format&fit=crop&w=900&q=80",
-    alt: "Lémurien catta sur une colline verdoyante",
+    alt: "Maki sur une colline verdoyante",
   },
   {
     img: "https://images.unsplash.com/photo-1759521626408-4118f14632ac?auto=format&fit=crop&w=1400&q=80",
@@ -310,7 +310,7 @@ const Landing = () => {
               </span>
             </h1>
             <p className="text-lg lg:text-xl text-background/85 max-w-xl mb-10 leading-relaxed">
-              Excursions, plongée, hébergements et circuits sur mesure : JacTour vous fait vivre Nosy Be comme un local.
+              Excursions, nature et rencontres avec makis, tortues de mer et requins-baleines : Nosy Be Secret Islands vous fait vivre l'île paradisiaque de Nosy Be comme un local.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" variant="gradient" className="text-base font-semibold px-8 h-14" asChild>
@@ -474,7 +474,7 @@ const Landing = () => {
           <div className="order-1 lg:order-2">
             <Reveal>
               <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
-                Pourquoi JacTour
+                Pourquoi Nosy Be Secret Islands
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display tracking-[-0.03em] text-foreground mb-10">
                 Une agence locale, à votre écoute
