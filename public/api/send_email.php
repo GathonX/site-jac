@@ -112,7 +112,7 @@ switch ($formType) {
         }
 
         $replyTo      = $email;
-        $emailSubject = "&#128231; Nouveau contact — " . ($subject ?: 'Message');
+        $emailSubject = "Nouveau contact — " . ($subject ?: 'Message');
         $content  = row('&#128100; Nom :', $name);
         $content .= row('&#128231; Email :', $email);
         if ($phone) $content .= row('&#128222; Téléphone :', $phone);
@@ -139,7 +139,7 @@ switch ($formType) {
         }
 
         $replyTo      = $email;
-        $emailSubject = "&#127754; Réservation excursion — " . $excursion;
+        $emailSubject = "Réservation excursion — " . $excursion;
         $content  = row('&#128100; Nom :', $name);
         $content .= row('&#128231; Email :', $email);
         if ($phone) $content .= row('&#128222; Téléphone :', $phone);
@@ -162,7 +162,7 @@ switch ($formType) {
         }
 
         $replyTo      = $email;
-        $emailSubject = "&#128236; Nouvelle inscription newsletter";
+        $emailSubject = "Nouvelle inscription newsletter";
         $content  = row('&#128231; Email :', $email);
         $content .= row('&#128336; Date :', date('d/m/Y à H:i'));
         $emailBody = emailHtml('&#128236; Nouvelle Inscription Newsletter', $content, $email);
@@ -172,6 +172,17 @@ switch ($formType) {
         http_response_code(400);
         echo json_encode(['success' => false, 'message' => 'Type de formulaire inconnu.']);
         exit;
+}
+
+// Encode un en-tête (Subject, nom d'affichage) en RFC 2047 s'il contient des
+// caractères non-ASCII (accents, tirets typographiques...) — un en-tête brut
+// en UTF-8 est mal interprété par certains clients et pénalisé par les
+// filtres anti-spam.
+function encodeHeaderValue($value) {
+    if (preg_match('/[^\x20-\x7E]/', $value)) {
+        return '=?UTF-8?B?' . base64_encode($value) . '?=';
+    }
+    return $value;
 }
 
 // ── Envoi SMTP ──
@@ -205,10 +216,10 @@ function sendSMTPEmail($host, $port, $username, $password, $encryption, $from, $
         fputs($smtp, "RCPT TO: <{$to}>\r\n"); $getResp();
         fputs($smtp, "DATA\r\n"); $getResp();
 
-        $headers  = "From: {$fromName} <{$from}>\r\n";
+        $headers  = "From: " . encodeHeaderValue($fromName) . " <{$from}>\r\n";
         $headers .= "Reply-To: " . ($replyTo ?: $from) . "\r\n";
         $headers .= "To: <{$to}>\r\n";
-        $headers .= "Subject: {$subject}\r\n";
+        $headers .= "Subject: " . encodeHeaderValue($subject) . "\r\n";
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
         $headers .= "Content-Transfer-Encoding: quoted-printable\r\n";
