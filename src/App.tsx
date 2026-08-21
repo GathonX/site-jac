@@ -13,6 +13,10 @@ const About = lazy(() => import("./pages/About"));
 const Excursions = lazy(() => import("./pages/Excursions"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const MentionsLegales = lazy(() => import("./pages/legal/MentionsLegales"));
+const PolitiqueConfidentialite = lazy(() => import("./pages/legal/PolitiqueConfidentialite"));
+const ConditionsGenerales = lazy(() => import("./pages/legal/ConditionsGenerales"));
+const PolitiqueCookies = lazy(() => import("./pages/legal/PolitiqueCookies"));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -37,6 +41,10 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/excursions" element={<Excursions />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/mentions-legales" element={<MentionsLegales />} />
+              <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
+              <Route path="/conditions-generales" element={<ConditionsGenerales />} />
+              <Route path="/politique-de-cookies" element={<PolitiqueCookies />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

@@ -30,6 +30,13 @@ const navLinks = [
   { to: "/contact", label: "Contact" },
 ];
 
+const legalLinks = [
+  { to: "/mentions-legales", label: "Mentions légales" },
+  { to: "/politique-de-confidentialite", label: "Politique de confidentialité" },
+  { to: "/conditions-generales", label: "Conditions générales" },
+  { to: "/politique-de-cookies", label: "Politique de cookies" },
+];
+
 export function SiteFooter() {
   return (
     <footer className="relative bg-foreground overflow-hidden">
@@ -37,8 +44,8 @@ export function SiteFooter() {
       <div className="absolute -bottom-32 -right-20 w-[340px] h-[340px] rounded-full bg-sun/15 blur-[120px] pointer-events-none" aria-hidden="true" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 relative">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="md:col-span-2 flex flex-col items-center md:items-start text-center md:text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
             <Link to="/">
               <Logo size="xl" />
             </Link>
@@ -62,7 +69,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="text-center md:text-left">
+          <div className="lg:col-span-2 text-center sm:text-left">
             <h3 className="text-sm font-display font-semibold text-background mb-4">Navigation</h3>
             <ul className="space-y-2.5">
               {navLinks.map((link) => (
@@ -75,7 +82,7 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div className="text-center md:text-left">
+          <div className="lg:col-span-3 text-center sm:text-left">
             <h3 className="text-sm font-display font-semibold text-background mb-4">Contact</h3>
             <ul className="space-y-2.5">
               <li>
@@ -109,9 +116,22 @@ export function SiteFooter() {
               </li>
             </ul>
           </div>
+
+          <div className="lg:col-span-3 text-center sm:text-left">
+            <h3 className="text-sm font-display font-semibold text-background mb-4">Légal</h3>
+            <ul className="space-y-2.5">
+              {legalLinks.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="text-sm text-background/70 hover:text-sun transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-background/15 text-center md:text-left">
+        <div className="mt-12 pt-6 border-t border-background/15 text-center sm:text-left">
           <p className="text-sm text-background/60">© {new Date().getFullYear()} Nosy Be Secret Islands Tours. Tous droits réservés.</p>
         </div>
       </div>
