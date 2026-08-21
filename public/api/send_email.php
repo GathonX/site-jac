@@ -1,5 +1,5 @@
 <?php
-// send_email.php - JacTour
+// send_email.php - Nosy Be Secret Islands Tours
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
 
@@ -74,14 +74,14 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f4f4;margin:0;padding
 .foot{background:#f8f9fa;text-align:center;padding:18px;color:#666;font-size:12px;border-top:1px solid #e0e0e0}
 </style></head><body>
 <div class='wrap'>
-  <div class='head'><h1>{$title}</h1><p>JacTour — Nosy Be, Madagascar</p></div>
+  <div class='head'><h1>{$title}</h1><p>Nosy Be Secret Islands Tours — Nosy Be, Madagascar</p></div>
   <div class='body'>
     <div class='info'>{$content}</div>
     {$replyBtn}
   </div>
   <div class='foot'>
-    <p><strong>JacTour &mdash; Nosy Be, Madagascar</strong></p>
-    <p>&#128222; 032 66 875 43 &nbsp;|&nbsp; &#128231; mandimbizarajuno@gmail.com</p>
+    <p><strong>Nosy Be Secret Islands Tours &mdash; Nosy Be, Madagascar</strong></p>
+    <p>&#128222; 034 12 148 83 &nbsp;|&nbsp; &#128231; mandimbizarajuno@gmail.com</p>
   </div>
 </div>
 </body></html>";
@@ -213,7 +213,7 @@ function sendSMTPEmail($host, $port, $username, $password, $encryption, $from, $
         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
         $headers .= "Content-Transfer-Encoding: quoted-printable\r\n";
         $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
-        $headers .= "Message-ID: <" . time() . "." . md5($to . $subject) . "@jactour.mg>\r\n";
+        $headers .= "Message-ID: <" . time() . "." . md5($to . $subject) . "@nosybesecretislands.com>\r\n";
 
         $body = quoted_printable_encode($body);
         fputs($smtp, $headers . "\r\n" . $body . "\r\n.\r\n");
