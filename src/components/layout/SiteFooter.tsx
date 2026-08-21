@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone } from "lucide-react";
-import { SiWhatsapp, SiFacebook, SiInstagram, SiX } from "react-icons/si";
+import { Mail, Phone, Globe } from "lucide-react";
+import { SiWhatsapp, SiFacebook, SiInstagram, SiX, SiGithub } from "react-icons/si";
 import { Logo } from "@/components/Logo";
 import { SITE_CONFIG } from "@/lib/site-config";
+
+const DEVELOPER = {
+  website: "https://mandimbizara-juno.mada-nosybe-tourism.com/",
+  email: "mandimbizarajuno@gmail.com",
+  whatsappUrl: "https://wa.me/261326687543",
+  github: "https://github.com/GathonX",
+};
 
 const socialLinks = [
   { href: SITE_CONFIG.whatsappUrl, label: "WhatsApp", Icon: SiWhatsapp, bg: "bg-[#25D366]" },
@@ -106,6 +113,50 @@ export function SiteFooter() {
 
         <div className="mt-12 pt-6 border-t border-background/15 text-center md:text-left">
           <p className="text-sm text-background/60">© {new Date().getFullYear()} Nosy Be Secret Islands Tours. Tous droits réservés.</p>
+        </div>
+      </div>
+
+      <div className="relative border-t border-background/10 bg-foreground/95">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-2 text-center">
+            <p className="text-xs text-background/50">Site développé par Juno Mandimbizara</p>
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+              <a
+                href={DEVELOPER.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs text-background/50 hover:text-sun transition-colors"
+              >
+                <Globe className="w-3.5 h-3.5 shrink-0" />
+                Site web
+              </a>
+              <a
+                href={`mailto:${DEVELOPER.email}`}
+                className="inline-flex items-center gap-1.5 text-xs text-background/50 hover:text-sun transition-colors"
+              >
+                <Mail className="w-3.5 h-3.5 shrink-0" />
+                {DEVELOPER.email}
+              </a>
+              <a
+                href={DEVELOPER.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs text-background/50 hover:text-sun transition-colors"
+              >
+                <SiWhatsapp className="w-3.5 h-3.5 shrink-0" />
+                WhatsApp
+              </a>
+              <a
+                href={DEVELOPER.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs text-background/50 hover:text-sun transition-colors"
+              >
+                <SiGithub className="w-3.5 h-3.5 shrink-0" />
+                GitHub
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
