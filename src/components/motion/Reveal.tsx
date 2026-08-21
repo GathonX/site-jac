@@ -32,7 +32,7 @@ export function Reveal({
   x,
   direction = "up",
   once = true,
-  amount = 0.2,
+  amount = 0.05,
   ...rest
 }: RevealProps) {
   const reduce = useReducedMotion();
@@ -56,19 +56,19 @@ export function Reveal({
 export const staggerContainer: Variants = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+    transition: { staggerChildren: 0.04, delayChildren: 0.05 },
   },
 };
 
 export const staggerItem: Variants = {
   hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
 };
 
 export function StaggerGroup({
   children,
   className,
-  amount = 0.2,
+  amount = 0.05,
   once = true,
 }: {
   children: ReactNode;
