@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   phone: "032 66 875 43",
   phoneTel: "+261326687543",
   email: "mandimbizarajuno@gmail.com",
-  whatsappUrl: `https://wa.me/261326687543?text=${encodeURIComponent(WHATSAPP_PREFILLED_MESSAGE)}`,
+  whatsappUrl: `https://wa.me/261341214883?text=${encodeURIComponent(WHATSAPP_PREFILLED_MESSAGE)}`,
   social: {
     facebook: "https://www.facebook.com",
     instagram: "https://www.instagram.com",
