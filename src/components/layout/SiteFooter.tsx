@@ -43,33 +43,31 @@ export function SiteFooter() {
       <div className="absolute -top-32 -left-20 w-[380px] h-[380px] rounded-full bg-sky/25 blur-[120px] pointer-events-none" aria-hidden="true" />
       <div className="absolute -bottom-32 -right-20 w-[340px] h-[340px] rounded-full bg-sun/15 blur-[120px] pointer-events-none" aria-hidden="true" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 relative">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
-            <Link to="/">
-              <Logo size="xl" />
-            </Link>
-            <p className="text-sm text-background/70 leading-relaxed mt-4 max-w-sm">
-              Tour opérateur local à Nosy Be : excursions en mer et terrestres, plongée, visites de parc et
-              rencontres avec maki, tortues de mer et requins-baleines.
-            </p>
-            <div className="flex items-center gap-3 mt-6">
-              {socialLinks.map(({ href, label, Icon, bg }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className={`w-9 h-9 rounded-full ${bg} flex items-center justify-center text-white shadow-sm hover:scale-110 hover:shadow-md transition-transform`}
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
-          </div>
+      <div className="max-w-5xl mx-auto px-6 lg:px-8 py-16 relative flex flex-col items-center">
+        <Link to="/">
+          <Logo size="xl" />
+        </Link>
+        <p className="text-sm text-background/70 leading-relaxed mt-4 max-w-md text-center">
+          Tour opérateur local à Nosy Be : excursions en mer et terrestres, plongée, visites de parc et rencontres
+          avec maki, tortues de mer et requins-baleines.
+        </p>
+        <div className="flex items-center gap-3 mt-6">
+          {socialLinks.map(({ href, label, Icon, bg }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className={`w-9 h-9 rounded-full ${bg} flex items-center justify-center text-white shadow-sm hover:scale-110 hover:shadow-md transition-transform`}
+            >
+              <Icon className="w-4 h-4" />
+            </a>
+          ))}
+        </div>
 
-          <div className="lg:col-span-2 text-center sm:text-left">
+        <div className="flex flex-wrap justify-center gap-x-16 gap-y-10 mt-14 w-full">
+          <div className="text-center">
             <h3 className="text-sm font-display font-semibold text-background mb-4">Navigation</h3>
             <ul className="space-y-2.5">
               {navLinks.map((link) => (
@@ -82,7 +80,7 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div className="lg:col-span-3 text-center sm:text-left">
+          <div className="text-center">
             <h3 className="text-sm font-display font-semibold text-background mb-4">Contact</h3>
             <ul className="space-y-2.5">
               <li>
@@ -117,7 +115,7 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div className="lg:col-span-3 text-center sm:text-left">
+          <div className="text-center">
             <h3 className="text-sm font-display font-semibold text-background mb-4">Légal</h3>
             <ul className="space-y-2.5">
               {legalLinks.map((link) => (
@@ -131,7 +129,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-background/15 text-center sm:text-left">
+        <div className="mt-12 pt-6 border-t border-background/15 w-full text-center">
           <p className="text-sm text-background/60">© {new Date().getFullYear()} Nosy Be Secret Islands Tours. Tous droits réservés.</p>
         </div>
       </div>
