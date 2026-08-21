@@ -24,6 +24,11 @@ import {
 } from "lucide-react";
 
 const HERO_IMAGES = [
+
+  {
+    src: "https://images.unsplash.com/photo-1656750675118-04c0c4179b54?auto=format&fit=crop&w=1920&q=80",
+    alt: "Coucher de soleil sur une plage de Nosy Be",
+  },
   {
     src: "https://images.unsplash.com/photo-1710260715197-d43a51dbd2fa?auto=format&fit=crop&w=1920&q=80",
     alt: "Fleur d'ylang-ylang, l'île aux parfums de Nosy Be",
@@ -45,8 +50,16 @@ const HERO_IMAGES = [
     alt: "Palmiers encadrant une mer turquoise à Nosy Be",
   },
   {
-    src: "https://images.unsplash.com/photo-1656750675118-04c0c4179b54?auto=format&fit=crop&w=1920&q=80",
-    alt: "Coucher de soleil sur une plage de Nosy Be",
+    src: "https://images.unsplash.com/photo-1704175970578-e0e1d83536f0?auto=format&fit=crop&w=1920&q=80",
+    alt: "Maki sur une colline verdoyante à Nosy Komba",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=1920&q=80",
+    alt: "Tortue de mer nageant près de la surface à Nosy Tanikely",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1464925029952-5d9ca1cf4f64?auto=format&fit=crop&w=1920&q=80",
+    alt: "Requin-baleine nageant près de la surface au large de Nosy Be",
   },
 ];
 
