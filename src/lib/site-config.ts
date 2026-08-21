@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   name: "Nosy Be Secret Islands Tours",
   phone: "034 12 148 83",
   phoneTel: "+261341214883",
-  email: "mandimbizarajuno@gmail.com",
+  email: "ralambojacquinette@gmail.com",
   whatsappUrl: `https://wa.me/261341214883?text=${encodeURIComponent(WHATSAPP_PREFILLED_MESSAGE)}`,
   social: {
     facebook: "https://www.facebook.com",
