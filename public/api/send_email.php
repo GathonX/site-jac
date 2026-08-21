@@ -9,6 +9,13 @@ header('Access-Control-Allow-Headers: Content-Type');
 
 function debugLog($message) { error_log("[JACTOUR] " . $message); }
 
+// Les valeurs saisies par le visiteur (nom, sujet...) finissent dans des
+// en-têtes email construits à la main — un retour à la ligne dans l'un
+// d'eux permettrait d'injecter des en-têtes arbitraires (Bcc, etc.).
+function cleanHeaderField($value) {
+    return trim(str_replace(["\r", "\n"], '', $value));
+}
+
 function loadEnv($path) {
     if (!file_exists($path)) return false;
     $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -91,18 +98,19 @@ function row($label, $value) {
     return "<div class='row'><span class='lbl'>" . $label . "</span><span>" . htmlspecialchars($value) . "</span></div>";
 }
 
-$emailSubject = '';
-$emailBody    = '';
-$replyTo      = $fromAddress;
+$emailSubject      = '';
+$emailBody         = '';
+$replyTo           = $fromAddress;
+$fromDisplayName   = $fromName;
 
 switch ($formType) {
 
     // ── Formulaire de contact général ──
     case 'contact':
-        $name    = trim($data['name'] ?? '');
-        $email   = trim($data['email'] ?? '');
+        $name    = cleanHeaderField($data['name'] ?? '');
+        $email   = cleanHeaderField($data['email'] ?? '');
         $phone   = trim($data['phone'] ?? '');
-        $subject = trim($data['subject'] ?? '');
+        $subject = cleanHeaderField($data['subject'] ?? '');
         $message = trim($data['message'] ?? '');
 
         if (!$name || !$email || !filter_var($email, FILTER_VALIDATE_EMAIL) || !$message) {
@@ -111,7 +119,8 @@ switch ($formType) {
             exit;
         }
 
-        $replyTo      = $email;
+        $replyTo         = $email;
+        $fromDisplayName = "{$name} ({$email}) via site";
         $emailSubject = "Nouveau contact — " . ($subject ?: 'Message');
         $content  = row('&#128100; Nom :', $name);
         $content .= row('&#128231; Email :', $email);
@@ -124,10 +133,10 @@ switch ($formType) {
 
     // ── Réservation excursion ──
     case 'booking_excursion':
-        $name      = trim($data['name'] ?? '');
-        $email     = trim($data['email'] ?? '');
+        $name      = cleanHeaderField($data['name'] ?? '');
+        $email     = cleanHeaderField($data['email'] ?? '');
         $phone     = trim($data['phone'] ?? '');
-        $excursion = trim($data['excursion'] ?? '');
+        $excursion = cleanHeaderField($data['excursion'] ?? '');
         $date      = trim($data['date'] ?? '');
         $persons   = trim($data['persons'] ?? '');
         $message   = trim($data['message'] ?? '');
@@ -138,7 +147,8 @@ switch ($formType) {
             exit;
         }
 
-        $replyTo      = $email;
+        $replyTo         = $email;
+        $fromDisplayName = "{$name} ({$email}) via site";
         $emailSubject = "Réservation excursion — " . $excursion;
         $content  = row('&#128100; Nom :', $name);
         $content .= row('&#128231; Email :', $email);
@@ -153,7 +163,7 @@ switch ($formType) {
 
     // ── Inscription newsletter ──
     case 'newsletter':
-        $email = trim($data['email'] ?? '');
+        $email = cleanHeaderField($data['email'] ?? '');
 
         if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             http_response_code(400);
@@ -161,7 +171,8 @@ switch ($formType) {
             exit;
         }
 
-        $replyTo      = $email;
+        $replyTo         = $email;
+        $fromDisplayName = "Newsletter ({$email}) via site";
         $emailSubject = "Nouvelle inscription newsletter";
         $content  = row('&#128231; Email :', $email);
         $content .= row('&#128336; Date :', date('d/m/Y à H:i'));
@@ -242,7 +253,7 @@ function sendSMTPEmail($host, $port, $username, $password, $encryption, $from, $
 
 $sent = sendSMTPEmail(
     $smtpHost, $smtpPort, $smtpUsername, $smtpPassword, $smtpEncryption,
-    $fromAddress, $fromName, $toAddress, $emailSubject, $emailBody, $replyTo
+    $fromAddress, $fromDisplayName, $toAddress, $emailSubject, $emailBody, $replyTo
 );
 
 debugLog("Formulaire [$formType] — envoi " . ($sent ? 'OK' : 'ÉCHEC'));
