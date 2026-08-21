@@ -98,10 +98,9 @@ function row($label, $value) {
     return "<div class='row'><span class='lbl'>" . $label . "</span><span>" . htmlspecialchars($value) . "</span></div>";
 }
 
-$emailSubject      = '';
-$emailBody         = '';
-$replyTo           = $fromAddress;
-$fromDisplayName   = $fromName;
+$emailSubject = '';
+$emailBody    = '';
+$replyTo      = $fromAddress;
 
 switch ($formType) {
 
@@ -119,8 +118,7 @@ switch ($formType) {
             exit;
         }
 
-        $replyTo         = $email;
-        $fromDisplayName = "{$name} ({$email}) via site";
+        $replyTo      = $email;
         $emailSubject = "Nouveau contact — " . ($subject ?: 'Message');
         $content  = row('&#128100; Nom :', $name);
         $content .= row('&#128231; Email :', $email);
@@ -147,8 +145,7 @@ switch ($formType) {
             exit;
         }
 
-        $replyTo         = $email;
-        $fromDisplayName = "{$name} ({$email}) via site";
+        $replyTo      = $email;
         $emailSubject = "Réservation excursion — " . $excursion;
         $content  = row('&#128100; Nom :', $name);
         $content .= row('&#128231; Email :', $email);
@@ -171,8 +168,7 @@ switch ($formType) {
             exit;
         }
 
-        $replyTo         = $email;
-        $fromDisplayName = "Newsletter ({$email}) via site";
+        $replyTo      = $email;
         $emailSubject = "Nouvelle inscription newsletter";
         $content  = row('&#128231; Email :', $email);
         $content .= row('&#128336; Date :', date('d/m/Y à H:i'));
@@ -253,7 +249,7 @@ function sendSMTPEmail($host, $port, $username, $password, $encryption, $from, $
 
 $sent = sendSMTPEmail(
     $smtpHost, $smtpPort, $smtpUsername, $smtpPassword, $smtpEncryption,
-    $fromAddress, $fromDisplayName, $toAddress, $emailSubject, $emailBody, $replyTo
+    $fromAddress, $fromName, $toAddress, $emailSubject, $emailBody, $replyTo
 );
 
 debugLog("Formulaire [$formType] — envoi " . ($sent ? 'OK' : 'ÉCHEC'));
