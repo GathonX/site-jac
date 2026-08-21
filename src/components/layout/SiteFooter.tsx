@@ -43,7 +43,7 @@ export function SiteFooter() {
       <div className="absolute -top-32 -left-20 w-[380px] h-[380px] rounded-full bg-sky/25 blur-[120px] pointer-events-none" aria-hidden="true" />
       <div className="absolute -bottom-32 -right-20 w-[340px] h-[340px] rounded-full bg-sun/15 blur-[120px] pointer-events-none" aria-hidden="true" />
 
-      <div className="max-w-5xl mx-auto px-6 lg:px-8 py-16 relative flex flex-col items-center">
+      <div className="max-w-5xl mx-auto px-6 lg:px-8 py-5 relative flex flex-col items-center">
         <Link to="/">
           <Logo size="xl" />
         </Link>
