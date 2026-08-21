@@ -180,20 +180,20 @@ function HeroCarousel() {
       <button
         onClick={() => goTo(index - 1)}
         aria-label="Image précédente"
-        className="glass-dark hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full hover:bg-white/20 items-center justify-center text-background transition-colors"
+        className="glass-dark hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full hover:bg-white/20 items-center justify-center text-background transition-colors"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
       <button
         onClick={() => goTo(index + 1)}
         aria-label="Image suivante"
-        className="glass-dark hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full hover:bg-white/20 items-center justify-center text-background transition-colors"
+        className="glass-dark hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full hover:bg-white/20 items-center justify-center text-background transition-colors"
       >
         <ChevronRight className="w-5 h-5" />
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-6 inset-x-0 flex justify-center gap-2 z-10">
+      <div className="absolute bottom-6 inset-x-0 flex justify-center gap-2 z-20">
         {HERO_IMAGES.map((_, i) => (
           <button
             key={i}
