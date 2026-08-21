@@ -6,7 +6,7 @@ import { SITE_CONFIG } from "@/lib/site-config";
 
 const DEVELOPER = {
   website: "https://mandimbizara-juno.mada-nosybe-tourism.com/",
-  email: "ralambojacquinette@gmail.com",
+  email: "mandimbizarajuno@gmail.com",
   whatsappUrl: "https://wa.me/261326687543",
   github: "https://github.com/GathonX",
 };
