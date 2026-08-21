@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -6,12 +6,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { PageLoader } from "@/components/PageLoader";
 
 import Landing from "./pages/Landing";
-import About from "./pages/About";
-import Excursions from "./pages/Excursions";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+const About = lazy(() => import("./pages/About"));
+const Excursions = lazy(() => import("./pages/Excursions"));
+const Contact = lazy(() => import("./pages/Contact"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,13 +31,15 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <SmoothScroll />
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/excursions" element={<Excursions />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/excursions" element={<Excursions />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>

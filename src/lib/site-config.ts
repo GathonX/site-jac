@@ -5,8 +5,8 @@ export const SITE_CONFIG = {
   // canoniques, le sitemap, og:url et les données structurées.
   siteUrl: "https://www.nosybesecretislands.com",
   name: "Nosy Be Secret Islands Tours",
-  phone: "032 66 875 43",
-  phoneTel: "+261326687543",
+  phone: "034 12 148 83",
+  phoneTel: "+261341214883",
   email: "mandimbizarajuno@gmail.com",
   whatsappUrl: `https://wa.me/261341214883?text=${encodeURIComponent(WHATSAPP_PREFILLED_MESSAGE)}`,
   social: {
