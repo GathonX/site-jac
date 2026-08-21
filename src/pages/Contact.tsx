@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { SITE_CONFIG } from "@/lib/site-config";
+import { celebrate } from "@/lib/confetti";
 
 const contactMethods = [
   {
@@ -69,6 +70,7 @@ const Contact = () => {
       const data = await res.json();
       if (data.success) {
         toast.success(data.message || "Message envoyé avec succès !");
+        celebrate();
         setForm(initialForm);
       } else {
         toast.error(data.message || "Échec de l'envoi. Veuillez réessayer.");
