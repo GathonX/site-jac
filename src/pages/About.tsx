@@ -32,23 +32,27 @@ const About = () => {
         description="Nosy Be Secret Islands Tours, une agence locale qui vous fait découvrir Nosy Be autrement : nature, mer, maki, tortues de mer et requins-baleines, loin des circuits figés."
         path="/about"
       />
-      <SiteNav />
+      <SiteNav transparentOverHero scrollThreshold={0.4} />
 
       <main className="flex-1">
         {/* Intro */}
-        <section className="section-wash py-20 lg:py-28 relative overflow-hidden">
-          <div className="absolute -top-20 -right-20 w-[380px] h-[380px] rounded-full bg-sky/20 blur-[110px] pointer-events-none" aria-hidden="true" />
-          <div className="absolute top-1/3 -left-24 w-[340px] h-[340px] rounded-full bg-palm/15 blur-[110px] pointer-events-none" aria-hidden="true" />
-          <div className="absolute bottom-0 right-1/3 w-[260px] h-[260px] rounded-full bg-sun/20 blur-[110px] pointer-events-none" aria-hidden="true" />
-          <div className="max-w-4xl mx-auto px-6 lg:px-8 relative">
-            <Reveal>
-              <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
+        <section className="relative h-[52svh] min-h-[380px] flex items-end overflow-hidden">
+          <img
+            src="/img/img9.jpeg"
+            alt="Terre rouge caractéristique des paysages de Madagascar"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/10" />
+
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-14 lg:pb-16 relative z-10 w-full">
+            <Reveal className="max-w-2xl">
+              <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-sun mb-4">
                 À propos de Nosy Be Secret Islands Tours
               </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-foreground mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-background mb-5">
                 À la découverte de l'île paradisiaque de Nosy Be
               </h1>
-              <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              <p className="text-lg lg:text-xl text-background/85 leading-relaxed">
                 Nosy Be Secret Islands Tours est un tour opérateur local spécialisé dans les excursions en mer et
                 terrestres : plongée, visites de parc, rencontres avec maki, tortues de mer et requins-baleines.
                 Avec nos guides, on vous fait découvrir Nosy Be comme un local, loin des circuits figés.

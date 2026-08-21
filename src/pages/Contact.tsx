@@ -87,23 +87,34 @@ const Contact = () => {
         description="Contactez Nosy Be Secret Islands Tours par téléphone, email ou WhatsApp pour organiser vos excursions sur l'île paradisiaque de Nosy Be."
         path="/contact"
       />
-      <SiteNav />
+      <SiteNav transparentOverHero scrollThreshold={0.35} />
 
       <main className="flex-1">
+        <section className="relative h-[42svh] min-h-[320px] flex items-end overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1656750675118-04c0c4179b54?auto=format&fit=crop&w=1600&q=80"
+            alt="Coucher de soleil sur une plage de Nosy Be"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/10" />
+
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-14 lg:pb-16 relative z-10 w-full">
+            <Reveal className="max-w-2xl">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-background mb-5">
+                Contactez-nous
+              </h1>
+              <p className="text-lg lg:text-xl text-background/85 leading-relaxed">
+                Une question, une envie de voyage ? Écrivez-nous par le canal qui vous convient le mieux.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
         <section className="py-20 lg:py-28 relative overflow-hidden">
           <div className="absolute -top-20 -left-20 w-[380px] h-[380px] rounded-full bg-sky/20 blur-[110px] pointer-events-none" aria-hidden="true" />
           <div className="absolute top-1/3 -right-24 w-[340px] h-[340px] rounded-full bg-sun/25 blur-[110px] pointer-events-none" aria-hidden="true" />
           <div className="absolute bottom-0 left-1/3 w-[260px] h-[260px] rounded-full bg-palm/15 blur-[110px] pointer-events-none" aria-hidden="true" />
           <div className="max-w-4xl mx-auto px-6 lg:px-8 relative">
-            <Reveal>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-foreground mb-6">
-                Contactez-nous
-              </h1>
-              <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl mb-12">
-                Une question, une envie de voyage ? Écrivez-nous par le canal qui vous convient le mieux.
-              </p>
-            </Reveal>
-
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
               {contactMethods.map(({ Icon, label, value, href, external }, i) => (
                 <Card key={label} className="glass shadow-sm hover:shadow-lg hover:shadow-primary/10 transition-shadow">
