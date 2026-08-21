@@ -263,12 +263,12 @@ const Landing = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="max-w-2xl"
+            className="max-w-3xl"
           >
-            <div className="glass-dark inline-flex items-center gap-2 mb-6 text-background px-3.5 py-1.5 rounded-full text-[11px] font-bold tracking-[0.18em] uppercase">
+            <div className="glass-dark inline-flex items-center gap-2 mb-7 text-background px-4 py-2 rounded-full text-xs font-bold tracking-[0.18em] uppercase">
               Agence locale · Nosy Be, Madagascar
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] leading-[1.05] text-background mb-6">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display tracking-[-0.03em] leading-[1.05] text-background mb-7">
               Découvrez{" "}
               <span className="inline-block relative">
                 <AnimatePresence mode="wait">
@@ -285,7 +285,7 @@ const Landing = () => {
                 </AnimatePresence>
               </span>
             </h1>
-            <p className="text-lg lg:text-xl text-background/85 max-w-xl mb-10 leading-relaxed">
+            <p className="text-xl lg:text-2xl text-background/90 max-w-2xl mb-10 leading-relaxed">
               Excursions, nature et rencontres avec makis, tortues de mer et requins-baleines : Nosy Be Secret Islands Tours vous fait vivre l'île paradisiaque de Nosy Be comme un local.
             </p>
             <div className="flex flex-wrap gap-4">

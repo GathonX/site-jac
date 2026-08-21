@@ -143,20 +143,20 @@
     display: none;
   }
 
-  /* Glassmorphism — for surfaces over photos/dark backgrounds */
+  /* Glassmorphism — for surfaces over photos/dark backgrounds. Crisp, not foggy: modest blur, higher opacity. */
   .glass-dark {
-    background: hsl(0 0% 100% / 0.12);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid hsl(0 0% 100% / 0.25);
+    background: hsl(0 0% 100% / 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid hsl(0 0% 100% / 0.32);
   }
 
   /* Glassmorphism — for surfaces over light section backgrounds. Tinted warm sand, not pure white. */
   .glass {
-    background: hsl(32 45% 97% / 0.7);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid hsl(var(--foreground) / 0.08);
+    background: hsl(32 45% 97% / 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--foreground) / 0.1);
   }
 
   /* Gradient text — brand sky-to-primary */
