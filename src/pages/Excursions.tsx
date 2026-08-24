@@ -52,7 +52,7 @@ const EXCURSIONS = [
   {
     img: "/img/img8.jpeg",
     tag: "Terrestre",
-    title: "Randonnée, points de vue — forêt primaire de Lokobe",
+    title: "Randonnée, point de vue dans une forêt primaire Lokobe",
     description: "À pied dans la forêt primaire de la réserve de Lokobe, jusqu'aux plus beaux points de vue et panoramas sur l'océan Indien.",
   },
   {
