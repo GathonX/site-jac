@@ -42,7 +42,7 @@ const EXCURSION_IMAGES = [
   "/img/whale-shark.jpeg",
 ];
 
-const GALLERY_IMAGES = ["/img/img5.jpeg", "/img/img2.jpeg", "/img/img12.jpeg", "/img/img9.jpeg", "/img/img10.jpeg"];
+const GALLERY_IMAGES = ["/img/img5.jpeg", "/img/lemur-treetop.jpeg", "/img/img12.jpeg", "/img/img9.jpeg", "/img/img10.jpeg"];
 
 const FEATURE_ICONS = [MapPin, Users, ShieldCheck, Sparkles];
 const STEP_ICONS = [MessageCircle, CalendarCheck, PartyPopper];

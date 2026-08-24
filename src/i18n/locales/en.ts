@@ -146,7 +146,7 @@ const en: Locale = {
     galleryTitle: "A glimpse of Nosy Be",
     galleryAlts: [
       "Leaf-tailed gecko camouflaged among dead leaves, a species endemic to Madagascar",
-      "Leaf-tailed gecko on a branch, wildlife endemic to Nosy Be",
+      "Lemur in the treetops by the water in Nosy Be",
       "Footprints on the white sandbank of Nosy Be",
       "Red earth typical of Madagascar's landscapes",
       "Striated rock formations during a hike in Nosy Be",
@@ -248,15 +248,23 @@ const en: Locale = {
         eyebrow: "Nature & Wildlife",
         title: "Primary forests and endemic wildlife of Nosy Be",
         subhead: "Protected reserves, hikes and encounters with wildlife found nowhere else but Madagascar.",
-        heroImageAlt: "Hiking along the coastal rocks of Nosy Be with an ocean view",
+        heroImageAlt: "Leaf-tailed gecko camouflaged in Lokobe's primary forest",
         items: [
           {
-            slug: "lokobe-reserve",
+            slug: "lokobe-national-park",
             image: "/img/img2.jpeg",
-            tag: "Primary forest",
-            title: "Lokobe Reserve",
-            shortDescription: "Two ways to explore Nosy Be's last primary forest, both reached by dugout canoe from Ambatozavavy: the National Park or the community reserve.",
-            fullDescription: "Lokobe Reserve is home to Nosy Be's last remaining primary forest, a refuge for exceptional endemic wildlife: nocturnal lemurs, leaf-tailed geckos and several chameleon species, some among the smallest in the world. Access is by traditional dugout canoe from the fishing village of Ambatozavavy to Ampasipohy, the reserve's entrance village, through the mangroves — allow 45 minutes to 1 hour depending on the tide. Once there, two options are available: Lokobe National Park, or the community reserve, managed directly by the villagers. Either way, visits are always accompanied by a licensed guide.",
+            tag: "National Park",
+            title: "Lokobe National Park",
+            shortDescription: "The official access route to Nosy Be's last primary forest, via the village of Marodoka.",
+            fullDescription: "Lokobe National Park protects Nosy Be's last remaining primary forest, home to exceptional endemic wildlife: nocturnal lemurs, leaf-tailed geckos and several chameleon species, some among the smallest in the world. Access to the park is from the historic village of Marodoka, the island's first trading post. Visits, always accompanied by a licensed guide, let you explore this protected forest within Madagascar's official national park network.",
+          },
+          {
+            slug: "lokobe-community-reserve",
+            image: "/img/pirogue.jpeg",
+            tag: "Community reserve",
+            title: "Lokobe Community Reserve",
+            shortDescription: "A visit to the Lokobe forest run by local villagers, by dugout canoe from Ambatozavavy.",
+            fullDescription: "The Lokobe community reserve is managed directly by local villagers rather than the national park authority. Access is by traditional dugout canoe from the fishing village of Ambatozavavy to Ampasipohy, the reserve's entrance village, through the mangroves — allow 45 minutes to 1 hour depending on the tide. A more local, community-driven way to explore the same primary forest, where tourism revenue benefits residents directly.",
           },
           {
             slug: "forest-trekking",
@@ -283,11 +291,11 @@ const en: Locale = {
         eyebrow: "Island Discovery",
         title: "The history and landscapes of Nosy Be",
         subhead: "Island tour, cultural heritage and endemic wildlife just minutes from Hell-Ville.",
-        heroImageAlt: "Red earth typical of Madagascar's landscapes",
+        heroImageAlt: "Panoramic view over Hell-Ville and its bay from the highlands of Nosy Be",
         items: [
           {
             slug: "nosy-be-island-tour",
-            image: "/img/img9.jpeg",
+            image: "/img/nosy-be-harbor-view.jpeg",
             tag: "Island tour",
             title: "Nosy Be Island Tour",
             shortDescription: "Mont Passot's crater lakes, iconic beaches and typical villages: a full day taking the measure of Nosy Be.",
@@ -295,7 +303,7 @@ const en: Locale = {
           },
           {
             slug: "cultural-circuit",
-            image: "/img/pirogue.jpeg",
+            image: "/img/img7.jpeg",
             tag: "Culture",
             title: "Cultural circuit",
             shortDescription: "Mahatsinjo's sacred tree, a small local history museum, and the historic village of Marodoka.",

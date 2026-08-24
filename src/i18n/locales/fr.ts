@@ -144,7 +144,7 @@ const fr = {
     galleryTitle: "Un aperçu de Nosy Be",
     galleryAlts: [
       "Gecko-feuille camouflé dans les feuilles mortes, espèce endémique de Madagascar",
-      "Gecko-feuille sur une branche, faune endémique de Nosy Be",
+      "Lémurien dans les arbres au bord de l'eau à Nosy Be",
       "Traces de pas sur le banc de sable blanc de Nosy Be",
       "Terre rouge caractéristique des paysages de Madagascar",
       "Formations rocheuses striées lors d'une randonnée à Nosy Be",
@@ -246,15 +246,23 @@ const fr = {
         eyebrow: "Nature & Faune",
         title: "Forêts primaires et faune endémique de Nosy Be",
         subhead: "Réserves protégées, randonnées et rencontres avec une faune unique à Madagascar.",
-        heroImageAlt: "Randonnée sur les rochers côtiers de Nosy Be avec vue sur l'océan",
+        heroImageAlt: "Gecko-feuille camouflé dans la forêt primaire de Lokobe",
         items: [
           {
-            slug: "lokobe-reserve",
+            slug: "lokobe-national-park",
             image: "/img/img2.jpeg",
-            tag: "Forêt primaire",
-            title: "Réserve de Lokobe",
-            shortDescription: "Deux façons de découvrir la dernière forêt primaire de Nosy Be, toutes deux en pirogue depuis Ambatozavavy : le Parc National ou la réserve communautaire.",
-            fullDescription: "La réserve de Lokobe abrite la dernière forêt primaire de Nosy Be, refuge d'une faune endémique exceptionnelle : lémuriens nocturnes, geckos-feuilles et plusieurs espèces de caméléons, parmi les plus petites au monde. L'accès se fait en pirogue traditionnelle depuis le village de pêcheurs d'Ambatozavavy jusqu'à Ampasipohy, le village d'entrée de la réserve, à travers les mangroves — comptez 45 minutes à 1 heure de traversée selon la marée. Une fois sur place, deux options s'offrent à vous : le Parc National de Lokobe, ou la réserve communautaire, gérée directement par les villageois. Dans les deux cas, la visite se fait obligatoirement avec un guide agréé.",
+            tag: "Parc National",
+            title: "Parc National de Lokobe",
+            shortDescription: "L'accès officiel à la dernière forêt primaire de Nosy Be, via le village de Marodoka.",
+            fullDescription: "Le Parc National de Lokobe protège la dernière forêt primaire de Nosy Be, refuge d'une faune endémique exceptionnelle : lémuriens nocturnes, geckos-feuilles et plusieurs espèces de caméléons parmi les plus petites au monde. L'accès au parc se fait depuis le village historique de Marodoka, premier comptoir de l'île. La visite, toujours accompagnée d'un guide agréé, permet de découvrir cette forêt protégée dans le cadre officiel du réseau des parcs nationaux de Madagascar.",
+          },
+          {
+            slug: "lokobe-community-reserve",
+            image: "/img/pirogue.jpeg",
+            tag: "Réserve communautaire",
+            title: "Réserve communautaire de Lokobe",
+            shortDescription: "Une visite de la forêt de Lokobe portée par les villageois, en pirogue depuis Ambatozavavy.",
+            fullDescription: "La réserve communautaire de Lokobe est gérée directement par les villageois plutôt que par l'administration des parcs nationaux. L'accès se fait en pirogue traditionnelle depuis le village de pêcheurs d'Ambatozavavy jusqu'à Ampasipohy, le village d'entrée de la réserve, à travers les mangroves — comptez 45 minutes à 1 heure de traversée selon la marée. Une manière plus locale et solidaire de découvrir la même forêt primaire, où les retombées du tourisme profitent directement à la communauté.",
           },
           {
             slug: "forest-trekking",
@@ -281,11 +289,11 @@ const fr = {
         eyebrow: "Découverte des Îles",
         title: "L'histoire et les paysages de Nosy Be",
         subhead: "Tour de l'île, patrimoine culturel et faune endémique à quelques minutes de Hell-Ville.",
-        heroImageAlt: "Terre rouge caractéristique des paysages de Madagascar",
+        heroImageAlt: "Vue panoramique sur Hell-Ville et sa baie depuis les hauteurs de Nosy Be",
         items: [
           {
             slug: "nosy-be-island-tour",
-            image: "/img/img9.jpeg",
+            image: "/img/nosy-be-harbor-view.jpeg",
             tag: "Tour de l'île",
             title: "Tour de l'île de Nosy Be",
             shortDescription: "Mont Passot et ses lacs de cratère, plages emblématiques et villages typiques : une journée pour prendre la mesure de Nosy Be.",
@@ -293,7 +301,7 @@ const fr = {
           },
           {
             slug: "cultural-circuit",
-            image: "/img/pirogue.jpeg",
+            image: "/img/img7.jpeg",
             tag: "Culture",
             title: "Circuit culturel",
             shortDescription: "Arbre sacré de Mahatsinjo, petit musée d'histoire locale et village historique de Marodoka.",
