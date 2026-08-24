@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/layout/MobileNav";
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { useLang } from "@/hooks/useLang";
 
 interface SiteNavProps {
@@ -16,7 +17,7 @@ interface SiteNavProps {
 export function SiteNav({ transparentOverHero = false, scrollThreshold = 0.7 }: SiteNavProps) {
   const [scrolled, setScrolled] = useState(!transparentOverHero);
   const { t } = useTranslation();
-  const { localize, otherLang, otherLangPath } = useLang();
+  const { localize } = useLang();
 
   useEffect(() => {
     if (!transparentOverHero) return;
@@ -44,12 +45,9 @@ export function SiteNav({ transparentOverHero = false, scrollThreshold = 0.7 }: 
           <Link to={localize("/about")} className={linkClass}>
             {t("nav.about")}
           </Link>
-          <Link
-            to={otherLangPath}
-            className={`text-sm font-semibold transition-colors hidden sm:inline-block uppercase ${solid ? "text-foreground/80 hover:text-foreground" : "text-background/90 hover:text-background"}`}
-          >
-            {otherLang}
-          </Link>
+          <LanguageSwitcher
+            className={`hidden sm:inline-flex ${solid ? "text-foreground/80 hover:bg-muted hover:text-foreground" : "text-background/90 hover:bg-white/10 hover:text-background"}`}
+          />
           <Button className="hidden sm:inline-flex text-sm font-semibold" variant="gradient-ocean" asChild>
             <Link to={localize("/contact")}>{t("nav.contactCta")}</Link>
           </Button>

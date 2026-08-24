@@ -5,12 +5,13 @@ import { useTranslation } from "react-i18next";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/Logo";
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { useLang } from "@/hooks/useLang";
 
 export function MobileNav({ triggerClassName = "text-foreground" }: { triggerClassName?: string }) {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
-  const { localize, otherLang, otherLangPath } = useLang();
+  const { localize } = useLang();
 
   const links = [
     { to: localize("/"), label: t("nav.home") },
@@ -43,13 +44,9 @@ export function MobileNav({ triggerClassName = "text-foreground" }: { triggerCla
               {link.label}
             </Link>
           ))}
-          <Link
-            to={otherLangPath}
-            onClick={() => setOpen(false)}
-            className="text-base font-medium text-foreground py-3 px-2 rounded-lg hover:bg-muted transition-colors uppercase"
-          >
-            {otherLang}
-          </Link>
+          <div className="px-2 mt-2">
+            <LanguageSwitcher className="text-foreground hover:bg-muted" onNavigate={() => setOpen(false)} />
+          </div>
         </nav>
         <div className="mt-auto pt-6">
           <Button variant="gradient-ocean" className="w-full" asChild>

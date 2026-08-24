@@ -16,10 +16,12 @@ export function useLang() {
   /** Prefixes an absolute French-rooted path (e.g. "/contact") with the current language. */
   const localize = (path: string) => (path === "/" ? prefix || "/" : `${prefix}${path}`);
 
-  /** The bare (un-prefixed) path, and its equivalent URL in the other language — for the language switcher. */
+  /** The bare (un-prefixed) path, and this page's URL in each language — for the language switcher. */
   const barePath = isEn ? location.pathname.slice(3) || "/" : location.pathname;
+  const frPath = barePath;
+  const enPath = `/en${barePath === "/" ? "" : barePath}`;
   const otherLang: Lang = isEn ? "fr" : "en";
-  const otherLangPath = isEn ? barePath : `/en${barePath === "/" ? "" : barePath}`;
+  const otherLangPath = isEn ? frPath : enPath;
 
-  return { lang, prefix, localize, otherLang, otherLangPath };
+  return { lang, prefix, localize, otherLang, otherLangPath, frPath, enPath };
 }
