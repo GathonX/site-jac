@@ -106,7 +106,7 @@ const en: Locale = {
       },
       {
         tag: "Nature",
-        title: "Nosy Komba, the island of lemurs",
+        title: "Nosy Komba, the island of Lemurs",
         description: "Meet lemurs roaming free on the neighboring island, right in the heart of nature.",
       },
       {
@@ -195,7 +195,7 @@ const en: Locale = {
       },
       {
         tag: "Nature",
-        title: "Nosy Komba, the island of lemurs",
+        title: "Nosy Komba, the island of Lemurs",
         description: "A stroll on the neighboring island to meet lemurs roaming free and visit the local village.",
       },
       {

@@ -104,7 +104,7 @@ const fr = {
       },
       {
         tag: "Nature",
-        title: "Nosy Komba, l'île aux lémuriens",
+        title: "Nosy Komba, l'île aux Lémuriens",
         description: "Une rencontre avec les lémuriens en liberté sur l'île voisine, au cœur de la nature.",
       },
       {
@@ -193,7 +193,7 @@ const fr = {
       },
       {
         tag: "Nature",
-        title: "Nosy Komba, l'île aux lémuriens",
+        title: "Nosy Komba, l'île aux Lémuriens",
         description: "Une balade sur l'île voisine à la rencontre des lémuriens en liberté et du village local.",
       },
       {
