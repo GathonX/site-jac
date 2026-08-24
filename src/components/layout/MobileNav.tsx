@@ -12,7 +12,7 @@ export function MobileNav({ triggerClassName = "text-foreground" }: { triggerCla
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
   const { localize } = useLang();
-  const categories = t("excursionsPage.categories", { returnObjects: true }) as { id: string; emoji: string; label: string }[];
+  const categories = t("experiences.categories", { returnObjects: true }) as { id: string; label: string }[];
 
   const links = [{ to: localize("/"), label: t("nav.home") }];
   const trailingLinks = [{ to: localize("/about"), label: t("nav.about") }];
@@ -43,18 +43,14 @@ export function MobileNav({ triggerClassName = "text-foreground" }: { triggerCla
             </Link>
           ))}
 
-          <Link
-            to={localize("/excursions")}
-            onClick={() => setOpen(false)}
-            className="text-base font-medium text-foreground py-3 px-2 rounded-lg hover:bg-muted transition-colors"
-          >
+          <div className="text-base font-medium text-foreground py-3 px-2">
             {t("nav.excursions")}
-          </Link>
+          </div>
           <div className="flex flex-col gap-0.5 pl-4 mb-1">
             {categories.map((cat) => (
               <Link
                 key={cat.id}
-                to={`${localize("/excursions")}?category=${cat.id}`}
+                to={localize(`/excursions/${cat.id}`)}
                 onClick={() => setOpen(false)}
                 className="text-sm text-muted-foreground py-2 px-2 rounded-lg hover:bg-muted hover:text-foreground transition-colors"
               >

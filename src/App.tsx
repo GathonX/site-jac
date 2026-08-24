@@ -3,7 +3,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { PageLoader } from "@/components/PageLoader";
@@ -12,7 +12,8 @@ import i18n from "@/i18n";
 
 import Landing from "./pages/Landing";
 const About = lazy(() => import("./pages/About"));
-const Excursions = lazy(() => import("./pages/Excursions"));
+const ExperienceCategory = lazy(() => import("./pages/ExperienceCategory"));
+const ExperienceDetail = lazy(() => import("./pages/ExperienceDetail"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const MentionsLegales = lazy(() => import("./pages/legal/MentionsLegales"));
@@ -24,7 +25,8 @@ const PolitiqueCookies = lazy(() => import("./pages/legal/PolitiqueCookies"));
 const ROUTE_DEFS: { path: string; Component: ComponentType }[] = [
   { path: "/", Component: Landing },
   { path: "/about", Component: About },
-  { path: "/excursions", Component: Excursions },
+  { path: "/excursions/:categoryId", Component: ExperienceCategory },
+  { path: "/excursions/:categoryId/:itemSlug", Component: ExperienceDetail },
   { path: "/contact", Component: Contact },
   { path: "/mentions-legales", Component: MentionsLegales },
   { path: "/politique-de-confidentialite", Component: PolitiqueConfidentialite },
@@ -67,6 +69,9 @@ const App = () => (
               {ROUTE_DEFS.map(({ path, Component }) => (
                 <Route key={`en-${path}`} path={path === "/" ? "/en" : `/en${path}`} element={<Component />} />
               ))}
+              {/* The old single-page /excursions no longer exists — send old links/bookmarks somewhere useful. */}
+              <Route path="/excursions" element={<Navigate to="/excursions/marine-experiences" replace />} />
+              <Route path="/en/excursions" element={<Navigate to="/en/excursions/marine-experiences" replace />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

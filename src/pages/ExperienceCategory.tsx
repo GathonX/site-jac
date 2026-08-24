@@ -1,70 +1,59 @@
-import { useMemo } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { ArrowRight } from "lucide-react";
 import { Seo } from "@/components/Seo";
 import { SiteNav } from "@/components/layout/SiteNav";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { useLang } from "@/hooks/useLang";
+import NotFound from "@/pages/NotFound";
 
-const EXCURSION_IMAGES = [
-  "/img/diving.jpeg",
-  "/img/black-lemur.jpeg",
-  "/img/tanikely-reef.jpeg",
-  "/img/sea-turtle.jpeg",
-  "/img/img2.jpeg",
-  "/img/img4.jpeg",
-  "/img/sunset-beach.jpeg",
-  "/img/whale-shark.jpeg",
-  "/img/img8.jpeg",
-  "/img/kayak.jpeg",
-  "/img/ylang-ylang.jpeg",
-];
-
-const PILL_ROTATION = ["pill-gradient-ocean", "pill-gradient-palm", "pill-gradient-sun"];
-
-interface ExcursionItem {
-  category: string;
+interface ExperienceItem {
+  slug: string;
+  image: string;
   tag: string;
   title: string;
-  description: string;
+  shortDescription: string;
+  fullDescription: string;
 }
 
-interface Category {
+interface ExperienceCategory {
   id: string;
   emoji: string;
   label: string;
+  eyebrow: string;
+  title: string;
+  subhead: string;
+  heroImageAlt: string;
+  items: ExperienceItem[];
 }
 
-const Excursions = () => {
+const PILL_ROTATION = ["pill-gradient-ocean", "pill-gradient-palm", "pill-gradient-sun"];
+
+const ExperienceCategoryPage = () => {
+  const { categoryId } = useParams<{ categoryId: string }>();
   const { t } = useTranslation();
   const { localize } = useLang();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const list = t("excursionsPage.list", { returnObjects: true }) as ExcursionItem[];
-  const categories = t("excursionsPage.categories", { returnObjects: true }) as Category[];
+  const categories = t("experiences.categories", { returnObjects: true }) as ExperienceCategory[];
+  const category = categories.find((c) => c.id === categoryId);
 
-  const activeCategory = searchParams.get("category");
-
-  const indexedList = useMemo(() => list.map((item, i) => ({ ...item, img: EXCURSION_IMAGES[i] })), [list]);
-  const filteredList = activeCategory ? indexedList.filter((item) => item.category === activeCategory) : indexedList;
-
-  const selectCategory = (id: string | null) => {
-    if (id) setSearchParams({ category: id });
-    else setSearchParams({});
-  };
+  if (!category) return <NotFound />;
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden flex flex-col">
-      <Seo title={t("seo.excursions.title")} description={t("seo.excursions.description")} path="/excursions" />
+      <Seo
+        title={`${category.label} — Nosy Be Secret Islands Tours`}
+        description={category.subhead}
+        path={`/excursions/${category.id}`}
+      />
       <SiteNav transparentOverHero scrollThreshold={0.4} />
 
       <main className="flex-1">
         <section className="relative h-[52svh] min-h-[380px] flex items-end overflow-hidden bg-muted">
           <img
-            src="/img/img11.jpeg"
-            alt={t("excursionsPage.heroImageAlt")}
+            src={category.items[0].image}
+            alt={category.heroImageAlt}
             fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -73,13 +62,13 @@ const Excursions = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-14 lg:pb-16 relative z-10 w-full">
             <Reveal className="max-w-2xl">
               <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-sun mb-4">
-                {t("excursionsPage.eyebrow")}
+                {category.eyebrow}
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-background mb-5">
-                {t("excursionsPage.title")}
+                {category.title}
               </h1>
               <p className="text-lg lg:text-xl text-background/85 leading-relaxed">
-                {t("excursionsPage.subhead")}
+                {category.subhead}
               </p>
             </Reveal>
           </div>
@@ -92,35 +81,27 @@ const Excursions = () => {
 
           <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
             <div className="flex flex-wrap gap-2.5 mb-12">
-              <button
-                onClick={() => selectCategory(null)}
-                className={`text-sm font-semibold px-4 py-2 rounded-full transition-colors ${
-                  !activeCategory ? "bg-foreground text-background" : "glass text-foreground/80 hover:text-foreground"
-                }`}
-              >
-                {t("excursionsPage.allCategories")}
-              </button>
               {categories.map((cat) => (
-                <button
+                <Link
                   key={cat.id}
-                  onClick={() => selectCategory(cat.id)}
+                  to={localize(`/excursions/${cat.id}`)}
                   className={`text-sm font-semibold px-4 py-2 rounded-full transition-colors inline-flex items-center gap-1.5 ${
-                    activeCategory === cat.id ? "bg-foreground text-background" : "glass text-foreground/80 hover:text-foreground"
+                    cat.id === category.id ? "bg-foreground text-background" : "glass text-foreground/80 hover:text-foreground"
                   }`}
                 >
                   {cat.emoji && <span aria-hidden="true">{cat.emoji}</span>}
                   {cat.label}
-                </button>
+                </Link>
               ))}
             </div>
 
-            <StaggerGroup key={activeCategory ?? "all"} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredList.map((item, i) => (
-                <StaggerItem key={item.title}>
+            <StaggerGroup key={category.id} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {category.items.map((item, i) => (
+                <StaggerItem key={item.slug}>
                   <div className="glass group rounded-3xl overflow-hidden h-full flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-shadow">
-                    <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                    <Link to={localize(`/excursions/${category.id}/${item.slug}`)} className="relative aspect-[4/3] overflow-hidden bg-muted block">
                       <img
-                        src={item.img}
+                        src={item.image}
                         alt={item.title}
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         loading="lazy"
@@ -129,19 +110,28 @@ const Excursions = () => {
                       <span className={`${PILL_ROTATION[i % PILL_ROTATION.length]} absolute top-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-[0.15em] shadow-lg shadow-foreground/10`}>
                         {item.tag}
                       </span>
-                    </div>
+                    </Link>
                     <div className="p-6 flex flex-col flex-1">
                       <h3 className="font-display font-semibold text-lg text-foreground mb-2 tracking-[-0.01em]">
-                        {item.title}
+                        <Link to={localize(`/excursions/${category.id}/${item.slug}`)} className="hover:text-primary transition-colors">
+                          {item.title}
+                        </Link>
                       </h3>
                       <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
-                        {item.description}
+                        {item.shortDescription}
                       </p>
-                      <Button variant="gradient" size="sm" className="self-start" asChild>
-                        <Link to={`${localize("/contact")}?sujet=${encodeURIComponent(item.title)}`}>
-                          {t("common.book")} <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
-                        </Link>
-                      </Button>
+                      <div className="flex flex-wrap gap-2.5">
+                        <Button variant="gradient" size="sm" asChild>
+                          <Link to={`${localize("/contact")}?sujet=${encodeURIComponent(item.title)}`}>
+                            {t("common.book")} <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
+                          </Link>
+                        </Button>
+                        <Button variant="outline" size="sm" asChild>
+                          <Link to={localize(`/excursions/${category.id}/${item.slug}`)}>
+                            {t("experiences.detailsButton")}
+                          </Link>
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </StaggerItem>
@@ -156,4 +146,4 @@ const Excursions = () => {
   );
 };
 
-export default Excursions;
+export default ExperienceCategoryPage;

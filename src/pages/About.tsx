@@ -104,7 +104,7 @@ const About = () => {
                 {t("about.approachText")}
               </p>
               <Button variant="gradient" size="lg" asChild>
-                <Link to={localize("/excursions")}>
+                <Link to={localize("/excursions/marine-experiences")}>
                   {t("about.approachButton")} <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>

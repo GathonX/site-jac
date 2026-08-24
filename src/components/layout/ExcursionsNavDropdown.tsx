@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ChevronDown } from "lucide-react";
 import {
@@ -11,19 +11,13 @@ import { useLang } from "@/hooks/useLang";
 
 interface Category {
   id: string;
-  emoji: string;
   label: string;
 }
 
 export function ExcursionsNavDropdown({ className = "" }: { className?: string }) {
-  const navigate = useNavigate();
   const { t } = useTranslation();
   const { localize } = useLang();
-  const categories = t("excursionsPage.categories", { returnObjects: true }) as Category[];
-
-  const go = (categoryId?: string) => {
-    navigate(categoryId ? `${localize("/excursions")}?category=${categoryId}` : localize("/excursions"));
-  };
+  const categories = t("experiences.categories", { returnObjects: true }) as Category[];
 
   return (
     <DropdownMenu>
@@ -32,12 +26,9 @@ export function ExcursionsNavDropdown({ className = "" }: { className?: string }
         <ChevronDown className="w-3.5 h-3.5" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start">
-        <DropdownMenuItem onClick={() => go()} className="cursor-pointer font-medium">
-          {t("excursionsPage.allCategories")}
-        </DropdownMenuItem>
         {categories.map((cat) => (
-          <DropdownMenuItem key={cat.id} onClick={() => go(cat.id)} className="cursor-pointer">
-            {cat.label}
+          <DropdownMenuItem key={cat.id} asChild className="cursor-pointer">
+            <Link to={localize(`/excursions/${cat.id}`)}>{cat.label}</Link>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

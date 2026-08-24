@@ -114,7 +114,7 @@ const Landing = () => {
   const { t } = useTranslation();
   const { localize } = useLang();
   const rotatingWords = t("landing.rotatingWords", { returnObjects: true }) as string[];
-  const excursions = t("landing.excursions", { returnObjects: true }) as { tag: string; title: string; description: string }[];
+  const excursions = t("landing.excursions", { returnObjects: true }) as { slug: string; tag: string; title: string; description: string }[];
   const features = t("landing.features", { returnObjects: true }) as { title: string; description: string }[];
   const steps = t("landing.steps", { returnObjects: true }) as { title: string; description: string }[];
   const galleryAlts = t("landing.galleryAlts", { returnObjects: true }) as string[];
@@ -201,7 +201,7 @@ const Landing = () => {
                 <Link to={localize("/contact")}>{t("landing.ctaContact")} <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
               <Button size="lg" variant="outline" className="text-base font-semibold px-8 h-14 bg-background/10 text-background border-background/30 hover:bg-background/20 hover:text-background" asChild>
-                <Link to={localize("/excursions")}>{t("landing.ctaExcursions")}</Link>
+                <Link to={localize("/excursions/marine-experiences")}>{t("landing.ctaExcursions")}</Link>
               </Button>
             </div>
             <p className="mt-8 text-xs font-bold tracking-[0.25em] uppercase text-background/70">
@@ -231,7 +231,7 @@ const Landing = () => {
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {excursions.map((item, i) => (
               <StaggerItem key={item.title}>
-                <Link to={localize("/excursions")} className="group block">
+                <Link to={localize(`/excursions/marine-experiences/${item.slug}`)} className="group block">
                   <div className="relative rounded-3xl overflow-hidden mb-4 aspect-[4/5] bg-muted">
                     <img
                       src={EXCURSION_IMAGES[i]}
@@ -255,7 +255,7 @@ const Landing = () => {
 
           <div className="mt-12 text-center">
             <Button variant="outline" size="lg" asChild>
-              <Link to={localize("/excursions")}>
+              <Link to={localize("/excursions/marine-experiences")}>
                 {t("landing.viewAllExcursions")} <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>

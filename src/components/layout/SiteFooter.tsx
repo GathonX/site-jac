@@ -29,9 +29,11 @@ export function SiteFooter() {
     { href: SITE_CONFIG.social.x, label: "X", Icon: SiX, bg: "bg-[#000000]" },
   ];
 
+  const experienceCategories = t("experiences.categories", { returnObjects: true }) as { id: string; label: string }[];
+
   const navLinks = [
     { to: localize("/"), label: t("nav.home") },
-    { to: localize("/excursions"), label: t("nav.excursions") },
+    ...experienceCategories.map((cat) => ({ to: localize(`/excursions/${cat.id}`), label: cat.label })),
     { to: localize("/about"), label: t("nav.about") },
     { to: localize("/contact"), label: t("nav.contact") },
   ];
