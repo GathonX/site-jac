@@ -34,10 +34,11 @@ const Excursions = () => {
       <SiteNav transparentOverHero scrollThreshold={0.4} />
 
       <main className="flex-1">
-        <section className="relative h-[52svh] min-h-[380px] flex items-end overflow-hidden">
+        <section className="relative h-[52svh] min-h-[380px] flex items-end overflow-hidden bg-muted">
           <img
             src="/img/img11.jpeg"
             alt={t("excursionsPage.heroImageAlt")}
+            fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/10" />
@@ -67,7 +68,7 @@ const Excursions = () => {
               {list.map((item, i) => (
                 <StaggerItem key={item.title}>
                   <div className="glass group rounded-3xl overflow-hidden h-full flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-shadow">
-                    <div className="relative aspect-[4/3] overflow-hidden">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-muted">
                       <img
                         src={EXCURSION_IMAGES[i]}
                         alt={item.title}

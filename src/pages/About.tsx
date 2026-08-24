@@ -22,10 +22,11 @@ const About = () => {
 
       <main className="flex-1">
         {/* Intro */}
-        <section className="relative h-[52svh] min-h-[380px] flex items-end overflow-hidden">
+        <section className="relative h-[52svh] min-h-[380px] flex items-end overflow-hidden bg-muted">
           <img
             src="/img/img9.jpeg"
             alt={t("about.heroImageAlt")}
+            fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/10" />
@@ -109,7 +110,7 @@ const About = () => {
               </Button>
             </Reveal>
 
-            <Reveal direction="left" className="rounded-[2rem] overflow-hidden aspect-[4/3] shadow-2xl shadow-primary/10 ring-1 ring-foreground/5">
+            <Reveal direction="left" className="rounded-[2rem] overflow-hidden aspect-[4/3] shadow-2xl shadow-primary/10 ring-1 ring-foreground/5 bg-muted">
               <img
                 src="/img/img7.jpeg"
                 alt={t("about.approachImageAlt")}

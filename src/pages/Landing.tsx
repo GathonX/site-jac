@@ -62,12 +62,14 @@ function HeroCarousel() {
   const goTo = (i: number) => setIndex((i + HERO_IMAGE_SRCS.length) % HERO_IMAGE_SRCS.length);
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden bg-gradient-to-br from-sky/30 to-primary/40">
       <AnimatePresence mode="sync">
         <motion.img
           key={index}
           src={HERO_IMAGE_SRCS[index]}
           alt={heroImageAlts[index]}
+          // @ts-expect-error -- fetchPriority isn't in this React version's img typings yet, but the DOM attribute works
+          fetchpriority={index === 0 ? "high" : undefined}
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -230,7 +232,7 @@ const Landing = () => {
             {excursions.map((item, i) => (
               <StaggerItem key={item.title}>
                 <Link to={localize("/excursions")} className="group block">
-                  <div className="relative rounded-3xl overflow-hidden mb-4 aspect-[4/5]">
+                  <div className="relative rounded-3xl overflow-hidden mb-4 aspect-[4/5] bg-muted">
                     <img
                       src={EXCURSION_IMAGES[i]}
                       alt={item.title}
@@ -317,7 +319,7 @@ const Landing = () => {
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
             {GALLERY_IMAGES.slice(0, 3).map((img, i) => (
               <StaggerItem key={img}>
-                <div className="rounded-3xl overflow-hidden aspect-[3/4] group">
+                <div className="rounded-3xl overflow-hidden aspect-[3/4] group bg-muted">
                   <img
                     src={img}
                     alt={galleryAlts[i]}
@@ -331,7 +333,7 @@ const Landing = () => {
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {GALLERY_IMAGES.slice(3).map((img, i) => (
               <StaggerItem key={img}>
-                <div className="rounded-3xl overflow-hidden aspect-[16/9] group">
+                <div className="rounded-3xl overflow-hidden aspect-[16/9] group bg-muted">
                   <img
                     src={img}
                     alt={galleryAlts[i + 3]}
@@ -350,7 +352,7 @@ const Landing = () => {
         <div className="absolute -top-10 left-0 w-[380px] h-[380px] rounded-full bg-sky/10 blur-[130px] pointer-events-none" aria-hidden="true" />
         <div className="absolute bottom-0 right-0 w-[340px] h-[340px] rounded-full bg-sun/15 blur-[120px] pointer-events-none" aria-hidden="true" />
         <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
-          <Reveal direction="right" className="rounded-[2rem] overflow-hidden aspect-[4/3] order-2 lg:order-1 shadow-2xl shadow-primary/10 ring-1 ring-foreground/5">
+          <Reveal direction="right" className="rounded-[2rem] overflow-hidden aspect-[4/3] order-2 lg:order-1 shadow-2xl shadow-primary/10 ring-1 ring-foreground/5 bg-muted">
             <img
               src="https://images.unsplash.com/photo-1628503185998-182cd70d46a7?auto=format&fit=crop&w=1200&q=80"
               alt={t("landing.whyImageAlt")}

@@ -80,10 +80,11 @@ const Contact = () => {
       <SiteNav transparentOverHero scrollThreshold={0.35} />
 
       <main className="flex-1">
-        <section className="relative h-[42svh] min-h-[320px] flex items-end overflow-hidden">
+        <section className="relative h-[42svh] min-h-[320px] flex items-end overflow-hidden bg-muted">
           <img
             src="https://images.unsplash.com/photo-1656750675118-04c0c4179b54?auto=format&fit=crop&w=1600&q=80"
             alt={t("contactPage.heroImageAlt")}
+            fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/10" />
