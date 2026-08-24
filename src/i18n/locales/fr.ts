@@ -185,58 +185,77 @@ const fr = {
     title: "Toutes nos activités sur l'île paradisiaque",
     subhead:
       "Excursions en mer et terrestres, visites de réserve, plongée, rencontres avec lémuriens, tortues de mer et requins-baleines... choisissez l'expérience qui vous correspond, on s'occupe du reste.",
+    categoriesLabel: "Catégories",
+    allCategories: "Toutes",
+    categories: [
+      { id: "marine", emoji: "🌊", label: "Expériences Marines" },
+      { id: "nature", emoji: "🌿", label: "Nature & Faune" },
+      { id: "island", emoji: "🏝️", label: "Découverte des Îles" },
+      { id: "local", emoji: "", label: "Expériences Locales" },
+    ],
     list: [
       {
+        category: "marine",
         tag: "Plongée",
         title: "Plongée & snorkeling",
         description: "Explorez les récifs coralliens et leur faune marine colorée avec des guides expérimentés, en palmes-masque-tuba ou en bouteille.",
       },
       {
+        category: "nature",
         tag: "Nature",
         title: "Nosy Komba, l'île aux Lémuriens",
         description: "Une balade sur l'île voisine à la rencontre des lémuriens en liberté et du village local.",
       },
       {
+        category: "marine",
         tag: "Réserve marine",
         title: "Nosy Tanikely",
         description: "Snorkeling dans la réserve marine protégée : poissons-clowns, coraux et fonds préservés.",
       },
       {
+        category: "nature",
         tag: "Tortues",
         title: "Nosy Sakatia",
         description: "Nagez aux côtés des tortues de mer en liberté, au large de la petite île de Sakatia.",
       },
       {
+        category: "nature",
         tag: "Réserve",
         title: "Réserve Lokobe",
         description: "La dernière forêt primaire de Nosy Be, accessible en pirogue puis à pied avec un guide agréé : lémuriens nocturnes, geckos-feuilles et caméléons endémiques.",
       },
       {
+        category: "island",
         tag: "Bateau",
         title: "Excursion en mer & îlots",
         description: "Une journée entre plages désertes et criques secrètes à bord de nos bateaux traditionnels.",
       },
       {
+        category: "marine",
         tag: "Croisière",
         title: "Croisière coucher de soleil",
         description: "Une sortie en mer en fin de journée pour profiter du coucher de soleil sur l'océan Indien.",
       },
       {
+        category: "nature",
         tag: "Saisonnier",
         title: "Nage avec les requins-baleines",
         description: "D'octobre à décembre, les requins-baleines viennent se nourrir au large de Nosy Be. Une rencontre exceptionnelle avec les plus grands poissons de l'océan.",
       },
       {
+        category: "island",
         tag: "Terrestre",
         title: "Randonnée, point de vue dans une forêt primaire Lokobe",
         description: "À pied dans la forêt primaire de la réserve de Lokobe, jusqu'aux plus beaux points de vue et panoramas sur l'océan Indien.",
       },
       {
+        category: "marine",
         tag: "Nautique",
         title: "Kayak & paddle",
         description: "Longez la côte à votre rythme, seul ou accompagné, pour découvrir les criques inaccessibles autrement.",
       },
       {
+        category: "local",
         tag: "Culture",
         title: "Plantation d'ylang-ylang",
         description: "Nosy Be, « l'île aux parfums » : visite d'une plantation et d'une distillerie pour découvrir la récolte et la production d'huile essentielle d'ylang-ylang.",

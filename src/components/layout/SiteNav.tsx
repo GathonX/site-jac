@@ -5,6 +5,7 @@ import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
+import { ExcursionsNavDropdown } from "@/components/layout/ExcursionsNavDropdown";
 import { useLang } from "@/hooks/useLang";
 
 interface SiteNavProps {
@@ -39,9 +40,7 @@ export function SiteNav({ transparentOverHero = false, scrollThreshold = 0.7 }: 
           <Logo size="md" />
         </Link>
         <div className="flex items-center gap-3 sm:gap-6">
-          <Link to={localize("/excursions")} className={linkClass}>
-            {t("nav.excursions")}
-          </Link>
+          <ExcursionsNavDropdown className={`hidden sm:inline-flex ${solid ? "text-foreground/80 hover:text-foreground" : "text-background/90 hover:text-background"}`} />
           <Link to={localize("/about")} className={linkClass}>
             {t("nav.about")}
           </Link>

@@ -187,58 +187,77 @@ const en: Locale = {
     title: "All our activities on the paradise island",
     subhead:
       "Sea and land excursions, reserve visits, diving, encounters with lemurs, sea turtles and whale sharks... choose the experience that suits you, we'll take care of the rest.",
+    categoriesLabel: "Categories",
+    allCategories: "All",
+    categories: [
+      { id: "marine", emoji: "🌊", label: "Marine Experiences" },
+      { id: "nature", emoji: "🌿", label: "Nature & Wildlife" },
+      { id: "island", emoji: "🏝️", label: "Island Discovery" },
+      { id: "local", emoji: "", label: "Local Experiences" },
+    ],
     list: [
       {
+        category: "marine",
         tag: "Diving",
         title: "Diving & snorkeling",
         description: "Explore coral reefs and their colorful marine wildlife with experienced guides, snorkeling or scuba diving.",
       },
       {
+        category: "nature",
         tag: "Nature",
         title: "Nosy Komba, the island of Lemurs",
         description: "A stroll on the neighboring island to meet lemurs roaming free and visit the local village.",
       },
       {
+        category: "marine",
         tag: "Marine reserve",
         title: "Nosy Tanikely",
         description: "Snorkeling in the protected marine reserve: clownfish, coral and pristine reefs.",
       },
       {
+        category: "nature",
         tag: "Sea turtles",
         title: "Nosy Sakatia",
         description: "Swim alongside wild sea turtles off the small island of Sakatia.",
       },
       {
+        category: "nature",
         tag: "Reserve",
         title: "Lokobe Reserve",
         description: "Nosy Be's last remaining primary forest, reached by dugout canoe then on foot with a licensed guide: nocturnal lemurs, leaf-tailed geckos and endemic chameleons.",
       },
       {
+        category: "island",
         tag: "Boat",
         title: "Sea excursion & islets",
         description: "A day between deserted beaches and secret coves aboard our traditional boats.",
       },
       {
+        category: "marine",
         tag: "Cruise",
         title: "Sunset cruise",
         description: "An evening trip out at sea to enjoy the sunset over the Indian Ocean.",
       },
       {
+        category: "nature",
         tag: "Seasonal",
         title: "Swimming with whale sharks",
         description: "From October to December, whale sharks come to feed off the coast of Nosy Be. An exceptional encounter with the largest fish in the ocean.",
       },
       {
+        category: "island",
         tag: "Land",
         title: "Hiking & viewpoints in Lokobe's primary forest",
         description: "On foot through the primary forest of Lokobe Reserve, up to the island's best viewpoints and panoramas over the Indian Ocean.",
       },
       {
+        category: "marine",
         tag: "Water sports",
         title: "Kayak & paddleboard",
         description: "Follow the coastline at your own pace, alone or with a guide, to discover coves otherwise inaccessible.",
       },
       {
+        category: "local",
         tag: "Culture",
         title: "Ylang-ylang plantation",
         description: "Nosy Be, the \"island of perfumes\": visit a plantation and distillery to discover how ylang-ylang essential oil is harvested and produced.",

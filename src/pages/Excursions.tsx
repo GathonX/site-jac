@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useMemo } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Seo } from "@/components/Seo";
 import { SiteNav } from "@/components/layout/SiteNav";
@@ -24,10 +25,35 @@ const EXCURSION_IMAGES = [
 
 const PILL_ROTATION = ["pill-gradient-ocean", "pill-gradient-palm", "pill-gradient-sun"];
 
+interface ExcursionItem {
+  category: string;
+  tag: string;
+  title: string;
+  description: string;
+}
+
+interface Category {
+  id: string;
+  emoji: string;
+  label: string;
+}
+
 const Excursions = () => {
   const { t } = useTranslation();
   const { localize } = useLang();
-  const list = t("excursionsPage.list", { returnObjects: true }) as { tag: string; title: string; description: string }[];
+  const [searchParams, setSearchParams] = useSearchParams();
+  const list = t("excursionsPage.list", { returnObjects: true }) as ExcursionItem[];
+  const categories = t("excursionsPage.categories", { returnObjects: true }) as Category[];
+
+  const activeCategory = searchParams.get("category");
+
+  const indexedList = useMemo(() => list.map((item, i) => ({ ...item, img: EXCURSION_IMAGES[i] })), [list]);
+  const filteredList = activeCategory ? indexedList.filter((item) => item.category === activeCategory) : indexedList;
+
+  const selectCategory = (id: string | null) => {
+    if (id) setSearchParams({ category: id });
+    else setSearchParams({});
+  };
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden flex flex-col">
@@ -65,13 +91,36 @@ const Excursions = () => {
           <div className="absolute bottom-0 right-1/4 w-[280px] h-[280px] rounded-full bg-sun/20 blur-[110px] pointer-events-none" aria-hidden="true" />
 
           <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
-            <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {list.map((item, i) => (
+            <div className="flex flex-wrap gap-2.5 mb-12">
+              <button
+                onClick={() => selectCategory(null)}
+                className={`text-sm font-semibold px-4 py-2 rounded-full transition-colors ${
+                  !activeCategory ? "bg-foreground text-background" : "glass text-foreground/80 hover:text-foreground"
+                }`}
+              >
+                {t("excursionsPage.allCategories")}
+              </button>
+              {categories.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => selectCategory(cat.id)}
+                  className={`text-sm font-semibold px-4 py-2 rounded-full transition-colors inline-flex items-center gap-1.5 ${
+                    activeCategory === cat.id ? "bg-foreground text-background" : "glass text-foreground/80 hover:text-foreground"
+                  }`}
+                >
+                  {cat.emoji && <span aria-hidden="true">{cat.emoji}</span>}
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+
+            <StaggerGroup key={activeCategory ?? "all"} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredList.map((item, i) => (
                 <StaggerItem key={item.title}>
                   <div className="glass group rounded-3xl overflow-hidden h-full flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-shadow">
                     <div className="relative aspect-[4/3] overflow-hidden bg-muted">
                       <img
-                        src={EXCURSION_IMAGES[i]}
+                        src={item.img}
                         alt={item.title}
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         loading="lazy"
