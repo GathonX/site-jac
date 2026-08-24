@@ -98,33 +98,6 @@ const en: Locale = {
     excursionsEyebrow: "Our activities",
     excursionsTitle: "Unforgettable experiences",
     excursionsSubhead: "From diving to sea excursions, every outing is designed to reveal the best of Nosy Be.",
-    excursions: [
-      {
-        slug: "nosy-komba",
-        tag: "Nature",
-        title: "Nosy Komba, the island of Lemurs",
-        description: "Meet lemurs roaming free on the neighboring island, right in the heart of nature.",
-      },
-      {
-        slug: "sakatia",
-        tag: "Sea turtles",
-        title: "Sea turtles at Nosy Sakatia",
-        description: "Swim alongside wild sea turtles off the small island of Sakatia.",
-      },
-      {
-        slug: "nosy-tanikely",
-        tag: "Snorkeling",
-        title: "Nosy Tanikely",
-        description: "Snorkeling in the protected marine reserve, among clownfish and pristine coral.",
-      },
-      {
-        slug: "whale-shark-season",
-        tag: "Seasonal",
-        title: "Swimming with whale sharks",
-        description: "An exceptional encounter with the largest fish in the ocean, out at sea.",
-      },
-    ],
-    viewAllExcursions: "See all our excursions",
     howItWorksEyebrow: "How it works",
     howItWorksTitle: "Simple, from the first message to landing",
     stepLabel: "Step",
@@ -197,6 +170,7 @@ const en: Locale = {
         eyebrow: "Marine Experiences",
         title: "Diving, snorkeling and encounters off Nosy Be",
         subhead: "From swimming with turtles to the seasonal whale sharks, discover Nosy Be's marine life.",
+        homeDescription: "Nosy Iranja, Nosy Komba, Nosy Tanikely, Sakatia and the whale shark season: diving, snorkeling and encounters with exceptional marine wildlife.",
         heroImageAlt: "Sea turtle swimming near the surface at Nosy Sakatia",
         items: [
           {
@@ -248,6 +222,7 @@ const en: Locale = {
         eyebrow: "Nature & Wildlife",
         title: "Primary forests and endemic wildlife of Nosy Be",
         subhead: "Protected reserves, hikes and encounters with wildlife found nowhere else but Madagascar.",
+        homeDescription: "Lokobe National Park or community reserve, forest trekking on Nosy Komba, and Akiba village: primary forests and endemic wildlife to explore on foot.",
         heroImageAlt: "Leaf-tailed gecko camouflaged in Lokobe's primary forest",
         items: [
           {
@@ -291,6 +266,7 @@ const en: Locale = {
         eyebrow: "Island Discovery",
         title: "The history and landscapes of Nosy Be",
         subhead: "Island tour, cultural heritage and endemic wildlife just minutes from Hell-Ville.",
+        homeDescription: "Island tour and Mont Passot, a cultural circuit between the sacred tree and Marodoka, and lemurs at Lemuria Land.",
         heroImageAlt: "Panoramic view over Hell-Ville and its bay from the highlands of Nosy Be",
         items: [
           {
@@ -326,6 +302,7 @@ const en: Locale = {
         eyebrow: "Local Experiences",
         title: "Everyday life on Nosy Be",
         subhead: "Villages, food and craftsmanship: meeting the people of the island.",
+        homeDescription: "Village visits, local cuisine, traditional crafts and community-based tourism: everyday life on Nosy Be.",
         heroImageAlt: "Colorful sarongs drying on a line facing the beach in Nosy Be",
         items: [
           {

@@ -96,33 +96,6 @@ const fr = {
     excursionsEyebrow: "Nos activités",
     excursionsTitle: "Des expériences inoubliables",
     excursionsSubhead: "De la plongée aux excursions en mer, chaque sortie est pensée pour révéler le meilleur de Nosy Be.",
-    excursions: [
-      {
-        slug: "nosy-komba",
-        tag: "Nature",
-        title: "Nosy Komba, l'île aux Lémuriens",
-        description: "Une rencontre avec les lémuriens en liberté sur l'île voisine, au cœur de la nature.",
-      },
-      {
-        slug: "sakatia",
-        tag: "Tortues",
-        title: "Tortues de mer à Nosy Sakatia",
-        description: "Nagez aux côtés des tortues de mer en liberté, au large de la petite île de Sakatia.",
-      },
-      {
-        slug: "nosy-tanikely",
-        tag: "Snorkeling",
-        title: "Nosy Tanikely",
-        description: "Snorkeling dans la réserve marine protégée, entre poissons-clowns et coraux préservés.",
-      },
-      {
-        slug: "whale-shark-season",
-        tag: "Saisonnier",
-        title: "Nage avec les requins-baleines",
-        description: "Une rencontre exceptionnelle avec les plus grands poissons de l'océan, en pleine mer.",
-      },
-    ],
-    viewAllExcursions: "Voir toutes nos excursions",
     howItWorksEyebrow: "Comment ça marche",
     howItWorksTitle: "Simple, du premier message au débarquement",
     stepLabel: "Étape",
@@ -195,6 +168,7 @@ const fr = {
         eyebrow: "Expériences Marines",
         title: "Plongée, snorkeling et rencontres au large de Nosy Be",
         subhead: "De la nage avec les tortues aux requins-baleines saisonniers, découvrez la vie marine de Nosy Be.",
+        homeDescription: "Nosy Iranja, Nosy Komba, Nosy Tanikely, Sakatia et la saison des requins-baleines : plongée, snorkeling et rencontres avec une faune marine exceptionnelle.",
         heroImageAlt: "Tortue de mer nageant près de la surface à Nosy Sakatia",
         items: [
           {
@@ -246,6 +220,7 @@ const fr = {
         eyebrow: "Nature & Faune",
         title: "Forêts primaires et faune endémique de Nosy Be",
         subhead: "Réserves protégées, randonnées et rencontres avec une faune unique à Madagascar.",
+        homeDescription: "Parc National ou réserve communautaire de Lokobe, randonnée en forêt à Nosy Komba et village d'Akiba : forêts primaires et faune endémique à découvrir à pied.",
         heroImageAlt: "Gecko-feuille camouflé dans la forêt primaire de Lokobe",
         items: [
           {
@@ -289,6 +264,7 @@ const fr = {
         eyebrow: "Découverte des Îles",
         title: "L'histoire et les paysages de Nosy Be",
         subhead: "Tour de l'île, patrimoine culturel et faune endémique à quelques minutes de Hell-Ville.",
+        homeDescription: "Tour de l'île et Mont Passot, circuit culturel entre arbre sacré et Marodoka, et rencontre avec les lémuriens de Lemuria Land.",
         heroImageAlt: "Vue panoramique sur Hell-Ville et sa baie depuis les hauteurs de Nosy Be",
         items: [
           {
@@ -324,6 +300,7 @@ const fr = {
         eyebrow: "Expériences Locales",
         title: "La vie quotidienne de Nosy Be",
         subhead: "Villages, gastronomie et artisanat : à la rencontre des habitants de l'île.",
+        homeDescription: "Visites de villages, cuisine locale, artisanat traditionnel et tourisme communautaire : la vie quotidienne de Nosy Be.",
         heroImageAlt: "Paréos colorés sur un étendoir face à la plage à Nosy Be",
         items: [
           {

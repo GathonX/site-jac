@@ -35,13 +35,6 @@ const HERO_IMAGE_SRCS = [
   "/img/sea-turtle.jpeg",
 ];
 
-const EXCURSION_IMAGES = [
-  "/img/diving.jpeg",
-  "/img/black-lemur.jpeg",
-  "/img/sea-turtle.jpeg",
-  "/img/whale-shark.jpeg",
-];
-
 const GALLERY_IMAGES = ["/img/img5.jpeg", "/img/lemur-treetop.jpeg", "/img/img12.jpeg", "/img/img9.jpeg", "/img/img10.jpeg"];
 
 const FEATURE_ICONS = [MapPin, Users, ShieldCheck, Sparkles];
@@ -114,7 +107,13 @@ const Landing = () => {
   const { t } = useTranslation();
   const { localize } = useLang();
   const rotatingWords = t("landing.rotatingWords", { returnObjects: true }) as string[];
-  const excursions = t("landing.excursions", { returnObjects: true }) as { slug: string; tag: string; title: string; description: string }[];
+  const categories = t("experiences.categories", { returnObjects: true }) as {
+    id: string;
+    emoji: string;
+    label: string;
+    homeDescription: string;
+    items: { image: string }[];
+  }[];
   const features = t("landing.features", { returnObjects: true }) as { title: string; description: string }[];
   const steps = t("landing.steps", { returnObjects: true }) as { title: string; description: string }[];
   const galleryAlts = t("landing.galleryAlts", { returnObjects: true }) as string[];
@@ -229,37 +228,34 @@ const Landing = () => {
           </Reveal>
 
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {excursions.map((item, i) => (
-              <StaggerItem key={item.title}>
-                <Link to={localize(`/excursions/marine-experiences/${item.slug}`)} className="group block">
-                  <div className="relative rounded-3xl overflow-hidden mb-4 aspect-[4/5] bg-muted">
+            {categories.map((cat, i) => (
+              <StaggerItem key={cat.id}>
+                <div className="glass group rounded-3xl overflow-hidden h-full flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-shadow">
+                  <Link to={localize(`/excursions/${cat.id}`)} className="relative aspect-[4/5] overflow-hidden bg-muted block">
                     <img
-                      src={EXCURSION_IMAGES[i]}
-                      alt={item.title}
+                      src={cat.items[0].image}
+                      alt={cat.label}
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/10 to-transparent" />
                     <span className={`${["pill-gradient-ocean", "pill-gradient-palm", "pill-gradient-sun", "pill-gradient-ocean"][i % 4]} absolute top-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-[0.15em] shadow-lg shadow-foreground/10`}>
-                      {item.tag}
+                      {cat.emoji && <span aria-hidden="true">{cat.emoji} </span>}
+                      {cat.label}
                     </span>
+                  </Link>
+                  <div className="p-5 flex flex-col flex-1">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{cat.homeDescription}</p>
+                    <Button variant="outline" size="sm" className="self-start" asChild>
+                      <Link to={localize(`/excursions/${cat.id}`)}>
+                        {t("experiences.detailsButton")} <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
+                      </Link>
+                    </Button>
                   </div>
-                  <h3 className="font-display font-semibold text-lg text-foreground group-hover:text-primary transition-colors tracking-[-0.01em]">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
-                </Link>
+                </div>
               </StaggerItem>
             ))}
           </StaggerGroup>
-
-          <div className="mt-12 text-center">
-            <Button variant="outline" size="lg" asChild>
-              <Link to={localize("/excursions/marine-experiences")}>
-                {t("landing.viewAllExcursions")} <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-            </Button>
-          </div>
         </div>
       </section>
 
