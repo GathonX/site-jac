@@ -1,42 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.nosybesecretislands.com/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/" />
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.nosybesecretislands.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/" />
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.nosybesecretislands.com/excursions</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/excursions" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en/excursions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/excursions" />
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.nosybesecretislands.com/en/excursions</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/excursions" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en/excursions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/excursions" />
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.nosybesecretislands.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/about" />
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.nosybesecretislands.com/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/about" />
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.nosybesecretislands.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/contact" />
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.nosybesecretislands.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/contact" />
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.nosybesecretislands.com/mentions-legales</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/mentions-legales" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en/mentions-legales" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/mentions-legales" />
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://www.nosybesecretislands.com/en/mentions-legales</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/mentions-legales" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en/mentions-legales" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/mentions-legales" />
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://www.nosybesecretislands.com/politique-de-confidentialite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/politique-de-confidentialite" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en/politique-de-confidentialite" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/politique-de-confidentialite" />
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://www.nosybesecretislands.com/en/politique-de-confidentialite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/politique-de-confidentialite" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en/politique-de-confidentialite" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/politique-de-confidentialite" />
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://www.nosybesecretislands.com/conditions-generales</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/conditions-generales" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en/conditions-generales" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/conditions-generales" />
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://www.nosybesecretislands.com/en/conditions-generales</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/conditions-generales" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en/conditions-generales" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/conditions-generales" />
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://www.nosybesecretislands.com/politique-de-cookies</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/politique-de-cookies" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en/politique-de-cookies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/politique-de-cookies" />
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://www.nosybesecretislands.com/en/politique-de-cookies</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislands.com/politique-de-cookies" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislands.com/en/politique-de-cookies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislands.com/politique-de-cookies" />
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>

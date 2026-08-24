@@ -1,17 +1,22 @@
 import { Helmet } from "react-helmet-async";
 import { SITE_CONFIG } from "@/lib/site-config";
+import { useLang } from "@/hooks/useLang";
 
 interface SeoProps {
   title: string;
   description: string;
-  /** Path only, e.g. "/excursions" — leave empty for the homepage. */
+  /** Bare, French-rooted path only, e.g. "/excursions" — leave empty for the homepage. */
   path?: string;
   /** Set for pages that shouldn't appear in search results (e.g. 404). */
   noindex?: boolean;
 }
 
 export function Seo({ title, description, path = "", noindex = false }: SeoProps) {
-  const url = `${SITE_CONFIG.siteUrl}${path}`;
+  const { localize } = useLang();
+  const currentPath = localize(path || "/");
+  const url = `${SITE_CONFIG.siteUrl}${currentPath === "/" ? "" : currentPath}`;
+  const frUrl = `${SITE_CONFIG.siteUrl}${path}`;
+  const enUrl = `${SITE_CONFIG.siteUrl}${path === "" ? "/en" : `/en${path}`}`;
 
   return (
     <Helmet>
@@ -27,6 +32,13 @@ export function Seo({ title, description, path = "", noindex = false }: SeoProps
         Helmet-injected ones would just create duplicates without actually
         varying the preview per page.
       */}
+      {!noindex && (
+        <>
+          <link rel="alternate" hrefLang="fr" href={frUrl || SITE_CONFIG.siteUrl} />
+          <link rel="alternate" hrefLang="en" href={enUrl} />
+          <link rel="alternate" hrefLang="x-default" href={frUrl || SITE_CONFIG.siteUrl} />
+        </>
+      )}
     </Helmet>
   );
 }

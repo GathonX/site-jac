@@ -1,37 +1,23 @@
 import { Link } from "react-router-dom";
 import { Leaf, Compass, Gem, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Seo } from "@/components/Seo";
 import { SiteNav } from "@/components/layout/SiteNav";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
+import { useLang } from "@/hooks/useLang";
 
-const VALUES = [
-  {
-    Icon: Leaf,
-    title: "Nature",
-    description: "De la forêt primaire de la réserve de Lokobe aux fonds coralliens de Nosy Tanikely, chaque excursion vous plonge dans une nature préservée, unique à Madagascar.",
-  },
-  {
-    Icon: Compass,
-    title: "Évasion",
-    description: "Îlots secrets, sorties en mer, randonnées vers les plus beaux points de vue : on vous emmène loin du tourisme de masse, à la découverte du vrai Nosy Be.",
-  },
-  {
-    Icon: Gem,
-    title: "Authenticité",
-    description: "Guides locaux, rencontres avec les habitants, savoir-faire traditionnel comme la distillation d'ylang-ylang : une expérience vraie, jamais standardisée.",
-  },
-];
+const VALUE_ICONS = [Leaf, Compass, Gem];
 
 const About = () => {
+  const { t } = useTranslation();
+  const { localize } = useLang();
+  const values = t("about.values", { returnObjects: true }) as { title: string; description: string }[];
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden flex flex-col">
-      <Seo
-        title="À propos — Nosy Be Secret Islands Tours"
-        description="Nosy Be Secret Islands Tours, une agence locale qui vous fait découvrir Nosy Be autrement : nature, mer, lémuriens, tortues de mer et requins-baleines, loin des circuits figés."
-        path="/about"
-      />
+      <Seo title={t("seo.about.title")} description={t("seo.about.description")} path="/about" />
       <SiteNav transparentOverHero scrollThreshold={0.4} />
 
       <main className="flex-1">
@@ -39,7 +25,7 @@ const About = () => {
         <section className="relative h-[52svh] min-h-[380px] flex items-end overflow-hidden">
           <img
             src="/img/img9.jpeg"
-            alt="Terre rouge caractéristique des paysages de Madagascar"
+            alt={t("about.heroImageAlt")}
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/10" />
@@ -47,15 +33,13 @@ const About = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-14 lg:pb-16 relative z-10 w-full">
             <Reveal className="max-w-2xl">
               <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-sun mb-4">
-                À propos de Nosy Be Secret Islands Tours
+                {t("about.eyebrow")}
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-background mb-5">
-                À la découverte de l'île paradisiaque de Nosy Be
+                {t("about.title")}
               </h1>
               <p className="text-lg lg:text-xl text-background/85 leading-relaxed">
-                Nosy Be Secret Islands Tours est un tour opérateur local spécialisé dans les excursions en mer et
-                terrestres : plongée, visites de réserve, rencontres avec lémuriens, tortues de mer et requins-baleines.
-                Avec nos guides, on vous fait découvrir Nosy Be comme un local, loin des circuits figés.
+                {t("about.subhead")}
               </p>
             </Reveal>
           </div>
@@ -66,36 +50,39 @@ const About = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <Reveal className="max-w-xl mb-12">
               <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
-                Notre signature
+                {t("about.valuesEyebrow")}
               </span>
               <h2 className="text-3xl sm:text-4xl font-display tracking-[-0.03em] text-foreground mb-4">
-                Nature · Évasion · Authenticité
+                {t("about.valuesTitle")}
               </h2>
               <p className="text-muted-foreground text-base lg:text-lg">
-                Les trois piliers qui guident chaque excursion qu'on organise.
+                {t("about.valuesSubhead")}
               </p>
             </Reveal>
 
             <StaggerGroup className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {VALUES.map(({ Icon, title, description }, i) => (
-                <StaggerItem key={title}>
-                  <div className="glass rounded-2xl p-6 h-full shadow-sm hover:shadow-lg hover:shadow-primary/10 transition-shadow">
-                    <div
-                      className={`w-11 h-11 rounded-full flex items-center justify-center mb-4 ${
-                        [
-                          "bg-palm/15",
-                          "bg-gradient-to-br from-sky/20 to-primary/20",
-                          "bg-sun/25",
-                        ][i % 3]
-                      }`}
-                    >
-                      <Icon className={`w-5 h-5 ${["text-palm", "text-primary", "text-foreground"][i % 3]}`} />
+              {values.map(({ title, description }, i) => {
+                const Icon = VALUE_ICONS[i];
+                return (
+                  <StaggerItem key={title}>
+                    <div className="glass rounded-2xl p-6 h-full shadow-sm hover:shadow-lg hover:shadow-primary/10 transition-shadow">
+                      <div
+                        className={`w-11 h-11 rounded-full flex items-center justify-center mb-4 ${
+                          [
+                            "bg-palm/15",
+                            "bg-gradient-to-br from-sky/20 to-primary/20",
+                            "bg-sun/25",
+                          ][i % 3]
+                        }`}
+                      >
+                        <Icon className={`w-5 h-5 ${["text-palm", "text-primary", "text-foreground"][i % 3]}`} />
+                      </div>
+                      <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
                     </div>
-                    <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
-                  </div>
-                </StaggerItem>
-              ))}
+                  </StaggerItem>
+                );
+              })}
             </StaggerGroup>
           </div>
         </section>
@@ -107,19 +94,17 @@ const About = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
             <Reveal>
               <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
-                Notre approche
+                {t("about.approachEyebrow")}
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display tracking-[-0.03em] text-foreground mb-6">
-                Voyager avec des gens du coin
+                {t("about.approachTitle")}
               </h2>
               <p className="text-muted-foreground text-base lg:text-lg leading-relaxed mb-8">
-                Pas de bus climatisés ni de groupes de cinquante personnes. On organise des sorties à taille
-                humaine, pensées pour que chaque participant reparte avec de vrais souvenirs — pas juste des
-                photos.
+                {t("about.approachText")}
               </p>
               <Button variant="gradient" size="lg" asChild>
-                <Link to="/excursions">
-                  Voir nos excursions <ArrowRight className="ml-2 w-4 h-4" />
+                <Link to={localize("/excursions")}>
+                  {t("about.approachButton")} <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
             </Reveal>
@@ -127,7 +112,7 @@ const About = () => {
             <Reveal direction="left" className="rounded-[2rem] overflow-hidden aspect-[4/3] shadow-2xl shadow-primary/10 ring-1 ring-foreground/5">
               <img
                 src="/img/img7.jpeg"
-                alt="Cascade et bassin naturel lors d'une excursion terrestre à Nosy Be"
+                alt={t("about.approachImageAlt")}
                 className="w-full h-full object-cover"
                 loading="lazy"
               />

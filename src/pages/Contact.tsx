@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import { Mail, Phone, Loader2 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
+import { useTranslation } from "react-i18next";
 import { Seo } from "@/components/Seo";
 import { SiteNav } from "@/components/layout/SiteNav";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -15,34 +16,25 @@ import { Label } from "@/components/ui/label";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { celebrate } from "@/lib/confetti";
 
-const contactMethods = [
-  {
-    Icon: Mail,
-    label: "Email",
-    value: SITE_CONFIG.email,
-    href: `mailto:${SITE_CONFIG.email}`,
-  },
-  {
-    Icon: Phone,
-    label: "Téléphone",
-    value: SITE_CONFIG.phone,
-    href: `tel:${SITE_CONFIG.phoneTel}`,
-  },
-  {
-    Icon: SiWhatsapp,
-    label: "WhatsApp",
-    value: "Discuter avec nous",
-    href: SITE_CONFIG.whatsappUrl,
-    external: true,
-  },
-];
-
 const initialForm = { name: "", email: "", phone: "", subject: "", message: "", website: "" };
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [searchParams] = useSearchParams();
   const [form, setForm] = useState(initialForm);
   const [submitting, setSubmitting] = useState(false);
+
+  const contactMethods = [
+    { Icon: Mail, label: t("contactPage.methods.email"), value: SITE_CONFIG.email, href: `mailto:${SITE_CONFIG.email}` },
+    { Icon: Phone, label: t("contactPage.methods.phone"), value: SITE_CONFIG.phone, href: `tel:${SITE_CONFIG.phoneTel}` },
+    {
+      Icon: SiWhatsapp,
+      label: t("contactPage.methods.whatsapp"),
+      value: t("contactPage.methods.whatsappValue"),
+      href: SITE_CONFIG.whatsappUrl,
+      external: true,
+    },
+  ];
 
   useEffect(() => {
     const sujet = searchParams.get("sujet");
@@ -56,7 +48,7 @@ const Contact = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
-      toast.error("Merci de remplir tous les champs obligatoires.");
+      toast.error(t("contactPage.errors.required"));
       return;
     }
 
@@ -69,14 +61,14 @@ const Contact = () => {
       });
       const data = await res.json();
       if (data.success) {
-        toast.success(data.message || "Message envoyé avec succès !");
+        toast.success(data.message || t("contactPage.success"));
         celebrate();
         setForm(initialForm);
       } else {
-        toast.error(data.message || "Échec de l'envoi. Veuillez réessayer.");
+        toast.error(data.message || t("contactPage.errors.generic"));
       }
     } catch {
-      toast.error("Impossible d'envoyer le message. Vérifiez votre connexion.");
+      toast.error(t("contactPage.errors.network"));
     } finally {
       setSubmitting(false);
     }
@@ -84,18 +76,14 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden flex flex-col">
-      <Seo
-        title="Contact — Nosy Be Secret Islands Tours"
-        description="Contactez Nosy Be Secret Islands Tours par téléphone, email ou WhatsApp pour organiser vos excursions sur l'île paradisiaque de Nosy Be."
-        path="/contact"
-      />
+      <Seo title={t("seo.contact.title")} description={t("seo.contact.description")} path="/contact" />
       <SiteNav transparentOverHero scrollThreshold={0.35} />
 
       <main className="flex-1">
         <section className="relative h-[42svh] min-h-[320px] flex items-end overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1656750675118-04c0c4179b54?auto=format&fit=crop&w=1600&q=80"
-            alt="Coucher de soleil sur une plage de Nosy Be"
+            alt={t("contactPage.heroImageAlt")}
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/10" />
@@ -103,10 +91,10 @@ const Contact = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-14 lg:pb-16 relative z-10 w-full">
             <Reveal className="max-w-2xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display tracking-[-0.03em] text-background mb-5">
-                Contactez-nous
+                {t("contactPage.title")}
               </h1>
               <p className="text-lg lg:text-xl text-background/85 leading-relaxed">
-                Une question, une envie de voyage ? Écrivez-nous par le canal qui vous convient le mieux.
+                {t("contactPage.subhead")}
               </p>
             </Reveal>
           </div>
@@ -138,7 +126,7 @@ const Contact = () => {
                     </div>
                     <Button variant="outline" size="sm" asChild>
                       <a href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
-                        Contacter
+                        {t("common.contactButton")}
                       </a>
                     </Button>
                   </CardContent>
@@ -147,7 +135,7 @@ const Contact = () => {
             </div>
 
             <Reveal className="glass rounded-[2rem] p-6 lg:p-10">
-              <h2 className="text-2xl font-display font-semibold text-foreground mb-6">Envoyez-nous un message</h2>
+              <h2 className="text-2xl font-display font-semibold text-foreground mb-6">{t("contactPage.formTitle")}</h2>
               <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {/* Honeypot — hidden from real visitors, catches bots */}
                 <input
@@ -161,34 +149,34 @@ const Contact = () => {
                 />
 
                 <div className="space-y-2">
-                  <Label htmlFor="name">Nom complet *</Label>
-                  <Input id="name" required value={form.name} onChange={handleChange("name")} placeholder="Votre nom" />
+                  <Label htmlFor="name">{t("contactPage.form.name")}</Label>
+                  <Input id="name" required value={form.name} onChange={handleChange("name")} placeholder={t("contactPage.form.namePlaceholder")} />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email *</Label>
-                  <Input id="email" type="email" required value={form.email} onChange={handleChange("email")} placeholder="vous@exemple.com" />
+                  <Label htmlFor="email">{t("contactPage.form.email")}</Label>
+                  <Input id="email" type="email" required value={form.email} onChange={handleChange("email")} placeholder={t("contactPage.form.emailPlaceholder")} />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Téléphone</Label>
-                  <Input id="phone" type="tel" value={form.phone} onChange={handleChange("phone")} placeholder="Optionnel" />
+                  <Label htmlFor="phone">{t("contactPage.form.phone")}</Label>
+                  <Input id="phone" type="tel" value={form.phone} onChange={handleChange("phone")} placeholder={t("contactPage.form.phonePlaceholder")} />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="subject">Sujet</Label>
-                  <Input id="subject" value={form.subject} onChange={handleChange("subject")} placeholder="Optionnel" />
+                  <Label htmlFor="subject">{t("contactPage.form.subject")}</Label>
+                  <Input id="subject" value={form.subject} onChange={handleChange("subject")} placeholder={t("contactPage.form.subjectPlaceholder")} />
                 </div>
                 <div className="space-y-2 sm:col-span-2">
-                  <Label htmlFor="message">Message *</Label>
-                  <Textarea id="message" required rows={5} value={form.message} onChange={handleChange("message")} placeholder="Votre message..." />
+                  <Label htmlFor="message">{t("contactPage.form.message")}</Label>
+                  <Textarea id="message" required rows={5} value={form.message} onChange={handleChange("message")} placeholder={t("contactPage.form.messagePlaceholder")} />
                 </div>
 
                 <div className="sm:col-span-2">
                   <Button type="submit" variant="gradient" size="lg" className="w-full sm:w-auto" disabled={submitting}>
                     {submitting ? (
                       <>
-                        <Loader2 className="mr-2 w-4 h-4 animate-spin" /> Envoi en cours...
+                        <Loader2 className="mr-2 w-4 h-4 animate-spin" /> {t("contactPage.form.submitting")}
                       </>
                     ) : (
-                      "Envoyer le message"
+                      t("contactPage.form.submit")
                     )}
                   </Button>
                 </div>

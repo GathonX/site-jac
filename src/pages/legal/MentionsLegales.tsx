@@ -1,48 +1,47 @@
+import { useTranslation } from "react-i18next";
 import { Seo } from "@/components/Seo";
 import { LegalPageLayout } from "@/components/layout/LegalPageLayout";
 import { SITE_CONFIG } from "@/lib/site-config";
 
-const MentionsLegales = () => (
-  <>
-    <Seo title="Mentions légales — Nosy Be Secret Islands Tours" description="Mentions légales du site Nosy Be Secret Islands Tours." path="/mentions-legales" />
-    <LegalPageLayout title="Mentions légales" updatedAt="21 août 2026">
-      <section>
-        <h2>Éditeur du site</h2>
-        <p>
-          Le site {SITE_CONFIG.siteUrl.replace("https://", "")} est édité par {SITE_CONFIG.name}, tour opérateur
-          local basé à Nosy Be, Madagascar, spécialisé dans les excursions en mer et terrestres.
-        </p>
-        <ul>
-          <li>Nom commercial : {SITE_CONFIG.name}</li>
-          <li>Adresse : Nosy Be, Madagascar</li>
-          <li>Email : {SITE_CONFIG.email}</li>
-          <li>Téléphone : {SITE_CONFIG.phone}</li>
-        </ul>
-        <p className="text-sm text-muted-foreground">
-          Numéro d'immatriculation à compléter par l'éditeur (registre du commerce malgache).
-        </p>
-      </section>
+const MentionsLegales = () => {
+  const { t } = useTranslation();
+  const l = t("legal.mentions", { returnObjects: true }) as Record<string, string>;
 
-      <section>
-        <h2>Hébergement</h2>
-        <p>Ce site est hébergé chez Hostinger.</p>
-      </section>
+  return (
+    <>
+      <Seo title={t("seo.legal.mentions.title")} description={t("seo.legal.mentions.description")} path="/mentions-legales" />
+      <LegalPageLayout title={l.title}>
+        <section>
+          <h2>{l.editorHeading}</h2>
+          <p>
+            {SITE_CONFIG.siteUrl.replace("https://", "")} {l.editorIntro} {SITE_CONFIG.name}, {l.editorSuffix}
+          </p>
+          <ul>
+            <li>{l.companyName} : {SITE_CONFIG.name}</li>
+            <li>{l.address} : {l.addressValue}</li>
+            <li>{l.email} : {SITE_CONFIG.email}</li>
+            <li>{l.phone} : {SITE_CONFIG.phone}</li>
+          </ul>
+          <p className="text-sm text-muted-foreground">{l.registrationNote}</p>
+        </section>
 
-      <section>
-        <h2>Conception et développement</h2>
-        <p>Site conçu et développé par Juno Mandimbizara.</p>
-      </section>
+        <section>
+          <h2>{l.hostingHeading}</h2>
+          <p>{l.hostingText}</p>
+        </section>
 
-      <section>
-        <h2>Propriété intellectuelle</h2>
-        <p>
-          L'ensemble des contenus présents sur ce site (textes, photographies, logo, mise en page) est la propriété
-          de {SITE_CONFIG.name} ou de ses partenaires, sauf mention contraire. Toute reproduction ou représentation,
-          totale ou partielle, sans autorisation préalable est interdite.
-        </p>
-      </section>
-    </LegalPageLayout>
-  </>
-);
+        <section>
+          <h2>{l.devHeading}</h2>
+          <p>{l.devText}</p>
+        </section>
+
+        <section>
+          <h2>{l.ipHeading}</h2>
+          <p>{l.ipText}</p>
+        </section>
+      </LegalPageLayout>
+    </>
+  );
+};
 
 export default MentionsLegales;

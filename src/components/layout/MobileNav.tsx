@@ -1,24 +1,28 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/Logo";
-
-const links = [
-  { to: "/", label: "Accueil" },
-  { to: "/excursions", label: "Excursions" },
-  { to: "/about", label: "About" },
-];
+import { useLang } from "@/hooks/useLang";
 
 export function MobileNav({ triggerClassName = "text-foreground" }: { triggerClassName?: string }) {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation();
+  const { localize, otherLang, otherLangPath } = useLang();
+
+  const links = [
+    { to: localize("/"), label: t("nav.home") },
+    { to: localize("/excursions"), label: t("nav.excursions") },
+    { to: localize("/about"), label: t("nav.about") },
+  ];
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <button
         type="button"
-        aria-label="Ouvrir le menu"
+        aria-label={t("common.openMenu")}
         onClick={() => setOpen(true)}
         className={`sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-full transition-colors ${triggerClassName}`}
       >
@@ -39,10 +43,17 @@ export function MobileNav({ triggerClassName = "text-foreground" }: { triggerCla
               {link.label}
             </Link>
           ))}
+          <Link
+            to={otherLangPath}
+            onClick={() => setOpen(false)}
+            className="text-base font-medium text-foreground py-3 px-2 rounded-lg hover:bg-muted transition-colors uppercase"
+          >
+            {otherLang}
+          </Link>
         </nav>
         <div className="mt-auto pt-6">
           <Button variant="gradient-ocean" className="w-full" asChild>
-            <Link to="/contact" onClick={() => setOpen(false)}>Contact us</Link>
+            <Link to={localize("/contact")} onClick={() => setOpen(false)}>{t("nav.contactCta")}</Link>
           </Button>
         </div>
       </SheetContent>

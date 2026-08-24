@@ -2,12 +2,14 @@ import { useState, useEffect, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 import { Seo } from "@/components/Seo";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteNav } from "@/components/layout/SiteNav";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useLang } from "@/hooks/useLang";
 import {
   ArrowRight,
   MapPin,
@@ -23,150 +25,49 @@ import {
   Loader2,
 } from "lucide-react";
 
-const HERO_IMAGES = [
-
-  {
-    src: "https://images.unsplash.com/photo-1656750675118-04c0c4179b54?auto=format&fit=crop&w=1920&q=80",
-    alt: "Coucher de soleil sur une plage de Nosy Be",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1710260715197-d43a51dbd2fa?auto=format&fit=crop&w=1920&q=80",
-    alt: "Fleur d'ylang-ylang, l'île aux parfums de Nosy Be",
-  },
-  {
-    src: "/img/img3.jpeg",
-    alt: "Paréos colorés sur un étendoir face à la plage à Nosy Be",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1656829500356-3b6f7c3b4c65?auto=format&fit=crop&w=1920&q=80",
-    alt: "Îlot de sable blanc entouré d'un lagon turquoise à Nosy Be",
-  },
-  {
-    src: "/img/img11.jpeg",
-    alt: "Randonnée sur les rochers côtiers de Nosy Be avec vue sur l'océan",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1592998657521-76bb8b7c204c?auto=format&fit=crop&w=1920&q=80",
-    alt: "Palmiers encadrant une mer turquoise à Nosy Be",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=1920&q=80",
-    alt: "Tortue de mer nageant près de la surface à Nosy Tanikely",
-  },
+const HERO_IMAGE_SRCS = [
+  "https://images.unsplash.com/photo-1656750675118-04c0c4179b54?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1710260715197-d43a51dbd2fa?auto=format&fit=crop&w=1920&q=80",
+  "/img/img3.jpeg",
+  "https://images.unsplash.com/photo-1656829500356-3b6f7c3b4c65?auto=format&fit=crop&w=1920&q=80",
+  "/img/img11.jpeg",
+  "https://images.unsplash.com/photo-1592998657521-76bb8b7c204c?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=1920&q=80",
 ];
 
-const ROTATING_WORDS = ["Nosy Be.", "l'île paradisiaque.", "la nature.", "la mer."];
-
-const EXCURSIONS = [
-  {
-    img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=80",
-    tag: "Plongée",
-    title: "Plongée & snorkeling",
-    description: "Explorez les récifs coralliens et leur faune marine avec des guides expérimentés.",
-  },
-  {
-    img: "https://images.pexels.com/photos/31974945/pexels-photo-31974945.jpeg?auto=compress&cs=tinysrgb&w=900",
-    tag: "Nature",
-    title: "Nosy Komba, l'île aux lémuriens",
-    description: "Une rencontre avec les lémuriens en liberté sur l'île voisine, au cœur de la nature.",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=900&q=80",
-    tag: "Faune marine",
-    title: "Tortues de mer à Nosy Tanikely",
-    description: "Snorkeling dans la réserve marine protégée, à quelques mètres des tortues de mer.",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1464925029952-5d9ca1cf4f64?auto=format&fit=crop&w=900&q=80",
-    tag: "Saisonnier",
-    title: "Nage avec les requins-baleines",
-    description: "Une rencontre exceptionnelle avec les plus grands poissons de l'océan, en pleine mer.",
-  },
+const EXCURSION_IMAGES = [
+  "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=80",
+  "https://images.pexels.com/photos/31974945/pexels-photo-31974945.jpeg?auto=compress&cs=tinysrgb&w=900",
+  "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1464925029952-5d9ca1cf4f64?auto=format&fit=crop&w=900&q=80",
 ];
 
-const FEATURES = [
-  {
-    Icon: MapPin,
-    title: "Circuits sur mesure",
-    description: "Chaque excursion est adaptée à vos envies et à votre rythme de voyage.",
-  },
-  {
-    Icon: Users,
-    title: "Guides locaux",
-    description: "Une équipe qui connaît Nosy Be et partage sa culture avec passion.",
-  },
-  {
-    Icon: ShieldCheck,
-    title: "Réservation simple",
-    description: "Contactez-nous par téléphone, email ou WhatsApp, on s'occupe du reste.",
-  },
-  {
-    Icon: Sparkles,
-    title: "Expériences authentiques",
-    description: "Loin des sentiers battus, à la découverte du vrai Nosy Be.",
-  },
-];
+const GALLERY_IMAGES = ["/img/img5.jpeg", "/img/img2.jpeg", "/img/img12.jpeg", "/img/img9.jpeg", "/img/img10.jpeg"];
 
-const STEPS = [
-  {
-    Icon: MessageCircle,
-    title: "Contactez-nous",
-    description: "Par téléphone, email ou WhatsApp, dites-nous ce que vous avez envie de vivre à Nosy Be.",
-  },
-  {
-    Icon: CalendarCheck,
-    title: "On construit votre programme",
-    description: "On vous propose des excursions adaptées à votre séjour, votre budget et votre rythme.",
-  },
-  {
-    Icon: PartyPopper,
-    title: "Vous profitez",
-    description: "Guides, matériel, logistique : tout est prêt. Il ne vous reste plus qu'à en profiter.",
-  },
-];
-
-const GALLERY = [
-  {
-    img: "/img/img5.jpeg",
-    alt: "Gecko-feuille camouflé dans les feuilles mortes, espèce endémique de Madagascar",
-  },
-  {
-    img: "/img/img2.jpeg",
-    alt: "Gecko-feuille sur une branche, faune endémique de Nosy Be",
-  },
-  {
-    img: "/img/img12.jpeg",
-    alt: "Traces de pas sur le banc de sable blanc de Nosy Be",
-  },
-  {
-    img: "/img/img9.jpeg",
-    alt: "Terre rouge caractéristique des paysages de Madagascar",
-  },
-  {
-    img: "/img/img10.jpeg",
-    alt: "Formations rocheuses striées lors d'une randonnée à Nosy Be",
-  },
-];
+const FEATURE_ICONS = [MapPin, Users, ShieldCheck, Sparkles];
+const STEP_ICONS = [MessageCircle, CalendarCheck, PartyPopper];
 
 function HeroCarousel() {
+  const { t } = useTranslation();
+  const heroImageAlts = t("landing.heroImageAlts", { returnObjects: true }) as string[];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+      setIndex((prev) => (prev + 1) % HERO_IMAGE_SRCS.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  const goTo = (i: number) => setIndex((i + HERO_IMAGES.length) % HERO_IMAGES.length);
+  const goTo = (i: number) => setIndex((i + HERO_IMAGE_SRCS.length) % HERO_IMAGE_SRCS.length);
 
   return (
     <div className="absolute inset-0 overflow-hidden">
       <AnimatePresence mode="sync">
         <motion.img
           key={index}
-          src={HERO_IMAGES[index].src}
-          alt={HERO_IMAGES[index].alt}
+          src={HERO_IMAGE_SRCS[index]}
+          alt={heroImageAlts[index]}
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -179,14 +80,14 @@ function HeroCarousel() {
       {/* Arrows */}
       <button
         onClick={() => goTo(index - 1)}
-        aria-label="Image précédente"
+        aria-label={t("landing.heroPrev")}
         className="glass-dark hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full hover:bg-white/20 items-center justify-center text-background transition-colors"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
       <button
         onClick={() => goTo(index + 1)}
-        aria-label="Image suivante"
+        aria-label={t("landing.heroNext")}
         className="glass-dark hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full hover:bg-white/20 items-center justify-center text-background transition-colors"
       >
         <ChevronRight className="w-5 h-5" />
@@ -194,11 +95,11 @@ function HeroCarousel() {
 
       {/* Dots */}
       <div className="absolute bottom-6 inset-x-0 flex justify-center gap-2 z-20">
-        {HERO_IMAGES.map((_, i) => (
+        {HERO_IMAGE_SRCS.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
-            aria-label={`Aller à l'image ${i + 1}`}
+            aria-label={`${t("landing.heroGoTo")} ${i + 1}`}
             className={`h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-background" : "w-1.5 bg-background/50"}`}
           />
         ))}
@@ -208,21 +109,29 @@ function HeroCarousel() {
 }
 
 const Landing = () => {
+  const { t } = useTranslation();
+  const { localize } = useLang();
+  const rotatingWords = t("landing.rotatingWords", { returnObjects: true }) as string[];
+  const excursions = t("landing.excursions", { returnObjects: true }) as { tag: string; title: string; description: string }[];
+  const features = t("landing.features", { returnObjects: true }) as { title: string; description: string }[];
+  const steps = t("landing.steps", { returnObjects: true }) as { title: string; description: string }[];
+  const galleryAlts = t("landing.galleryAlts", { returnObjects: true }) as string[];
+
   const [wordIndex, setWordIndex] = useState(0);
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
+      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [rotatingWords.length]);
 
   const handleNewsletterSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!newsletterEmail) {
-      toast.error("Merci de renseigner votre email.");
+      toast.error(t("landing.newsletterErrorEmpty"));
       return;
     }
 
@@ -235,13 +144,13 @@ const Landing = () => {
       });
       const data = await res.json();
       if (data.success) {
-        toast.success(data.message || "Inscription réussie !");
+        toast.success(data.message || t("landing.newsletterSuccess"));
         setNewsletterEmail("");
       } else {
-        toast.error(data.message || "Échec de l'inscription. Veuillez réessayer.");
+        toast.error(data.message || t("landing.newsletterErrorGeneric"));
       }
     } catch {
-      toast.error("Impossible d'envoyer votre demande. Vérifiez votre connexion.");
+      toast.error(t("landing.newsletterErrorNetwork"));
     } finally {
       setNewsletterSubmitting(false);
     }
@@ -249,10 +158,7 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      <Seo
-        title="Nosy Be Secret Islands Tours — Excursions sur l'île paradisiaque de Nosy Be"
-        description="Excursions à Nosy Be, Madagascar : nature, mer, lémuriens, tortues de mer et requins-baleines. Découvrez l'île paradisiaque autrement avec Nosy Be Secret Islands Tours."
-      />
+      <Seo title={t("seo.landing.title")} description={t("seo.landing.description")} />
       <SiteNav transparentOverHero scrollThreshold={0.7} />
 
       {/* Hero */}
@@ -266,38 +172,38 @@ const Landing = () => {
             className="max-w-3xl"
           >
             <div className="glass-dark inline-flex items-center gap-2 mb-7 text-background px-4 py-2 rounded-full text-xs font-bold tracking-[0.18em] uppercase">
-              Agence locale · Nosy Be, Madagascar
+              {t("landing.badge")}
             </div>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display tracking-[-0.03em] leading-[1.05] text-background mb-7">
-              Découvrez{" "}
+              {t("landing.heroPrefix")}{" "}
               <span className="inline-block relative">
                 <AnimatePresence mode="wait">
                   <motion.span
-                    key={ROTATING_WORDS[wordIndex]}
+                    key={rotatingWords[wordIndex]}
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -16 }}
                     transition={{ duration: 0.35 }}
                     className="inline-block italic text-sun"
                   >
-                    {ROTATING_WORDS[wordIndex]}
+                    {rotatingWords[wordIndex]}
                   </motion.span>
                 </AnimatePresence>
               </span>
             </h1>
             <p className="text-xl lg:text-2xl text-background/90 max-w-2xl mb-10 leading-relaxed">
-              Excursions, nature et rencontres avec lémuriens, tortues de mer et requins-baleines : Nosy Be Secret Islands Tours vous fait vivre l'île paradisiaque de Nosy Be comme un local.
+              {t("landing.heroSubhead")}
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" variant="gradient" className="text-base font-semibold px-8 h-14" asChild>
-                <Link to="/contact">Contactez-nous <ArrowRight className="ml-2 w-4 h-4" /></Link>
+                <Link to={localize("/contact")}>{t("landing.ctaContact")} <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
               <Button size="lg" variant="outline" className="text-base font-semibold px-8 h-14 bg-background/10 text-background border-background/30 hover:bg-background/20 hover:text-background" asChild>
-                <Link to="/excursions">Voir nos excursions</Link>
+                <Link to={localize("/excursions")}>{t("landing.ctaExcursions")}</Link>
               </Button>
             </div>
             <p className="mt-8 text-xs font-bold tracking-[0.25em] uppercase text-background/70">
-              Nature <span className="text-sun">·</span> Évasion <span className="text-sun">·</span> Authenticité
+              {t("landing.tagline")}
             </p>
           </motion.div>
         </div>
@@ -310,23 +216,23 @@ const Landing = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
           <Reveal className="max-w-xl mb-12">
             <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
-              Nos activités
+              {t("landing.excursionsEyebrow")}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display tracking-[-0.03em] text-foreground mb-4">
-              Des expériences inoubliables
+              {t("landing.excursionsTitle")}
             </h2>
             <p className="text-muted-foreground text-base lg:text-lg">
-              De la plongée aux excursions en mer, chaque sortie est pensée pour révéler le meilleur de Nosy Be.
+              {t("landing.excursionsSubhead")}
             </p>
           </Reveal>
 
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {EXCURSIONS.map((item, i) => (
+            {excursions.map((item, i) => (
               <StaggerItem key={item.title}>
-                <Link to="/excursions" className="group block">
+                <Link to={localize("/excursions")} className="group block">
                   <div className="relative rounded-3xl overflow-hidden mb-4 aspect-[4/5]">
                     <img
-                      src={item.img}
+                      src={EXCURSION_IMAGES[i]}
                       alt={item.title}
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
@@ -347,8 +253,8 @@ const Landing = () => {
 
           <div className="mt-12 text-center">
             <Button variant="outline" size="lg" asChild>
-              <Link to="/excursions">
-                Voir toutes nos excursions <ArrowRight className="ml-2 w-4 h-4" />
+              <Link to={localize("/excursions")}>
+                {t("landing.viewAllExcursions")} <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
           </div>
@@ -360,35 +266,38 @@ const Landing = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <Reveal className="max-w-xl mb-14 mx-auto text-center">
             <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
-              Comment ça marche
+              {t("landing.howItWorksEyebrow")}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display tracking-[-0.03em] text-foreground mb-4">
-              Simple, du premier message au débarquement
+              {t("landing.howItWorksTitle")}
             </h2>
           </Reveal>
 
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-3 gap-8 relative">
             <div className="hidden sm:block absolute top-8 left-[16.5%] right-[16.5%] h-px bg-gradient-to-r from-sky via-palm to-sun" aria-hidden="true" />
-            {STEPS.map(({ Icon, title, description }, i) => (
-              <StaggerItem key={title} className="relative text-center">
-                <div
-                  className={`relative z-10 w-16 h-16 mx-auto rounded-full shadow-lg flex items-center justify-center mb-5 ${
-                    [
-                      "bg-gradient-to-br from-sky to-primary shadow-primary/25",
-                      "bg-palm shadow-palm/30",
-                      "bg-sun shadow-sun/40",
-                    ][i % 3]
-                  }`}
-                >
-                  <Icon className={`w-7 h-7 ${i === 2 ? "text-foreground" : "text-white"}`} />
-                </div>
-                <span className="text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2 block">
-                  Étape {i + 1}
-                </span>
-                <h3 className="font-display font-semibold text-lg text-foreground mb-2">{title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">{description}</p>
-              </StaggerItem>
-            ))}
+            {steps.map(({ title, description }, i) => {
+              const Icon = STEP_ICONS[i];
+              return (
+                <StaggerItem key={title} className="relative text-center">
+                  <div
+                    className={`relative z-10 w-16 h-16 mx-auto rounded-full shadow-lg flex items-center justify-center mb-5 ${
+                      [
+                        "bg-gradient-to-br from-sky to-primary shadow-primary/25",
+                        "bg-palm shadow-palm/30",
+                        "bg-sun shadow-sun/40",
+                      ][i % 3]
+                    }`}
+                  >
+                    <Icon className={`w-7 h-7 ${i === 2 ? "text-foreground" : "text-white"}`} />
+                  </div>
+                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2 block">
+                    {t("landing.stepLabel")} {i + 1}
+                  </span>
+                  <h3 className="font-display font-semibold text-lg text-foreground mb-2">{title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">{description}</p>
+                </StaggerItem>
+              );
+            })}
           </StaggerGroup>
         </div>
       </section>
@@ -398,20 +307,20 @@ const Landing = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <Reveal className="max-w-xl mb-12">
             <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
-              En images
+              {t("landing.galleryEyebrow")}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display tracking-[-0.03em] text-foreground mb-4">
-              Un aperçu de Nosy Be
+              {t("landing.galleryTitle")}
             </h2>
           </Reveal>
 
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-            {GALLERY.slice(0, 3).map((item) => (
-              <StaggerItem key={item.alt}>
+            {GALLERY_IMAGES.slice(0, 3).map((img, i) => (
+              <StaggerItem key={img}>
                 <div className="rounded-3xl overflow-hidden aspect-[3/4] group">
                   <img
-                    src={item.img}
-                    alt={item.alt}
+                    src={img}
+                    alt={galleryAlts[i]}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                   />
@@ -420,12 +329,12 @@ const Landing = () => {
             ))}
           </StaggerGroup>
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {GALLERY.slice(3).map((item) => (
-              <StaggerItem key={item.alt}>
+            {GALLERY_IMAGES.slice(3).map((img, i) => (
+              <StaggerItem key={img}>
                 <div className="rounded-3xl overflow-hidden aspect-[16/9] group">
                   <img
-                    src={item.img}
-                    alt={item.alt}
+                    src={img}
+                    alt={galleryAlts[i + 3]}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                   />
@@ -444,7 +353,7 @@ const Landing = () => {
           <Reveal direction="right" className="rounded-[2rem] overflow-hidden aspect-[4/3] order-2 lg:order-1 shadow-2xl shadow-primary/10 ring-1 ring-foreground/5">
             <img
               src="https://images.unsplash.com/photo-1628503185998-182cd70d46a7?auto=format&fit=crop&w=1200&q=80"
-              alt="Pirogue traditionnelle à voile sur les eaux de Nosy Be"
+              alt={t("landing.whyImageAlt")}
               className="w-full h-full object-cover"
               loading="lazy"
             />
@@ -453,33 +362,36 @@ const Landing = () => {
           <div className="order-1 lg:order-2">
             <Reveal>
               <span className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-gradient mb-4">
-                Pourquoi Nosy Be Secret Islands Tours
+                {t("landing.whyEyebrow")}
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display tracking-[-0.03em] text-foreground mb-10">
-                Une agence locale, à votre écoute
+                {t("landing.whyTitle")}
               </h2>
             </Reveal>
             <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {FEATURES.map(({ Icon, title, description }, i) => (
-                <StaggerItem key={title}>
-                  <div className="glass rounded-2xl p-6 h-full shadow-sm hover:shadow-lg hover:shadow-primary/10 transition-shadow">
-                    <div
-                      className={`w-11 h-11 rounded-full flex items-center justify-center mb-4 ${
-                        [
-                          "bg-gradient-to-br from-sky/20 to-primary/20",
-                          "bg-palm/15",
-                          "bg-sun/25",
-                          "bg-sky/15",
-                        ][i % 4]
-                      }`}
-                    >
-                      <Icon className={`w-5 h-5 ${["text-primary", "text-palm", "text-foreground", "text-primary"][i % 4]}`} />
+              {features.map(({ title, description }, i) => {
+                const Icon = FEATURE_ICONS[i];
+                return (
+                  <StaggerItem key={title}>
+                    <div className="glass rounded-2xl p-6 h-full shadow-sm hover:shadow-lg hover:shadow-primary/10 transition-shadow">
+                      <div
+                        className={`w-11 h-11 rounded-full flex items-center justify-center mb-4 ${
+                          [
+                            "bg-gradient-to-br from-sky/20 to-primary/20",
+                            "bg-palm/15",
+                            "bg-sun/25",
+                            "bg-sky/15",
+                          ][i % 4]
+                        }`}
+                      >
+                        <Icon className={`w-5 h-5 ${["text-primary", "text-palm", "text-foreground", "text-primary"][i % 4]}`} />
+                      </div>
+                      <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
                     </div>
-                    <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
-                  </div>
-                </StaggerItem>
-              ))}
+                  </StaggerItem>
+                );
+              })}
             </StaggerGroup>
           </div>
         </div>
@@ -493,13 +405,13 @@ const Landing = () => {
             <div className="absolute -bottom-40 -left-32 w-[420px] h-[420px] rounded-full bg-sun/25 blur-[100px] pointer-events-none" aria-hidden="true" />
             <div className="relative z-10">
               <h2 className="text-3xl sm:text-5xl font-display mb-5 text-background tracking-[-0.03em] leading-[1.05]">
-                Prêt à découvrir <span className="text-sun">Nosy Be</span> ?
+                {t("landing.ctaTitlePrefix")} <span className="text-sun">{t("landing.ctaTitleHighlight")}</span>{t("landing.ctaTitleSuffix")}
               </h2>
               <p className="text-background/70 text-lg mb-10 max-w-lg mx-auto">
-                Parlez-nous de votre projet de voyage, on vous répond rapidement par téléphone, email ou WhatsApp.
+                {t("landing.ctaSubhead")}
               </p>
               <Button size="lg" variant="gradient" className="text-base font-semibold px-8 h-12" asChild>
-                <Link to="/contact">Contactez-nous <ArrowRight className="ml-2 w-4 h-4" /></Link>
+                <Link to={localize("/contact")}>{t("landing.ctaContact")} <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
             </div>
           </Reveal>
@@ -517,10 +429,10 @@ const Landing = () => {
                 <Send className="w-5 h-5 text-foreground" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-display tracking-[-0.02em] text-foreground mb-3">
-                Ne manquez aucune bonne adresse
+                {t("landing.newsletterTitle")}
               </h2>
               <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-                Inscrivez-vous pour recevoir nos idées d'excursions et nos bons plans à Nosy Be.
+                {t("landing.newsletterSubhead")}
               </p>
               <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <Input
@@ -528,14 +440,14 @@ const Landing = () => {
                   required
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
-                  placeholder="vous@exemple.com"
+                  placeholder={t("landing.newsletterPlaceholder")}
                   className="h-12 rounded-full"
                 />
                 <Button type="submit" variant="gradient" className="h-12 shrink-0" disabled={newsletterSubmitting}>
                   {newsletterSubmitting ? (
                     <Loader2 className="w-4 h-4 animate-spin" />
                   ) : (
-                    <>S'inscrire <ArrowRight className="ml-1.5 w-4 h-4" /></>
+                    <>{t("landing.newsletterButton")} <ArrowRight className="ml-1.5 w-4 h-4" /></>
                   )}
                 </Button>
               </form>
