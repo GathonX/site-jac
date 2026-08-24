@@ -11,6 +11,7 @@ import { useLang } from "@/hooks/useLang";
 const EXCURSION_IMAGES = [
   "/img/diving.jpeg",
   "/img/black-lemur.jpeg",
+  "/img/tanikely-reef.jpeg",
   "/img/sea-turtle.jpeg",
   "/img/img2.jpeg",
   "/img/img4.jpeg",

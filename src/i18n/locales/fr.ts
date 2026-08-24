@@ -40,7 +40,7 @@ const fr = {
     excursions: {
       title: "Excursions à Nosy Be — Lémuriens, tortues de mer, requins-baleines | Nosy Be Secret Islands Tours",
       description:
-        "Toutes nos excursions en mer et terrestres sur l'île paradisiaque de Nosy Be : plongée, visite de la réserve de Lokobe, Nosy Komba, Nosy Tanikely, randonnée et rencontres avec lémuriens, tortues de mer et requins-baleines.",
+        "Toutes nos excursions en mer et terrestres sur l'île paradisiaque de Nosy Be : plongée, visite de la réserve de Lokobe, Nosy Komba, Nosy Tanikely, Nosy Sakatia, randonnée et rencontres avec lémuriens, tortues de mer et requins-baleines.",
     },
     about: {
       title: "À propos — Nosy Be Secret Islands Tours",
@@ -80,7 +80,7 @@ const fr = {
       "Îlot de sable blanc entouré d'un lagon turquoise à Nosy Be",
       "Randonnée sur les rochers côtiers de Nosy Be avec vue sur l'océan",
       "Palmiers encadrant une mer turquoise à Nosy Be",
-      "Tortue de mer nageant près de la surface à Nosy Tanikely",
+      "Tortue de mer nageant près de la surface à Nosy Sakatia",
     ],
     rotatingWords: ["Nosy Be.", "l'île paradisiaque.", "la nature.", "la mer."],
     heroPrev: "Image précédente",
@@ -108,9 +108,9 @@ const fr = {
         description: "Une rencontre avec les lémuriens en liberté sur l'île voisine, au cœur de la nature.",
       },
       {
-        tag: "Faune marine",
-        title: "Tortues de mer à Nosy Tanikely",
-        description: "Snorkeling dans la réserve marine protégée, à quelques mètres des tortues de mer.",
+        tag: "Tortues",
+        title: "Tortues de mer à Nosy Sakatia",
+        description: "Nagez aux côtés des tortues de mer en liberté, au large de la petite île de Sakatia.",
       },
       {
         tag: "Saisonnier",
@@ -199,7 +199,12 @@ const fr = {
       {
         tag: "Réserve marine",
         title: "Nosy Tanikely",
-        description: "Snorkeling dans la réserve marine protégée : tortues, poissons-clowns et fonds coralliens préservés.",
+        description: "Snorkeling dans la réserve marine protégée : poissons-clowns, coraux et fonds préservés.",
+      },
+      {
+        tag: "Tortues",
+        title: "Nosy Sakatia",
+        description: "Nagez aux côtés des tortues de mer en liberté, au large de la petite île de Sakatia.",
       },
       {
         tag: "Réserve",

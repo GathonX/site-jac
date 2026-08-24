@@ -42,7 +42,7 @@ const en: Locale = {
     excursions: {
       title: "Excursions in Nosy Be — Lemurs, sea turtles, whale sharks | Nosy Be Secret Islands Tours",
       description:
-        "All our sea and land excursions on the paradise island of Nosy Be: diving, a visit to Lokobe Reserve, Nosy Komba, Nosy Tanikely, hiking, and encounters with lemurs, sea turtles and whale sharks.",
+        "All our sea and land excursions on the paradise island of Nosy Be: diving, a visit to Lokobe Reserve, Nosy Komba, Nosy Tanikely, Nosy Sakatia, hiking, and encounters with lemurs, sea turtles and whale sharks.",
     },
     about: {
       title: "About us — Nosy Be Secret Islands Tours",
@@ -82,7 +82,7 @@ const en: Locale = {
       "White sandbank surrounded by a turquoise lagoon in Nosy Be",
       "Hiking along the coastal rocks of Nosy Be with an ocean view",
       "Palm trees framing a turquoise sea in Nosy Be",
-      "Sea turtle swimming near the surface at Nosy Tanikely",
+      "Sea turtle swimming near the surface at Nosy Sakatia",
     ],
     rotatingWords: ["Nosy Be.", "the paradise island.", "nature.", "the sea."],
     heroPrev: "Previous image",
@@ -110,9 +110,9 @@ const en: Locale = {
         description: "Meet lemurs roaming free on the neighboring island, right in the heart of nature.",
       },
       {
-        tag: "Marine wildlife",
-        title: "Sea turtles at Nosy Tanikely",
-        description: "Snorkel in the protected marine reserve, just a few meters from sea turtles.",
+        tag: "Sea turtles",
+        title: "Sea turtles at Nosy Sakatia",
+        description: "Swim alongside wild sea turtles off the small island of Sakatia.",
       },
       {
         tag: "Seasonal",
@@ -201,7 +201,12 @@ const en: Locale = {
       {
         tag: "Marine reserve",
         title: "Nosy Tanikely",
-        description: "Snorkeling in the protected marine reserve: turtles, clownfish and pristine coral reefs.",
+        description: "Snorkeling in the protected marine reserve: clownfish, coral and pristine reefs.",
+      },
+      {
+        tag: "Sea turtles",
+        title: "Nosy Sakatia",
+        description: "Swim alongside wild sea turtles off the small island of Sakatia.",
       },
       {
         tag: "Reserve",
