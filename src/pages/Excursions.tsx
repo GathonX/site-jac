@@ -14,10 +14,10 @@ const EXCURSIONS = [
     description: "Explorez les récifs coralliens et leur faune marine colorée avec des guides expérimentés, en palmes-masque-tuba ou en bouteille.",
   },
   {
-    img: "https://images.unsplash.com/photo-1704175970578-e0e1d83536f0?auto=format&fit=crop&w=900&q=80",
+    img: "https://images.pexels.com/photos/31974945/pexels-photo-31974945.jpeg?auto=compress&cs=tinysrgb&w=900",
     tag: "Nature",
-    title: "Nosy Komba, l'île aux maki",
-    description: "Une balade sur l'île voisine à la rencontre des maki en liberté et du village local.",
+    title: "Nosy Komba, l'île aux lémuriens",
+    description: "Une balade sur l'île voisine à la rencontre des lémuriens en liberté et du village local.",
   },
   {
     img: "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=900&q=80",
@@ -27,8 +27,8 @@ const EXCURSIONS = [
   },
   {
     img: "/img/img2.jpeg",
-    tag: "Visite de parc",
-    title: "Parc National de Lokobe",
+    tag: "Réserve",
+    title: "Réserve Lokobe",
     description: "La dernière forêt primaire de Nosy Be, accessible en pirogue puis à pied avec un guide agréé : lémuriens nocturnes, geckos-feuilles et caméléons endémiques.",
   },
   {
@@ -52,8 +52,8 @@ const EXCURSIONS = [
   {
     img: "/img/img8.jpeg",
     tag: "Terrestre",
-    title: "Randonnée & points de vue",
-    description: "À pied jusqu'aux plus beaux points de vue de l'île, entre forêt et panoramas sur l'océan Indien.",
+    title: "Randonnée, points de vue — forêt primaire de Lokobe",
+    description: "À pied dans la forêt primaire de la réserve de Lokobe, jusqu'aux plus beaux points de vue et panoramas sur l'océan Indien.",
   },
   {
     img: "https://images.unsplash.com/photo-1759521626408-4118f14632ac?auto=format&fit=crop&w=900&q=80",
@@ -75,8 +75,8 @@ const Excursions = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden flex flex-col">
       <Seo
-        title="Excursions à Nosy Be — Maki, tortues de mer, requins-baleines | Nosy Be Secret Islands Tours"
-        description="Toutes nos excursions en mer et terrestres sur l'île paradisiaque de Nosy Be : plongée, visite du Parc de Lokobe, Nosy Komba, Nosy Tanikely, randonnée et rencontres avec maki, tortues de mer et requins-baleines."
+        title="Excursions à Nosy Be — Lémuriens, tortues de mer, requins-baleines | Nosy Be Secret Islands Tours"
+        description="Toutes nos excursions en mer et terrestres sur l'île paradisiaque de Nosy Be : plongée, visite de la réserve de Lokobe, Nosy Komba, Nosy Tanikely, randonnée et rencontres avec lémuriens, tortues de mer et requins-baleines."
         path="/excursions"
       />
       <SiteNav transparentOverHero scrollThreshold={0.4} />
@@ -99,7 +99,7 @@ const Excursions = () => {
                 Toutes nos activités sur l'île paradisiaque
               </h1>
               <p className="text-lg lg:text-xl text-background/85 leading-relaxed">
-                Excursions en mer et terrestres, visites de parc, plongée, rencontres avec maki, tortues de mer et requins-baleines... choisissez l'expérience qui vous correspond, on s'occupe du reste.
+                Excursions en mer et terrestres, visites de réserve, plongée, rencontres avec lémuriens, tortues de mer et requins-baleines... choisissez l'expérience qui vous correspond, on s'occupe du reste.
               </p>
             </Reveal>
           </div>

@@ -48,8 +48,8 @@ export function SiteFooter() {
           <Logo size="xl" />
         </Link>
         <p className="text-sm text-background/70 leading-relaxed mt-4 max-w-md text-center">
-          Tour opérateur local à Nosy Be : excursions en mer et terrestres, plongée, visites de parc et rencontres
-          avec maki, tortues de mer et requins-baleines.
+          Tour opérateur local à Nosy Be : excursions en mer et terrestres, plongée, visites de réserve et rencontres
+          avec lémuriens, tortues de mer et requins-baleines.
         </p>
         <div className="flex items-center gap-3 mt-6">
           {socialLinks.map(({ href, label, Icon, bg }) => (

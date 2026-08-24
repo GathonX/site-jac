@@ -65,10 +65,10 @@ const EXCURSIONS = [
     description: "Explorez les récifs coralliens et leur faune marine avec des guides expérimentés.",
   },
   {
-    img: "https://images.unsplash.com/photo-1704175970578-e0e1d83536f0?auto=format&fit=crop&w=900&q=80",
+    img: "https://images.pexels.com/photos/31974945/pexels-photo-31974945.jpeg?auto=compress&cs=tinysrgb&w=900",
     tag: "Nature",
-    title: "Nosy Komba, l'île aux maki",
-    description: "Une rencontre avec les makis en liberté sur l'île voisine, au cœur de la nature.",
+    title: "Nosy Komba, l'île aux lémuriens",
+    description: "Une rencontre avec les lémuriens en liberté sur l'île voisine, au cœur de la nature.",
   },
   {
     img: "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=900&q=80",
@@ -251,7 +251,7 @@ const Landing = () => {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Seo
         title="Nosy Be Secret Islands Tours — Excursions sur l'île paradisiaque de Nosy Be"
-        description="Excursions à Nosy Be, Madagascar : nature, mer, maki, tortues de mer et requins-baleines. Découvrez l'île paradisiaque autrement avec Nosy Be Secret Islands Tours."
+        description="Excursions à Nosy Be, Madagascar : nature, mer, lémuriens, tortues de mer et requins-baleines. Découvrez l'île paradisiaque autrement avec Nosy Be Secret Islands Tours."
       />
       <SiteNav transparentOverHero scrollThreshold={0.7} />
 
@@ -286,7 +286,7 @@ const Landing = () => {
               </span>
             </h1>
             <p className="text-xl lg:text-2xl text-background/90 max-w-2xl mb-10 leading-relaxed">
-              Excursions, nature et rencontres avec makis, tortues de mer et requins-baleines : Nosy Be Secret Islands Tours vous fait vivre l'île paradisiaque de Nosy Be comme un local.
+              Excursions, nature et rencontres avec lémuriens, tortues de mer et requins-baleines : Nosy Be Secret Islands Tours vous fait vivre l'île paradisiaque de Nosy Be comme un local.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" variant="gradient" className="text-base font-semibold px-8 h-14" asChild>

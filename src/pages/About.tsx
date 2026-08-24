@@ -10,7 +10,7 @@ const VALUES = [
   {
     Icon: Leaf,
     title: "Nature",
-    description: "De la forêt primaire du Parc de Lokobe aux fonds coralliens de Nosy Tanikely, chaque excursion vous plonge dans une nature préservée, unique à Madagascar.",
+    description: "De la forêt primaire de la réserve de Lokobe aux fonds coralliens de Nosy Tanikely, chaque excursion vous plonge dans une nature préservée, unique à Madagascar.",
   },
   {
     Icon: Compass,
@@ -29,7 +29,7 @@ const About = () => {
     <div className="min-h-screen bg-background overflow-x-hidden flex flex-col">
       <Seo
         title="À propos — Nosy Be Secret Islands Tours"
-        description="Nosy Be Secret Islands Tours, une agence locale qui vous fait découvrir Nosy Be autrement : nature, mer, maki, tortues de mer et requins-baleines, loin des circuits figés."
+        description="Nosy Be Secret Islands Tours, une agence locale qui vous fait découvrir Nosy Be autrement : nature, mer, lémuriens, tortues de mer et requins-baleines, loin des circuits figés."
         path="/about"
       />
       <SiteNav transparentOverHero scrollThreshold={0.4} />
@@ -54,7 +54,7 @@ const About = () => {
               </h1>
               <p className="text-lg lg:text-xl text-background/85 leading-relaxed">
                 Nosy Be Secret Islands Tours est un tour opérateur local spécialisé dans les excursions en mer et
-                terrestres : plongée, visites de parc, rencontres avec maki, tortues de mer et requins-baleines.
+                terrestres : plongée, visites de réserve, rencontres avec lémuriens, tortues de mer et requins-baleines.
                 Avec nos guides, on vous fait découvrir Nosy Be comme un local, loin des circuits figés.
               </p>
             </Reveal>
