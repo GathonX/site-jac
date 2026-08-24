@@ -26,20 +26,20 @@ import {
 } from "lucide-react";
 
 const HERO_IMAGE_SRCS = [
-  "https://images.unsplash.com/photo-1656750675118-04c0c4179b54?auto=format&fit=crop&w=1920&q=80",
-  "https://images.unsplash.com/photo-1710260715197-d43a51dbd2fa?auto=format&fit=crop&w=1920&q=80",
+  "/img/sunset-beach.jpeg",
+  "/img/ylang-ylang.jpeg",
   "/img/img3.jpeg",
-  "https://images.unsplash.com/photo-1656829500356-3b6f7c3b4c65?auto=format&fit=crop&w=1920&q=80",
+  "/img/sandbank-lagoon.jpeg",
   "/img/img11.jpeg",
-  "https://images.unsplash.com/photo-1592998657521-76bb8b7c204c?auto=format&fit=crop&w=1920&q=80",
-  "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=1920&q=80",
+  "/img/palms-sea.jpeg",
+  "/img/sea-turtle.jpeg",
 ];
 
 const EXCURSION_IMAGES = [
-  "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=80",
-  "https://images.pexels.com/photos/31974945/pexels-photo-31974945.jpeg?auto=compress&cs=tinysrgb&w=900",
-  "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1464925029952-5d9ca1cf4f64?auto=format&fit=crop&w=900&q=80",
+  "/img/diving.jpeg",
+  "/img/black-lemur.jpeg",
+  "/img/sea-turtle.jpeg",
+  "/img/whale-shark.jpeg",
 ];
 
 const GALLERY_IMAGES = ["/img/img5.jpeg", "/img/img2.jpeg", "/img/img12.jpeg", "/img/img9.jpeg", "/img/img10.jpeg"];
@@ -354,7 +354,7 @@ const Landing = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
           <Reveal direction="right" className="rounded-[2rem] overflow-hidden aspect-[4/3] order-2 lg:order-1 shadow-2xl shadow-primary/10 ring-1 ring-foreground/5 bg-muted">
             <img
-              src="https://images.unsplash.com/photo-1628503185998-182cd70d46a7?auto=format&fit=crop&w=1200&q=80"
+              src="/img/pirogue.jpeg"
               alt={t("landing.whyImageAlt")}
               className="w-full h-full object-cover"
               loading="lazy"

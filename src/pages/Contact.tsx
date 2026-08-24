@@ -82,7 +82,7 @@ const Contact = () => {
       <main className="flex-1">
         <section className="relative h-[42svh] min-h-[320px] flex items-end overflow-hidden bg-muted">
           <img
-            src="https://images.unsplash.com/photo-1656750675118-04c0c4179b54?auto=format&fit=crop&w=1600&q=80"
+            src="/img/sunset-beach.jpeg"
             alt={t("contactPage.heroImageAlt")}
             fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover"

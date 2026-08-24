@@ -9,16 +9,16 @@ import { ArrowRight } from "lucide-react";
 import { useLang } from "@/hooks/useLang";
 
 const EXCURSION_IMAGES = [
-  "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=80",
-  "https://images.pexels.com/photos/31974945/pexels-photo-31974945.jpeg?auto=compress&cs=tinysrgb&w=900",
-  "https://images.unsplash.com/photo-1591025207163-942350e47db2?auto=format&fit=crop&w=900&q=80",
+  "/img/diving.jpeg",
+  "/img/black-lemur.jpeg",
+  "/img/sea-turtle.jpeg",
   "/img/img2.jpeg",
   "/img/img4.jpeg",
-  "https://images.unsplash.com/photo-1656750675118-04c0c4179b54?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1464925029952-5d9ca1cf4f64?auto=format&fit=crop&w=900&q=80",
+  "/img/sunset-beach.jpeg",
+  "/img/whale-shark.jpeg",
   "/img/img8.jpeg",
-  "https://images.unsplash.com/photo-1759521626408-4118f14632ac?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1710260715197-d43a51dbd2fa?auto=format&fit=crop&w=900&q=80",
+  "/img/kayak.jpeg",
+  "/img/ylang-ylang.jpeg",
 ];
 
 const PILL_ROTATION = ["pill-gradient-ocean", "pill-gradient-palm", "pill-gradient-sun"];
