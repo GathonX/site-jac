@@ -230,7 +230,7 @@ const en: Locale = {
         title: "Primary forests and endemic wildlife of Nosy Be",
         subhead: "Protected reserves, hikes and encounters with wildlife found nowhere else but Madagascar.",
         homeDescription: "Lokobe National Park or community reserve, forest trekking on Nosy Komba, and Akiba village: primary forests and endemic wildlife to explore on foot.",
-        homeImage: "/img/lemur-treetop.jpeg",
+        homeImage: "/img/nosy-be-harbor-view.jpeg",
         heroImageAlt: "Leaf-tailed gecko camouflaged in Lokobe's primary forest",
         items: [
           {
@@ -251,7 +251,7 @@ const en: Locale = {
           },
           {
             slug: "forest-trekking",
-            image: "/img/nosy-be-harbor-view.jpeg",
+            image: "/img/img8.jpeg",
             tag: "Hiking",
             title: "Forest trekking",
             shortDescription: "On Nosy Komba, from Ampangorina (about 12 km, climbing to 600 m altitude), or through Lokobe's primary forest.",

@@ -228,7 +228,7 @@ const fr = {
         title: "Forêts primaires et faune endémique de Nosy Be",
         subhead: "Réserves protégées, randonnées et rencontres avec une faune unique à Madagascar.",
         homeDescription: "Parc National ou réserve communautaire de Lokobe, randonnée en forêt à Nosy Komba et village d'Akiba : forêts primaires et faune endémique à découvrir à pied.",
-        homeImage: "/img/lemur-treetop.jpeg",
+        homeImage: "/img/nosy-be-harbor-view.jpeg",
         heroImageAlt: "Gecko-feuille camouflé dans la forêt primaire de Lokobe",
         items: [
           {
@@ -249,7 +249,7 @@ const fr = {
           },
           {
             slug: "forest-trekking",
-            image: "/img/nosy-be-harbor-view.jpeg",
+            image: "/img/img8.jpeg",
             tag: "Randonnée",
             title: "Randonnée en forêt",
             shortDescription: "À Nosy Komba, depuis Ampangorina (environ 12 km, montée jusqu'à 600 m d'altitude), ou dans la forêt primaire de Lokobe.",
