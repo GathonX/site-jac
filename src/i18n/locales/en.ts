@@ -297,10 +297,10 @@ const en: Locale = {
           {
             slug: "lemuria-land",
             image: "/img/ylang-ylang.jpeg",
-            tag: "Wildlife park",
+            tag: "Zoological park",
             title: "Lemuria Land",
-            shortDescription: "A wildlife and botanical park near Hell-Ville, built on the site of a former ylang-ylang distillery.",
-            fullDescription: "Lemuria Land is a natural and botanical park a few kilometers from Hell-Ville, built on the site of an ylang-ylang distillery founded in 1889. Now a sanctuary for Madagascar's endemic wildlife, it's home to around ten lemur species living in semi-freedom, along with chameleons, crocodiles and tortoises, set within a remarkable botanical collection — also a chance to see how ylang-ylang essential oil is produced.",
+            shortDescription: "Lemuria Land is a zoological and botanical park near Hell-Ville, built on the site of a former ylang-ylang distillery where the flower is still grown on site.",
+            fullDescription: "Lemuria Land is a zoological and botanical park a few kilometers from Hell-Ville, built on the site of an ylang-ylang distillery founded in 1889 — the flower is still grown on site, and the photo shown here is an example of it. The park displays around ten lemur species in enclosures, along with chameleons, crocodiles and tortoises, set within a remarkable botanical collection — also a chance to see how ylang-ylang essential oil is produced. Unlike Nosy Komba, where lemurs live freely, the animals here are presented in a zoological park setting.",
           },
         ],
       },

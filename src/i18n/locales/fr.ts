@@ -249,7 +249,7 @@ const fr = {
           },
           {
             slug: "forest-trekking",
-            image: "/img/img8.jpeg",
+            image: "/img/nosy-be-harbor-view.jpeg",
             tag: "Randonnée",
             title: "Randonnée en forêt",
             shortDescription: "À Nosy Komba, depuis Ampangorina (environ 12 km, montée jusqu'à 600 m d'altitude), ou dans la forêt primaire de Lokobe.",
@@ -295,10 +295,10 @@ const fr = {
           {
             slug: "lemuria-land",
             image: "/img/ylang-ylang.jpeg",
-            tag: "Parc animalier",
+            tag: "Parc zoologique",
             title: "Lemuria Land",
-            shortDescription: "Un parc animalier et botanique près de Hell-Ville, aménagé sur le site d'une ancienne distillerie d'ylang-ylang.",
-            fullDescription: "Lemuria Land est un parc naturel et botanique situé à quelques kilomètres de Hell-Ville, aménagé sur le site d'une distillerie d'ylang-ylang fondée en 1889. Devenu un sanctuaire pour la faune endémique de Madagascar, il abrite une dizaine d'espèces de lémuriens en semi-liberté, ainsi que caméléons, crocodiles et tortues, au cœur d'une collection botanique remarquable — l'occasion aussi de découvrir le processus de production de l'huile essentielle d'ylang-ylang.",
+            shortDescription: "Lemuria Land est un parc zoologique et botanique près de Hell-Ville, aménagé sur le site d'une ancienne distillerie d'ylang-ylang dont la fleur est encore cultivée sur place.",
+            fullDescription: "Lemuria Land est un parc zoologique et botanique situé à quelques kilomètres de Hell-Ville, aménagé sur le site d'une distillerie d'ylang-ylang fondée en 1889 — la fleur est encore cultivée sur place, et la photo présentée ici en est un exemple. Le parc présente en enclos une dizaine d'espèces de lémuriens ainsi que des caméléons, crocodiles et tortues, au cœur d'une collection botanique remarquable — l'occasion aussi de découvrir le processus de production de l'huile essentielle d'ylang-ylang. À la différence de Nosy Komba, où les lémuriens vivent en liberté, il s'agit ici d'animaux présentés dans un cadre de parc zoologique.",
           },
         ],
       },
