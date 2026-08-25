@@ -169,6 +169,7 @@ const fr = {
         title: "Plongée, snorkeling et rencontres au large de Nosy Be",
         subhead: "De la nage avec les tortues aux requins-baleines saisonniers, découvrez la vie marine de Nosy Be.",
         homeDescription: "Nosy Iranja, Nosy Komba, Nosy Tanikely, Sakatia et la saison des requins-baleines : plongée, snorkeling et rencontres avec une faune marine exceptionnelle.",
+        homeImage: "/img/sea-turtle.jpeg",
         heroImageAlt: "Tortue de mer nageant près de la surface à Nosy Sakatia",
         items: [
           {
@@ -221,6 +222,7 @@ const fr = {
         title: "Forêts primaires et faune endémique de Nosy Be",
         subhead: "Réserves protégées, randonnées et rencontres avec une faune unique à Madagascar.",
         homeDescription: "Parc National ou réserve communautaire de Lokobe, randonnée en forêt à Nosy Komba et village d'Akiba : forêts primaires et faune endémique à découvrir à pied.",
+        homeImage: "/img/lemur-treetop.jpeg",
         heroImageAlt: "Gecko-feuille camouflé dans la forêt primaire de Lokobe",
         items: [
           {
@@ -249,7 +251,7 @@ const fr = {
           },
           {
             slug: "village-akiba",
-            image: "/img/img10.jpeg",
+            image: "/img/cacao-pods.jpeg",
             tag: "Projet communautaire",
             title: "Village Akiba",
             shortDescription: "Un projet communautaire dans les hauteurs de Nosy Komba : agriculture durable, éco-gîte et atelier de transformation du cacao en chocolat.",
@@ -265,6 +267,7 @@ const fr = {
         title: "L'histoire et les paysages de Nosy Be",
         subhead: "Tour de l'île, patrimoine culturel et faune endémique à quelques minutes de Hell-Ville.",
         homeDescription: "Tour de l'île et Mont Passot, circuit culturel entre arbre sacré et Marodoka, et rencontre avec les lémuriens de Lemuria Land.",
+        homeImage: "/img/nosy-be-harbor-view.jpeg",
         heroImageAlt: "Vue panoramique sur Hell-Ville et sa baie depuis les hauteurs de Nosy Be",
         items: [
           {
@@ -301,6 +304,7 @@ const fr = {
         title: "La vie quotidienne de Nosy Be",
         subhead: "Villages, gastronomie et artisanat : à la rencontre des habitants de l'île.",
         homeDescription: "Visites de villages, cuisine locale, artisanat traditionnel et tourisme communautaire : la vie quotidienne de Nosy Be.",
+        homeImage: "/img/img3.jpeg",
         heroImageAlt: "Paréos colorés sur un étendoir face à la plage à Nosy Be",
         items: [
           {

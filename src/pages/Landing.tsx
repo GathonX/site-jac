@@ -112,7 +112,7 @@ const Landing = () => {
     emoji: string;
     label: string;
     homeDescription: string;
-    items: { image: string }[];
+    homeImage: string;
   }[];
   const features = t("landing.features", { returnObjects: true }) as { title: string; description: string }[];
   const steps = t("landing.steps", { returnObjects: true }) as { title: string; description: string }[];
@@ -233,7 +233,7 @@ const Landing = () => {
                 <div className="glass group rounded-3xl overflow-hidden h-full flex flex-col shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-shadow">
                   <Link to={localize(`/excursions/${cat.id}`)} className="relative aspect-[4/5] overflow-hidden bg-muted block">
                     <img
-                      src={cat.items[0].image}
+                      src={cat.homeImage}
                       alt={cat.label}
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"

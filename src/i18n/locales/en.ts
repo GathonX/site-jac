@@ -171,6 +171,7 @@ const en: Locale = {
         title: "Diving, snorkeling and encounters off Nosy Be",
         subhead: "From swimming with turtles to the seasonal whale sharks, discover Nosy Be's marine life.",
         homeDescription: "Nosy Iranja, Nosy Komba, Nosy Tanikely, Sakatia and the whale shark season: diving, snorkeling and encounters with exceptional marine wildlife.",
+        homeImage: "/img/sea-turtle.jpeg",
         heroImageAlt: "Sea turtle swimming near the surface at Nosy Sakatia",
         items: [
           {
@@ -223,6 +224,7 @@ const en: Locale = {
         title: "Primary forests and endemic wildlife of Nosy Be",
         subhead: "Protected reserves, hikes and encounters with wildlife found nowhere else but Madagascar.",
         homeDescription: "Lokobe National Park or community reserve, forest trekking on Nosy Komba, and Akiba village: primary forests and endemic wildlife to explore on foot.",
+        homeImage: "/img/lemur-treetop.jpeg",
         heroImageAlt: "Leaf-tailed gecko camouflaged in Lokobe's primary forest",
         items: [
           {
@@ -251,7 +253,7 @@ const en: Locale = {
           },
           {
             slug: "village-akiba",
-            image: "/img/img10.jpeg",
+            image: "/img/cacao-pods.jpeg",
             tag: "Community project",
             title: "Akiba Village",
             shortDescription: "A community project in the highlands of Nosy Komba: sustainable agriculture, an eco-lodge, and a cacao-to-chocolate workshop.",
@@ -267,6 +269,7 @@ const en: Locale = {
         title: "The history and landscapes of Nosy Be",
         subhead: "Island tour, cultural heritage and endemic wildlife just minutes from Hell-Ville.",
         homeDescription: "Island tour and Mont Passot, a cultural circuit between the sacred tree and Marodoka, and lemurs at Lemuria Land.",
+        homeImage: "/img/nosy-be-harbor-view.jpeg",
         heroImageAlt: "Panoramic view over Hell-Ville and its bay from the highlands of Nosy Be",
         items: [
           {
@@ -303,6 +306,8 @@ const en: Locale = {
         title: "Everyday life on Nosy Be",
         subhead: "Villages, food and craftsmanship: meeting the people of the island.",
         homeDescription: "Village visits, local cuisine, traditional crafts and community-based tourism: everyday life on Nosy Be.",
+        homeImage: "/img/img3.jpeg",
+        homeImage: "/img/img3.jpeg",
         heroImageAlt: "Colorful sarongs drying on a line facing the beach in Nosy Be",
         items: [
           {
