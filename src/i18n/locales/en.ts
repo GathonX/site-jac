@@ -172,11 +172,11 @@ const en: Locale = {
         subhead: "From swimming with turtles to the seasonal whale sharks, discover Nosy Be's marine life.",
         homeDescription: "Nosy Iranja, Nosy Komba, Nosy Tanikely, Sakatia and the whale shark season: diving, snorkeling and encounters with exceptional marine wildlife.",
         homeImage: "/img/sea-turtle.jpeg",
-        heroImageAlt: "Sea turtle swimming near the surface at Nosy Sakatia",
+        heroImageAlt: "White sandbank connecting the two islets of Nosy Iranja",
         items: [
           {
             slug: "nosy-iranja",
-            image: "/img/sunset-beach.jpeg",
+            image: "/img/img4.jpeg",
             tag: "Island of turtles",
             title: "Nosy Iranja",
             shortDescription: "An archipelago of two islets connected by a white sandbank, about 1.5 hours by boat — the region's best-known sea turtle nesting site.",
@@ -282,7 +282,7 @@ const en: Locale = {
           },
           {
             slug: "cultural-circuit",
-            image: "/img/img7.jpeg",
+            image: "/img/sacred-banyan-tree.jpeg",
             tag: "Culture",
             title: "Cultural circuit",
             shortDescription: "Mahatsinjo's sacred tree, a small local history museum, and the historic village of Marodoka.",
@@ -308,11 +308,11 @@ const en: Locale = {
         homeDescription: "Village visits, local cuisine, traditional crafts and community-based tourism: everyday life on Nosy Be.",
         homeImage: "/img/img3.jpeg",
         homeImage: "/img/img3.jpeg",
-        heroImageAlt: "Colorful sarongs drying on a line facing the beach in Nosy Be",
+        heroImageAlt: "Malagasy village nestled in the hills",
         items: [
           {
             slug: "village-visits",
-            image: "/img/img3.jpeg",
+            image: "/img/madagascar-village.jpeg",
             tag: "Encounter",
             title: "Village visits",
             shortDescription: "An immersion in the everyday life of Nosy Be's Sakalava villages.",
@@ -320,7 +320,7 @@ const en: Locale = {
           },
           {
             slug: "local-food",
-            image: "/img/img4.jpeg",
+            image: "/img/grilled-fish.jpeg",
             tag: "Food",
             title: "Local cuisine",
             shortDescription: "Romazava, ravitoto and fresh seafood: the essentials of Malagasy and Sakalava cuisine in Nosy Be.",
@@ -328,7 +328,7 @@ const en: Locale = {
           },
           {
             slug: "traditional-crafts",
-            image: "/img/img12.jpeg",
+            image: "/img/raffia-weaving.jpeg",
             tag: "Crafts",
             title: "Traditional crafts",
             shortDescription: "Raffia basketry, wood carving and embroidery: Malagasy skills passed down through generations.",
@@ -336,7 +336,7 @@ const en: Locale = {
           },
           {
             slug: "community-based-tourism",
-            image: "/img/kayak.jpeg",
+            image: "/img/pirogue.jpeg",
             tag: "Community tourism",
             title: "Community-based tourism",
             shortDescription: "Experiences designed and run by local communities, like the Ambatozavavy reserve or Akiba village.",

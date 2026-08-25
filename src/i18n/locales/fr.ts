@@ -170,11 +170,11 @@ const fr = {
         subhead: "De la nage avec les tortues aux requins-baleines saisonniers, découvrez la vie marine de Nosy Be.",
         homeDescription: "Nosy Iranja, Nosy Komba, Nosy Tanikely, Sakatia et la saison des requins-baleines : plongée, snorkeling et rencontres avec une faune marine exceptionnelle.",
         homeImage: "/img/sea-turtle.jpeg",
-        heroImageAlt: "Tortue de mer nageant près de la surface à Nosy Sakatia",
+        heroImageAlt: "Banc de sable blanc reliant les deux îlots de Nosy Iranja",
         items: [
           {
             slug: "nosy-iranja",
-            image: "/img/sunset-beach.jpeg",
+            image: "/img/img4.jpeg",
             tag: "Île aux tortues",
             title: "Nosy Iranja",
             shortDescription: "Un archipel de deux îlots reliés par un banc de sable blanc, à environ 1h30 de bateau — le site de ponte des tortues de mer le plus connu de la région.",
@@ -280,7 +280,7 @@ const fr = {
           },
           {
             slug: "cultural-circuit",
-            image: "/img/img7.jpeg",
+            image: "/img/sacred-banyan-tree.jpeg",
             tag: "Culture",
             title: "Circuit culturel",
             shortDescription: "Arbre sacré de Mahatsinjo, petit musée d'histoire locale et village historique de Marodoka.",
@@ -305,11 +305,11 @@ const fr = {
         subhead: "Villages, gastronomie et artisanat : à la rencontre des habitants de l'île.",
         homeDescription: "Visites de villages, cuisine locale, artisanat traditionnel et tourisme communautaire : la vie quotidienne de Nosy Be.",
         homeImage: "/img/img3.jpeg",
-        heroImageAlt: "Paréos colorés sur un étendoir face à la plage à Nosy Be",
+        heroImageAlt: "Village malgache niché dans les collines",
         items: [
           {
             slug: "village-visits",
-            image: "/img/img3.jpeg",
+            image: "/img/madagascar-village.jpeg",
             tag: "Rencontre",
             title: "Visites de villages",
             shortDescription: "Une immersion dans la vie quotidienne des villages sakalava de Nosy Be.",
@@ -317,7 +317,7 @@ const fr = {
           },
           {
             slug: "local-food",
-            image: "/img/img4.jpeg",
+            image: "/img/grilled-fish.jpeg",
             tag: "Gastronomie",
             title: "Cuisine locale",
             shortDescription: "Romazava, ravitoto et fruits de mer frais : les incontournables de la cuisine malgache et sakalava à Nosy Be.",
@@ -325,7 +325,7 @@ const fr = {
           },
           {
             slug: "traditional-crafts",
-            image: "/img/img12.jpeg",
+            image: "/img/raffia-weaving.jpeg",
             tag: "Artisanat",
             title: "Artisanat traditionnel",
             shortDescription: "Vannerie en raphia, sculpture sur bois et broderie : des savoir-faire malgaches transmis de génération en génération.",
@@ -333,7 +333,7 @@ const fr = {
           },
           {
             slug: "community-based-tourism",
-            image: "/img/kayak.jpeg",
+            image: "/img/pirogue.jpeg",
             tag: "Tourisme solidaire",
             title: "Tourisme communautaire",
             shortDescription: "Des expériences pensées et portées par les communautés locales, comme la réserve d'Ambatozavavy ou le village d'Akiba.",
