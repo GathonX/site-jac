@@ -10,16 +10,31 @@ import { PageLoader } from "@/components/PageLoader";
 import { useLang } from "@/hooks/useLang";
 import i18n from "@/i18n";
 
+// On a fast connection the lazy chunk can resolve in a few ms, so the
+// PageLoader flashes by too quickly to register as a loading state at
+// all. Padding the promise to a minimum duration keeps it on screen
+// long enough to actually be seen (and seen spinning).
+function lazyMinDelay<T extends { default: ComponentType<any> }>(
+  importFn: () => Promise<T>,
+  minDelayMs = 700,
+) {
+  return lazy(() =>
+    Promise.all([importFn(), new Promise((resolve) => setTimeout(resolve, minDelayMs))]).then(
+      ([moduleExports]) => moduleExports,
+    ),
+  );
+}
+
 import Landing from "./pages/Landing";
-const About = lazy(() => import("./pages/About"));
-const ExperienceCategory = lazy(() => import("./pages/ExperienceCategory"));
-const ExperienceDetail = lazy(() => import("./pages/ExperienceDetail"));
-const Contact = lazy(() => import("./pages/Contact"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const MentionsLegales = lazy(() => import("./pages/legal/MentionsLegales"));
-const PolitiqueConfidentialite = lazy(() => import("./pages/legal/PolitiqueConfidentialite"));
-const ConditionsGenerales = lazy(() => import("./pages/legal/ConditionsGenerales"));
-const PolitiqueCookies = lazy(() => import("./pages/legal/PolitiqueCookies"));
+const About = lazyMinDelay(() => import("./pages/About"));
+const ExperienceCategory = lazyMinDelay(() => import("./pages/ExperienceCategory"));
+const ExperienceDetail = lazyMinDelay(() => import("./pages/ExperienceDetail"));
+const Contact = lazyMinDelay(() => import("./pages/Contact"));
+const NotFound = lazyMinDelay(() => import("./pages/NotFound"));
+const MentionsLegales = lazyMinDelay(() => import("./pages/legal/MentionsLegales"));
+const PolitiqueConfidentialite = lazyMinDelay(() => import("./pages/legal/PolitiqueConfidentialite"));
+const ConditionsGenerales = lazyMinDelay(() => import("./pages/legal/ConditionsGenerales"));
+const PolitiqueCookies = lazyMinDelay(() => import("./pages/legal/PolitiqueCookies"));
 
 // Every route exists twice: as-is (French, default) and under /en (English).
 const ROUTE_DEFS: { path: string; Component: ComponentType }[] = [
