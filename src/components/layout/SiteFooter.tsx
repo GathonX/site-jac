@@ -34,6 +34,7 @@ export function SiteFooter() {
   const navLinks = [
     { to: localize("/"), label: t("nav.home") },
     ...experienceCategories.map((cat) => ({ to: localize(`/excursions/${cat.id}`), label: cat.label })),
+    { to: localize("/galerie"), label: t("nav.gallery") },
     { to: localize("/about"), label: t("nav.about") },
     { to: localize("/contact"), label: t("nav.contact") },
   ];

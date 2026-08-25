@@ -15,7 +15,10 @@ export function MobileNav({ triggerClassName = "text-foreground" }: { triggerCla
   const categories = t("experiences.categories", { returnObjects: true }) as { id: string; label: string }[];
 
   const links = [{ to: localize("/"), label: t("nav.home") }];
-  const trailingLinks = [{ to: localize("/about"), label: t("nav.about") }];
+  const trailingLinks = [
+    { to: localize("/galerie"), label: t("nav.gallery") },
+    { to: localize("/about"), label: t("nav.about") },
+  ];
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>

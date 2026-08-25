@@ -29,6 +29,7 @@ import Landing from "./pages/Landing";
 const About = lazyMinDelay(() => import("./pages/About"));
 const ExperienceCategory = lazyMinDelay(() => import("./pages/ExperienceCategory"));
 const ExperienceDetail = lazyMinDelay(() => import("./pages/ExperienceDetail"));
+const Gallery = lazyMinDelay(() => import("./pages/Gallery"));
 const Contact = lazyMinDelay(() => import("./pages/Contact"));
 const NotFound = lazyMinDelay(() => import("./pages/NotFound"));
 const MentionsLegales = lazyMinDelay(() => import("./pages/legal/MentionsLegales"));
@@ -42,6 +43,7 @@ const ROUTE_DEFS: { path: string; Component: ComponentType }[] = [
   { path: "/about", Component: About },
   { path: "/excursions/:categoryId", Component: ExperienceCategory },
   { path: "/excursions/:categoryId/:itemSlug", Component: ExperienceDetail },
+  { path: "/galerie", Component: Gallery },
   { path: "/contact", Component: Contact },
   { path: "/mentions-legales", Component: MentionsLegales },
   { path: "/politique-de-confidentialite", Component: PolitiqueConfidentialite },

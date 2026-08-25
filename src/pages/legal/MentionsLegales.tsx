@@ -39,6 +39,21 @@ const MentionsLegales = () => {
           <h2>{l.ipHeading}</h2>
           <p>{l.ipText}</p>
         </section>
+
+        <section>
+          <h2>{l.photoCreditsHeading}</h2>
+          <p>
+            {l.photoCreditsText}{" "}
+            <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener noreferrer">
+              CC BY-SA 2.0
+            </a>{" "}
+            (
+            <a href="https://commons.wikimedia.org/wiki/File:Mont_Passot2.jpg" target="_blank" rel="noopener noreferrer">
+              source
+            </a>
+            ).
+          </p>
+        </section>
       </LegalPageLayout>
     </>
   );

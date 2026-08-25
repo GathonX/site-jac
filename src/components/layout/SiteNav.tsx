@@ -41,6 +41,9 @@ export function SiteNav({ transparentOverHero = false, scrollThreshold = 0.7 }: 
         </Link>
         <div className="flex items-center gap-3 sm:gap-6">
           <ExcursionsNavDropdown className={`hidden sm:inline-flex ${solid ? "text-foreground/80 hover:text-foreground" : "text-background/90 hover:text-background"}`} />
+          <Link to={localize("/galerie")} className={linkClass}>
+            {t("nav.gallery")}
+          </Link>
           <Link to={localize("/about")} className={linkClass}>
             {t("nav.about")}
           </Link>
