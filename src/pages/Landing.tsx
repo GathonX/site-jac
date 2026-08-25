@@ -248,7 +248,7 @@ const Landing = () => {
                     <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{cat.homeDescription}</p>
                     <Button variant="outline" size="sm" className="self-start" asChild>
                       <Link to={localize(`/excursions/${cat.id}`)}>
-                        {t("experiences.detailsButton")} <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
+                        {t("landing.detailsButton")} <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
                       </Link>
                     </Button>
                   </div>

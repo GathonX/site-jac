@@ -161,6 +161,7 @@ const fr = {
     newsletterSuccess: "Inscription réussie !",
     newsletterErrorGeneric: "Échec de l'inscription. Veuillez réessayer.",
     newsletterErrorNetwork: "Impossible d'envoyer votre demande. Vérifiez votre connexion.",
+    detailsButton: "Voir détail",
   },
   experiences: {
     detailsButton: "Voir plus",

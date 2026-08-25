@@ -163,6 +163,7 @@ const en: Locale = {
     newsletterSuccess: "Successfully signed up!",
     newsletterErrorGeneric: "Sign-up failed. Please try again.",
     newsletterErrorNetwork: "Couldn't send your request. Check your connection.",
+    detailsButton: "View details",
   },
   experiences: {
     detailsButton: "Learn more",
