@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, Globe } from "lucide-react";
+import { Mail, Phone, Globe, Compass } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { SiWhatsapp, SiFacebook, SiInstagram, SiX, SiGithub } from "react-icons/si";
 import { Logo } from "@/components/Logo";
@@ -11,6 +11,7 @@ const DEVELOPER = {
   email: "mandimbizarajuno@gmail.com",
   whatsappUrl: "https://wa.me/261326687543",
   github: "https://github.com/GathonX",
+  app: "https://pixel-rise.com/",
 };
 
 export function SiteFooter() {
@@ -177,6 +178,15 @@ export function SiteFooter() {
               >
                 <SiGithub className="w-3.5 h-3.5 shrink-0" />
                 GitHub
+              </a>
+              <a
+                href={DEVELOPER.app}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs text-background/50 hover:text-sun transition-colors"
+              >
+                <Compass className="w-3.5 h-3.5 shrink-0" />
+                PixelRise
               </a>
             </div>
           </div>
