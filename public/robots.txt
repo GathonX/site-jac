@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.nosybesecretislands.com/sitemap.xml
+Sitemap: https://www.nosybesecretislandstour.com/sitemap.xml

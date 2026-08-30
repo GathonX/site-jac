@@ -88,7 +88,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f4f4;margin:0;padding
   </div>
   <div class='foot'>
     <p><strong>Nosy Be Secret Islands Tours &mdash; Nosy Be, Madagascar</strong></p>
-    <p>&#128222; 034 12 148 83 &nbsp;|&nbsp; &#128231; ralambojacquinette@gmail.com</p>
+    <p>&#128222; 037 46 078 42 &nbsp;|&nbsp; &#128231; ralambojacquinette@gmail.com</p>
   </div>
 </div>
 </body></html>";
