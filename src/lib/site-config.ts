@@ -1,4 +1,10 @@
-const WHATSAPP_PREFILLED_MESSAGE = "Bonjour, je souhaite avoir plus d'informations sur vos offres touristiques.";
+const WHATSAPP_PREFILLED_MESSAGE = `Bonjour et bienvenue chez Nosy Be Islands Tours !
+
+Pour découvrir les îles, les paysages et les activités incontournables de Nosy Be, vous êtes au bon endroit.
+
+Laissez-nous votre nom, vos coordonnées et votre demande. Nous vous répondrons rapidement.
+
+Merci et à très bientôt ! ☀️`;
 
 export const SITE_CONFIG = {
   siteUrl: "https://www.nosybesecretislandstour.com",
