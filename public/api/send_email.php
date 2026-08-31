@@ -195,8 +195,12 @@ function encodeHeaderValue($value) {
 // ── Envoi SMTP ──
 function sendSMTPEmail($host, $port, $username, $password, $encryption, $from, $fromName, $to, $subject, $body, $replyTo = null) {
     try {
+        // Sur l'hébergement mutualisé, le serveur SMTP présente souvent le
+        // certificat partagé de l'infra (ex: *.lwspanel.com) plutôt qu'un
+        // certificat au nom exact du domaine client — on garde la
+        // vérification de la chaîne de confiance mais pas celle du nom.
         $context = stream_context_create([
-            'ssl' => ['verify_peer' => true, 'verify_peer_name' => true]
+            'ssl' => ['verify_peer' => true, 'verify_peer_name' => false]
         ]);
 
         $smtp = ($encryption === 'ssl')
