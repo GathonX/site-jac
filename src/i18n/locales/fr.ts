@@ -480,7 +480,7 @@ const fr = {
       phone: "Téléphone",
       registrationNote: "Numéro d'immatriculation à compléter par l'éditeur (registre du commerce malgache).",
       hostingHeading: "Hébergement",
-      hostingText: "Ce site est hébergé chez Hostinger.",
+      hostingText: "Ce site est hébergé chez LWS (Ligne Web Services).",
       devHeading: "Conception et développement",
       devText: "Site conçu et développé par Juno Mandimbizara.",
       ipHeading: "Propriété intellectuelle",

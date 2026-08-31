@@ -482,7 +482,7 @@ const en: Locale = {
       phone: "Phone",
       registrationNote: "Business registration number to be completed by the publisher (Madagascar trade register).",
       hostingHeading: "Hosting",
-      hostingText: "This site is hosted by Hostinger.",
+      hostingText: "This site is hosted by LWS (Ligne Web Services).",
       devHeading: "Design and development",
       devText: "Site designed and developed by Juno Mandimbizara.",
       ipHeading: "Intellectual property",
