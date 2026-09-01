@@ -17,8 +17,8 @@ const en: Locale = {
     contactHeading: "Contact",
     legalHeading: "Legal",
     whatsapp: "WhatsApp",
-    qrAlt: "QR code to the Nosy Be Secret Islands Tours website",
-    qrCaption: "Scan me to visit our website",
+    qrAlt: "QR code to chat with us on WhatsApp",
+    qrCaption: "Scan me to reach us on WhatsApp",
     legal: {
       mentions: "Legal Notice",
       privacy: "Privacy Policy",

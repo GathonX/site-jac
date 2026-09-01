@@ -15,8 +15,8 @@ const fr = {
     contactHeading: "Contact",
     legalHeading: "Légal",
     whatsapp: "WhatsApp",
-    qrAlt: "Code QR vers le site Nosy Be Secret Islands Tours",
-    qrCaption: "Scannez-moi pour visiter notre site web",
+    qrAlt: "Code QR pour discuter avec nous sur WhatsApp",
+    qrCaption: "Scannez-moi pour nous contacter sur WhatsApp",
     legal: {
       mentions: "Mentions légales",
       privacy: "Politique de confidentialité",
