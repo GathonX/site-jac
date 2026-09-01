@@ -17,6 +17,7 @@ export function MobileNav({ triggerClassName = "text-foreground" }: { triggerCla
   const links = [{ to: localize("/"), label: t("nav.home") }];
   const trailingLinks = [
     { to: localize("/galerie"), label: t("nav.gallery") },
+    { to: localize("/tarifs"), label: t("nav.pricing") },
     { to: localize("/about"), label: t("nav.about") },
   ];
 

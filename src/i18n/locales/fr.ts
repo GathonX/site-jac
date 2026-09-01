@@ -3,6 +3,7 @@ const fr = {
     home: "Accueil",
     excursions: "Excursions",
     gallery: "Galerie",
+    pricing: "Tarifs",
     about: "À propos",
     contact: "Contact",
     contactCta: "Contactez-nous",
@@ -14,6 +15,8 @@ const fr = {
     contactHeading: "Contact",
     legalHeading: "Légal",
     whatsapp: "WhatsApp",
+    qrAlt: "Code QR vers le site Nosy Be Secret Islands Tours",
+    qrCaption: "Scannez-moi pour visiter notre site web",
     legal: {
       mentions: "Mentions légales",
       privacy: "Politique de confidentialité",
@@ -57,6 +60,11 @@ const fr = {
       title: "Galerie photos et vidéos — Nosy Be Secret Islands Tours",
       description:
         "Toutes nos photos et vidéos de Nosy Be : faune endémique, plages, îlots, villages et excursions en mer et en forêt.",
+    },
+    pricing: {
+      title: "Tarifs 2026/2027 — Nosy Be Secret Islands Tours",
+      description:
+        "Tarifs indicatifs de nos excursions à Nosy Be : sorties en mer, trekking et circuits terrestres, en groupe ou en privé.",
     },
     notFound: {
       title: "Page introuvable — Nosy Be Secret Islands Tours",
@@ -398,6 +406,62 @@ const fr = {
       { src: "/img/raffia-weaving.jpeg", type: "image", alt: "Vannerie traditionnelle en raphia, artisanat malgache" },
       { src: "/img/video.mp4", type: "video", poster: "/img/video-poster.jpeg", alt: "Gecko-feuille camouflé dans la forêt de Nosy Komba" },
     ],
+  },
+  pricing: {
+    eyebrow: "Tarifs",
+    title: "Nos tarifs 2026/2027",
+    subhead: "Un aperçu de nos tarifs indicatifs pour préparer votre séjour à Nosy Be — contactez-nous pour un devis précis adapté à votre groupe et à vos dates.",
+    heroImageAlt: "Bateau traditionnel amarré dans un lagon turquoise à Nosy Be",
+    groupLabel: "Groupe / pers.",
+    privateLabel: "Privé",
+    groupTip: "Astuce à partir de 4 personnes : le tarif Privé revient au même prix par personne que le Groupe, avec plus de confort et de liberté.",
+    conditions: "Groupe : départs soumis à un minimum de 4 à 6 personnes selon les excursions. Privé : bateau rapide privatisé ou véhicule dédié, guide exclusif.",
+    disclaimer: "Tarifs indicatifs 2026/2027, sujets à variation selon la saison.",
+    sections: [
+      {
+        title: "Excursions maritimes",
+        subtitle: "Journée complète avec déjeuner inclus",
+        itemLabel: "Destination",
+        noteLabel: "Pourquoi le Privé ?",
+        rows: [
+          { name: "Nosy Iranja", detail: "L'île aux Tortues, lagon paradisiaque", group: "65 à 80 €", private: "350 à 450 € (1 à 6 pers.)", note: "Départ matinal, avant les groupes" },
+          { name: "Nosy Komba + Tanikely", detail: "Lémuriens et aquarium naturel", group: "40 à 55 €", private: "220 à 280 € (1 à 6 pers.)", note: "Temps libre snorkeling et plage" },
+          { name: "Nosy Sakatia", detail: "Tortues géantes", group: "35 à 45 €", private: "150 à 190 € (1 à 4 pers.)", note: "Journée modulable à votre rythme" },
+          { name: "Safari Baleines", detail: "Saison juillet à septembre", group: "60 à 75 €", private: "380 à 480 € (1 à 6 pers.)", note: "Observation 100 % personnalisée" },
+          { name: "Mitsio, 3 jours / 2 nuits", detail: "Archipel sauvage", group: "350 à 385 €/pers.", private: "3 000 € (1 à 4 pers.) / 3 850 € (5 à 8 pers.)", note: "Dates libres, rythme adapté" },
+        ],
+      },
+      {
+        title: "Trekking & aventure",
+        subtitle: "",
+        itemLabel: "Trek",
+        noteLabel: "Inclus",
+        rows: [
+          { name: "Trek Nosy Komba, 2 jours / 1 nuit", detail: "Ampangorina → Akiba → Bongo Village", group: "90 à 120 €/pers.", private: "180 à 250 €/pers.", note: "Guide, matériel de bivouac, 4 repas, éco-lodge" },
+        ],
+      },
+      {
+        title: "Excursions terrestres — Grande Terre",
+        subtitle: "",
+        itemLabel: "Circuit",
+        noteLabel: "",
+        rows: [
+          { name: "Tour de l'île complet", detail: "Arbre sacré, cascade sacrée, Mont Passot", group: "30 à 40 €", private: "70 à 90 € — voiture climatisée", note: "" },
+          { name: "Réserve de Lokobe", detail: "Pirogue + trek en forêt primaire", group: "40 à 50 €", private: "130 à 160 € — base 2 à 3 pers.", note: "" },
+          { name: "Arbre sacré + Sakatia", detail: "", group: "35 à 45 €", private: "130 à 160 € — formule mixte terre/mer", note: "" },
+          { name: "Mont Passot au coucher du soleil", detail: "", group: "30 à 40 €", private: "50 à 85 € — véhicule", note: "" },
+        ],
+      },
+    ],
+    inclusionsTitle: "Ce qui est inclus & conseils pratiques",
+    inclusions: [
+      { title: "Déjeuner inclus", description: "Buffet poisson grillé, riz coco, fruits frais et eau, dans tous les tarifs maritimes." },
+      { title: "Taxes de parc", description: "Nosy Tanikely et Lokobe : 20 000 à 40 000 Ar par personne, à vérifier selon l'excursion choisie." },
+      { title: "Groupe", description: "Idéal en solo ou en couple, ambiance conviviale, horaires fixes." },
+      { title: "Privé", description: "Départ à l'heure de votre choix, temps libre sur chaque site (idéal photos et familles), guide à votre disposition." },
+    ],
+    ctaTitle: "Prêt à réserver votre excursion ?",
+    ctaSubhead: "Contactez-nous pour un devis personnalisé et les disponibilités selon vos dates.",
   },
   about: {
     heroImageAlt: "Terre rouge caractéristique des paysages de Madagascar",

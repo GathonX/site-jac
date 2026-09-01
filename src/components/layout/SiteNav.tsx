@@ -44,6 +44,9 @@ export function SiteNav({ transparentOverHero = false, scrollThreshold = 0.7 }: 
           <Link to={localize("/galerie")} className={linkClass}>
             {t("nav.gallery")}
           </Link>
+          <Link to={localize("/tarifs")} className={linkClass}>
+            {t("nav.pricing")}
+          </Link>
           <Link to={localize("/about")} className={linkClass}>
             {t("nav.about")}
           </Link>

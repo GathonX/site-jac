@@ -36,6 +36,7 @@ export function SiteFooter() {
     { to: localize("/"), label: t("nav.home") },
     ...experienceCategories.map((cat) => ({ to: localize(`/excursions/${cat.id}`), label: cat.label })),
     { to: localize("/galerie"), label: t("nav.gallery") },
+    { to: localize("/tarifs"), label: t("nav.pricing") },
     { to: localize("/about"), label: t("nav.about") },
     { to: localize("/contact"), label: t("nav.contact") },
   ];
@@ -70,6 +71,11 @@ export function SiteFooter() {
               <Icon className="w-4 h-4" />
             </a>
           ))}
+        </div>
+
+        <div className="flex flex-col items-center gap-2 mt-8 p-4 rounded-2xl bg-background/5 ring-1 ring-background/10">
+          <img src="/qr-code.png" alt={t("footer.qrAlt")} className="w-24 h-24 rounded-lg bg-white p-1.5" width={96} height={96} loading="lazy" />
+          <p className="text-xs text-background/50 max-w-[180px] text-center">{t("footer.qrCaption")}</p>
         </div>
 
         <div className="flex flex-wrap justify-center gap-x-16 gap-y-10 mt-14 w-full">

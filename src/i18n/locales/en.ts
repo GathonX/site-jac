@@ -5,6 +5,7 @@ const en: Locale = {
     home: "Home",
     excursions: "Excursions",
     gallery: "Gallery",
+    pricing: "Pricing",
     about: "About",
     contact: "Contact",
     contactCta: "Contact us",
@@ -16,6 +17,8 @@ const en: Locale = {
     contactHeading: "Contact",
     legalHeading: "Legal",
     whatsapp: "WhatsApp",
+    qrAlt: "QR code to the Nosy Be Secret Islands Tours website",
+    qrCaption: "Scan me to visit our website",
     legal: {
       mentions: "Legal Notice",
       privacy: "Privacy Policy",
@@ -59,6 +62,11 @@ const en: Locale = {
       title: "Photo & Video Gallery — Nosy Be Secret Islands Tours",
       description:
         "All our photos and videos of Nosy Be: endemic wildlife, beaches, islets, villages, and sea and forest excursions.",
+    },
+    pricing: {
+      title: "Pricing 2026/2027 — Nosy Be Secret Islands Tours",
+      description:
+        "Indicative pricing for our Nosy Be excursions: sea trips, trekking and land circuits, in a group or private.",
     },
     notFound: {
       title: "Page not found — Nosy Be Secret Islands Tours",
@@ -400,6 +408,62 @@ const en: Locale = {
       { src: "/img/raffia-weaving.jpeg", type: "image", alt: "Traditional raffia basketry, Malagasy craftsmanship" },
       { src: "/img/video.mp4", type: "video", poster: "/img/video-poster.jpeg", alt: "Leaf-tailed gecko camouflaged in the forest of Nosy Komba" },
     ],
+  },
+  pricing: {
+    eyebrow: "Pricing",
+    title: "Our 2026/2027 rates",
+    subhead: "An overview of our indicative rates to help plan your stay in Nosy Be — contact us for a precise quote tailored to your group and dates.",
+    heroImageAlt: "Traditional boat moored in a turquoise lagoon in Nosy Be",
+    groupLabel: "Group / pers.",
+    privateLabel: "Private",
+    groupTip: "Tip for groups of 4+: the Private rate ends up the same price per person as the Group rate, with more comfort and freedom.",
+    conditions: "Group: departures subject to a minimum of 4 to 6 people depending on the excursion. Private: privatized speedboat or dedicated vehicle, exclusive guide.",
+    disclaimer: "Indicative rates for 2026/2027, subject to change depending on the season.",
+    sections: [
+      {
+        title: "Sea excursions",
+        subtitle: "Full day with lunch included",
+        itemLabel: "Destination",
+        noteLabel: "Why go Private?",
+        rows: [
+          { name: "Nosy Iranja", detail: "Island of turtles, paradise lagoon", group: "€65 to €80", private: "€350 to €450 (1 to 6 people)", note: "Early departure, ahead of the groups" },
+          { name: "Nosy Komba + Tanikely", detail: "Lemurs and a natural aquarium", group: "€40 to €55", private: "€220 to €280 (1 to 6 people)", note: "Free time for snorkeling and the beach" },
+          { name: "Nosy Sakatia", detail: "Giant turtles", group: "€35 to €45", private: "€150 to €190 (1 to 4 people)", note: "A day paced however you like" },
+          { name: "Whale Safari", detail: "July to September season", group: "€60 to €75", private: "€380 to €480 (1 to 6 people)", note: "Fully personalized observation" },
+          { name: "Mitsio, 3 days / 2 nights", detail: "Wild archipelago", group: "€350 to €385/pers.", private: "€3,000 (1 to 4 people) / €3,850 (5 to 8 people)", note: "Flexible dates, adapted pace" },
+        ],
+      },
+      {
+        title: "Trekking & adventure",
+        subtitle: "",
+        itemLabel: "Trek",
+        noteLabel: "Included",
+        rows: [
+          { name: "Nosy Komba trek, 2 days / 1 night", detail: "Ampangorina → Akiba → Bongo Village", group: "€90 to €120/pers.", private: "€180 to €250/pers.", note: "Guide, camping gear, 4 meals, eco-lodge" },
+        ],
+      },
+      {
+        title: "Land excursions — Madagascar mainland",
+        subtitle: "",
+        itemLabel: "Circuit",
+        noteLabel: "",
+        rows: [
+          { name: "Full island tour", detail: "Sacred tree, sacred waterfall, Mont Passot", group: "€30 to €40", private: "€70 to €90 — air-conditioned car", note: "" },
+          { name: "Lokobe Reserve", detail: "Dugout canoe + primary forest trek", group: "€40 to €50", private: "€130 to €160 — based on 2 to 3 people", note: "" },
+          { name: "Sacred tree + Sakatia", detail: "", group: "€35 to €45", private: "€130 to €160 — combined land/sea package", note: "" },
+          { name: "Mont Passot sunset", detail: "", group: "€30 to €40", private: "€50 to €85 — vehicle", note: "" },
+        ],
+      },
+    ],
+    inclusionsTitle: "What's included & practical tips",
+    inclusions: [
+      { title: "Lunch included", description: "Grilled fish buffet, coconut rice, fresh fruit and water, included in every sea excursion rate." },
+      { title: "Park fees", description: "Nosy Tanikely and Lokobe: 20,000 to 40,000 Ar per person, to confirm depending on the excursion chosen." },
+      { title: "Group", description: "Ideal solo or as a couple, friendly atmosphere, fixed schedule." },
+      { title: "Private", description: "Depart at the time of your choice, free time at each site (ideal for photos and families), guide at your disposal." },
+    ],
+    ctaTitle: "Ready to book your excursion?",
+    ctaSubhead: "Contact us for a personalized quote and availability for your dates.",
   },
   about: {
     heroImageAlt: "Red earth typical of Madagascar's landscapes",

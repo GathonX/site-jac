@@ -97,6 +97,22 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.nosybesecretislandstour.com/tarifs</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislandstour.com/tarifs" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislandstour.com/en/tarifs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislandstour.com/tarifs" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.nosybesecretislandstour.com/en/tarifs</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislandstour.com/tarifs" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislandstour.com/en/tarifs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nosybesecretislandstour.com/tarifs" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.nosybesecretislandstour.com/about</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.nosybesecretislandstour.com/about" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.nosybesecretislandstour.com/en/about" />
