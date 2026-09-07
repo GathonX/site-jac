@@ -15,7 +15,7 @@ export const SITE_CONFIG = {
   whatsappUrl: `https://wa.me/261374607842?text=${encodeURIComponent(WHATSAPP_PREFILLED_MESSAGE)}`,
   social: {
     facebook: "https://www.facebook.com/profile.php?id=61594148764104",
-    instagram: "https://www.instagram.com",
-    x: "https://www.x.com",
+    instagram: "https://www.instagram.com/nosybesecretislandstours/",
+    x: "https://x.com/NosyBeIslands",
   },
 };
