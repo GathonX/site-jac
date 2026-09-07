@@ -14,7 +14,7 @@ export const SITE_CONFIG = {
   email: "nosybesecretislandstours@gmail.com",
   whatsappUrl: `https://wa.me/261374607842?text=${encodeURIComponent(WHATSAPP_PREFILLED_MESSAGE)}`,
   social: {
-    facebook: "https://www.facebook.com",
+    facebook: "https://www.facebook.com/profile.php?id=61594148764104",
     instagram: "https://www.instagram.com",
     x: "https://www.x.com",
   },
